@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.xinyuxinyuan.view.activity.home.HomeActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <ImageView
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="7dp"
+            android:id="@+id/title_logo_image"
+            android:background="@mipmap/launch_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/title_qianbi_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="135dp"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            android:background="@mipmap/publish_valuable" />
+        <ImageView
+            android:id="@+id/title_message_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@mipmap/home_master_shape" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10">
+
+        <FrameLayout
+            android:id="@+id/home_frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <RadioGroup
+            android:id="@+id/home_radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/home_frameLayout"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/ming_shi_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/home_btn_mingshi"
+                android:gravity="center_horizontal"
+                android:text="名师"
+                android:textColor="@drawable/home_btn_text" />
+
+            <RadioButton
+                android:id="@+id/zuo_ye_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/home_btn_zuoye"
+                android:gravity="center_horizontal"
+                android:text="作业"
+                android:textColor="@drawable/home_btn_text" />
+
+            <RadioButton
+                android:id="@+id/bao_dian_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/home_btn_baodian"
+                android:gravity="center_horizontal"
+                android:text="宝典"
+                android:textColor="@drawable/home_btn_text" />
+
+            <RadioButton
+                android:id="@+id/yu_gao_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/home_btn_yugao"
+                android:gravity="center_horizontal"
+                android:text="预告"
+
+                android:textColor="@drawable/home_btn_text" />
+
+            <RadioButton
+                android:id="@+id/wo_de_btn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:button="@null"
+                android:drawableTop="@drawable/home_btn_wode"
+                android:gravity="center_horizontal"
+                android:text="我的"
+                android:textColor="@drawable/home_btn_text" />
+        </RadioGroup>
+    </LinearLayout>
+
+
+</LinearLayout>
