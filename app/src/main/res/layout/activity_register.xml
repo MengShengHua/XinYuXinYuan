@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.xinyuxinyuan.view.activity.register.RegisterActivity">
+    <ImageView
+        android:id="@+id/register_retuenLogin"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="309dp"
+        android:layout_marginRight="309dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/register_retuenLogin"
+        android:layout_marginLeft="68dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="30dp"
+        android:text="输入手机号快速注册"
+        android:textColor="#1b1a1a"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/register_etPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="59dp"
+        android:ems="10"
+        android:hint="输入手机号" />
+
+    <EditText
+        android:id="@+id/register_etYanzhengma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/register_etPhone"
+        android:layout_alignRight="@+id/register_etPhone"
+        android:layout_centerVertical="true"
+        android:ems="10"
+        android:hint="输入验证码" />
+
+    <TextView
+        android:id="@+id/register_tvGetYanzhengma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/register_etYanzhengma"
+        android:layout_alignRight="@+id/register_etYanzhengma"
+        android:layout_centerVertical="true"
+        android:text="获取验证码"
+        android:textColor="@color/colorPrimary" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/register_etYanzhengma"
+        android:layout_alignStart="@+id/register_etYanzhengma"
+        android:layout_below="@+id/register_etYanzhengma"
+        android:layout_marginTop="11dp"
+        android:text="注册表示你同意" />
+
+    <TextView
+        android:id="@+id/register_tvAgreement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_toRightOf="@+id/textView3"
+        android:text="UnivStar服务使用协议"
+        android:textColor="#242424" />
+
+    <Button
+        android:id="@+id/register_btRegister"
+        android:layout_width="280dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:background="@color/colorPrimary"
+        android:enabled="true"
+        android:text="注册"
+
+        android:textColor="#FFFF"
+        android:textSize="16dp" />
+
+    <ImageView
+        android:id="@+id/register_ivClear"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_alignBottom="@+id/register_etPhone"
+        android:layout_alignEnd="@+id/register_etPhone"
+        android:layout_alignRight="@+id/register_etPhone"
+        android:layout_marginBottom="13dp"
+        android:visibility="gone"
+        app:srcCompat="@mipmap/clear" />
+</RelativeLayout>
