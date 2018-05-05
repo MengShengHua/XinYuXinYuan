@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:paddingRight="8dp"
+    android:paddingLeft="8dp"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/kecheng_tuijian_item_image"
+        android:background="@drawable/ic_launcher_background"
+        android:layout_width="162dp"
+        android:layout_height="92dp" />
+
+    <ImageView
+        android:id="@+id/kecheng_tuijian_item_imageLanse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/kecheng_tuijian_item_image"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/kecheng_tuijian_item_image"
+        android:background="@mipmap/label" />
+
+    <TextView
+        android:id="@+id/kecheng_tuijian_item_ketang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/kecheng_tuijian_item_image"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/kecheng_tuijian_item_image"
+        android:text="帥哥"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/kecheng_tuijian_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/kecheng_tuijian_item_image"
+        android:layout_marginTop="6dp"
+        android:text="阿薩德"
+        android:textColor="#000000"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/kecheng_tuijian_item_kaibo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/kecheng_tuijian_item_name"
+        android:text="是的范德薩發撒的" />
+
+    <ImageView
+        android:id="@+id/kecheng_tuijian_item_tubiao"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_above="@+id/kecheng_tuijian_item_kaibo"
+        android:layout_toEndOf="@+id/kecheng_tuijian_item_name"
+        android:layout_marginTop="2dp"
+        android:layout_toRightOf="@+id/kecheng_tuijian_item_name"
+        android:background="@mipmap/home_level_vip_red" />
+
+</RelativeLayout>

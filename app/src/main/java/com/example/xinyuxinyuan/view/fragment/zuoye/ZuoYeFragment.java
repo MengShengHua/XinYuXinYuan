@@ -3,12 +3,14 @@ package com.example.xinyuxinyuan.view.fragment.zuoye;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
+import com.example.xinyuxinyuan.utils.ShareUtils;
 
 /**
  * A simple {@link Fragment} subclass.

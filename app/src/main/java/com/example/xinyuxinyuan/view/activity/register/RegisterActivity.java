@@ -2,16 +2,10 @@ package com.example.xinyuxinyuan.view.activity.register;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.RegisterContract.ImplementsRegisterContract;
+import com.example.xinyuxinyuan.presenter.regist.ImplementsRegisterContract;
 import com.example.xinyuxinyuan.contract.RegisterContract.RegisterContract;
 import com.example.xinyuxinyuan.utils.ToastUtils;
 

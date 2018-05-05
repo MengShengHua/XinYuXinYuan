@@ -54,6 +54,7 @@ public class AnimActivity extends BaseActivity implements AnimView, Animation.An
     @Override
     public void onAnimationEnd(Animation animation) {
         goToActivity();
+        finish();
     }
 
     @Override

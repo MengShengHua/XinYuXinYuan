@@ -1,6 +1,7 @@
-package com.example.xinyuxinyuan.utils;
+package com.example.xinyuxinyuan.model.regist;
 
 import com.example.xinyuxinyuan.contract.Bean.JavaBean;
+import com.example.xinyuxinyuan.utils.UrlData;
 
 import java.util.Map;
 
@@ -13,7 +14,7 @@ import retrofit2.http.POST;
  * Created by asd on 2018/5/3.
  */
 
-public interface Service {
+public interface RegistModel {
     @FormUrlEncoded
     @POST(UrlData.YANZHENGMA)
     Observable<JavaBean> loadYanZhengMa(@FieldMap Map<String, String> params);

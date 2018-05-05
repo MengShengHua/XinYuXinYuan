@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:paddingRight="8dp"
+    android:paddingLeft="8dp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/mingshi_tuijian_item_photo"
+        android:layout_marginBottom="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_width="140dp"
+        android:layout_height="88dp" />
+
+    <TextView
+        android:id="@+id/mingshi_tuijian_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="37dp"
+        android:text="来实打"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/mingshi_tuijian_item_content"
+        android:text="十大撒所多"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="62dp"
+        android:layout_height="wrap_content" />
+
+    <ImageView
+        android:id="@+id/mingshi_tuijian_item_tubiao"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginLeft="62dp"
+        />
+
+</RelativeLayout>

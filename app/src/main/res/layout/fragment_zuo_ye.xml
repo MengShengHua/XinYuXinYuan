@@ -1,14 +1,22 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fcfc02"
     tools:context="com.example.xinyuxinyuan.view.fragment.zuoye.ZuoYeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <include
+        android:id="@+id/zuoye_fuyong"
+        layout="@layout/fu_yong_layout" />
+
+    <com.baoyz.widget.PullRefreshLayout
+        android:id="@+id/home_zuoye_fragment_pullRefreshLayout"
+        layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#f6f6f6">
 
-</FrameLayout>
+
+
+
+    </com.baoyz.widget.PullRefreshLayout>
+</LinearLayout>

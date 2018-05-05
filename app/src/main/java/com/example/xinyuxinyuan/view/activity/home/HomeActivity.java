@@ -6,10 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
+import com.example.xinyuxinyuan.presenter.api.APIPresenter;
+import com.example.xinyuxinyuan.utils.ShareUtils;
 import com.example.xinyuxinyuan.view.activity.login.LoginActivity;
 import com.example.xinyuxinyuan.view.activity.register.RegisterActivity;
 import com.example.xinyuxinyuan.view.fragment.baodian.BaoDianFragment;
@@ -18,13 +22,12 @@ import com.example.xinyuxinyuan.view.fragment.wode.WoDeFragment;
 import com.example.xinyuxinyuan.view.fragment.yugao.YuGaoFragment;
 import com.example.xinyuxinyuan.view.fragment.zuoye.ZuoYeFragment;
 
-public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
+public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener{
 
 
-    private FrameLayout home_frameLayout;
     private RadioGroup home_radioGroup;
-    private ImageView title_message_image;
-    private ImageView title_qianbi_image;
+    private  APIPresenter presenter;
+    private RadioButton ming_shi_btn;
 
 
     @Override
@@ -34,13 +37,12 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void init() {
-        title_qianbi_image = findViewById(R.id.title_qianbi_image);
-        home_frameLayout = findViewById(R.id.home_frameLayout);
+        presenter = new APIPresenter();
+        presenter.loadApiToken();
         home_radioGroup = findViewById(R.id.home_radioGroup);
-        title_message_image = findViewById(R.id.title_message_image);
-        title_message_image.setOnClickListener(this);
         home_radioGroup.setOnCheckedChangeListener(this);
-        replacetContenView(R.id.home_frameLayout, MingShiFragment.class, null);
+        ming_shi_btn = findViewById(R.id.ming_shi_btn);
+        ming_shi_btn.setChecked(true);
     }
 
     @Override
@@ -53,35 +55,18 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         switch (i) {
             case R.id.ming_shi_btn:
                 replacetContenView(R.id.home_frameLayout, MingShiFragment.class, null);
-                title_qianbi_image.setVisibility(View.INVISIBLE);
                 break;
             case R.id.zuo_ye_btn:
                 replacetContenView(R.id.home_frameLayout, ZuoYeFragment.class, null);
-                title_qianbi_image.setVisibility(View.INVISIBLE);
                 break;
             case R.id.bao_dian_btn:
                 replacetContenView(R.id.home_frameLayout, BaoDianFragment.class, null);
-                title_qianbi_image.setVisibility(View.VISIBLE);
                 break;
             case R.id.yu_gao_btn:
                 replacetContenView(R.id.home_frameLayout, YuGaoFragment.class, null);
-                title_qianbi_image.setVisibility(View.INVISIBLE);
                 break;
             case R.id.wo_de_btn:
                 replacetContenView(R.id.home_frameLayout, WoDeFragment.class, null);
-                title_qianbi_image.setVisibility(View.INVISIBLE);
-                break;
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.title_message_image:
-                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-                break;
-            case R.id.title_qianbi_image:
-                startActivity(new Intent(HomeActivity.this, LoginActivity.class));
                 break;
         }
     }

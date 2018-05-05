@@ -1,11 +1,12 @@
-package com.example.xinyuxinyuan.contract.RegisterContract;
+package com.example.xinyuxinyuan.presenter.regist;
 
 import android.graphics.Color;
 import android.widget.Button;
 
 import com.example.xinyuxinyuan.contract.Bean.JavaBean;
+import com.example.xinyuxinyuan.contract.RegisterContract.RegisterContract;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
-import com.example.xinyuxinyuan.utils.Service;
+import com.example.xinyuxinyuan.model.regist.RegistModel;
 
 import java.util.HashMap;
 
@@ -19,11 +20,11 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ImplementsRegisterContract implements RegisterContract.RegisterPresenter {
     private RegisterContract.RegisterView view;
-    private Service service;
+    private RegistModel service;
 
     public ImplementsRegisterContract(RegisterContract.RegisterView view) {
         this.view = view;
-        service = RetrofitUtils.getRetrofitUtils().getService(Service.class);
+        service = RetrofitUtils.getRetrofitUtils().getService(RegistModel.class);
     }
 
     /**

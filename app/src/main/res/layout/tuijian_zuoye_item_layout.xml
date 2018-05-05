@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginLeft="12dp"
+            android:layout_height="wrap_content">
+
+
+
+            <ImageView
+                android:id="@+id/tuijian_zuoye_item_userPhoto"
+                android:background="@mipmap/user_head_portrait"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tuijian_zuoye_item_userName"
+                    android:textSize="16sp"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tuijian_zuoye_item_Data"
+                        android:textSize="14sp"
+                        android:layout_width="wrap_content"
+                        android:textColor="#999999"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:textSize="14sp"
+                        android:textColor="#999999"
+                        android:layout_width="wrap_content"
+                        android:text="来自"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tuijian_zuoye_item_From"
+                        android:layout_width="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="#535353"
+                        android:layout_height="wrap_content" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="16dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tuijian_zuoye_item_Content"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/tuijian_zuoye_item_Content_yincang"
+                        android:textSize="18sp"
+                        android:layout_width="wrap_content"
+                        android:textColor="@color/black"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="wrap_content" >
+
+                    <ImageView
+                        android:id="@+id/tuijian_zuoye_item_image"
+                        android:layout_width="wrap_content"
+                        android:maxWidth="236dp"
+                        android:maxHeight="236dp"
+                        android:scaleType="fitXY"
+                        android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/home_masterwork_listitem_audioimg"
+                        android:layout_width="236dp"
+                        android:src="@mipmap/play_music_bg"
+                        android:visibility="gone"
+                        android:layout_height="132dp" />
+
+                    <RelativeLayout
+                        android:id="@+id/home_masterwork_listitem_audio_gorpu"
+                        android:layout_width="wrap_content"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+
+
+                        <TextView
+                            android:id="@+id/home_masterwork_listitem_audio_time"
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:layout_marginTop="72dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="33dp"
+                            android:layout_height="wrap_content" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/home_masterwork_listitem_video_gorpu"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="38dp"
+                            android:src="@mipmap/play"
+                            android:layout_height="38dp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="8dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:src="@mipmap/label_flag"
+                        android:layout_height="16dp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:background="#f6f6f6"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_height="1dp" />
+
+        <RelativeLayout
+            android:id="@+id/tuijian_zuoye_item_teacher_layout"
+            android:layout_width="match_parent"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="14dp"
+                android:src="@mipmap/comment"
+                android:layout_marginLeft="12dp"
+                android:layout_height="14dp" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="13dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/tuijian_zuoye_item_teacherimg"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:id="@+id/tuijian_zuoye_item_teachername"
+                            android:textColor="#ec6d14"
+                            android:textSize="16sp"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:id="@+id/home_masterwork_listitem_teacherlevel"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/home_masterwork_listitem_teacherDaren"
+                        android:textSize="14sp"
+                        android:textColor="#999999"
+                        android:layout_marginTop="3dp"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="100dp"
+                android:background="@drawable/look_group_bg"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginRight="12dp"
+                android:layout_height="32dp">
+
+                <TextView
+                    android:id="@+id/tuijian_zuoye_item_teacher_price"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:src="@mipmap/play_small"
+                    android:layout_marginLeft="6dp"
+                    android:layout_height="16dp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/home_masterwork_listitem_teacher_group_line"
+            android:layout_width="match_parent"
+            android:background="#f6f6f6"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_height="1dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp">
+
+            <LinearLayout
+                android:id="@+id/home_masterwork_list_item_reply_group"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/tuijian_zuoye_item_pinlun"
+                    android:layout_width="wrap_content"
+                    android:button="@drawable/reply_check_bg"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:paddingLeft="8dp"
+                    android:textColor="@drawable/reply_check_tv_bg"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/tuijian_zuoye_item_dianzan"
+                    android:layout_width="wrap_content"
+                    android:button="@drawable/praise_check_bg"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:paddingLeft="8dp"
+                    android:textColor="@drawable/praise_check_tv_bg"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="visible"
+                android:layout_height="match_parent">
+
+                <CheckBox
+                    android:id="@+id/tuijian_zuoye_item_shang"
+                    android:layout_width="wrap_content"
+                    android:button="@drawable/reward_check_bg"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:paddingLeft="8dp"
+                    android:textColor="@drawable/reward_check_tv_bg"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/tuijian_zuoye_item_fenxiang"
+                    android:layout_width="wrap_content"
+                    android:src="@mipmap/share_default"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="#eeeeee"
+            android:layout_height="10dp">
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

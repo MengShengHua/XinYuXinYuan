@@ -9,6 +9,7 @@ import com.example.xinyuxinyuan.App;
  */
 
 public class ToastUtils {
+
     public static void mainThread(String toastData, int toastTime) {
         Toast.makeText(App.context, toastData, toastTime).show();
     }

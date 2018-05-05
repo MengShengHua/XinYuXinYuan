@@ -7,9 +7,18 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="home_shape_style">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#A7A8AE</item>
+        <item name="android:layout_marginTop">6dp</item>
+    </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="home_work_sorbar_enabled_true_style">
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+        <item name="android:textColor">@color/login_close_c</item>
+
+        <item name="android:textSize">14sp</item>
+
+    </style>
 
 </resources>
