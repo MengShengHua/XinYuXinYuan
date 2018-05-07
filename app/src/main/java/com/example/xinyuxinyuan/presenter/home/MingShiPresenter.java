@@ -1,12 +1,8 @@
 package com.example.xinyuxinyuan.presenter.home;
 
-import android.util.Log;
-
 import com.example.xinyuxinyuan.contract.Bean.MingShiBean;
 import com.example.xinyuxinyuan.contract.home.MingShi;
-import com.example.xinyuxinyuan.contract.home.MingShi.Presenter;
 import com.example.xinyuxinyuan.model.home.MingShiModel;
-import com.example.xinyuxinyuan.presenter.api.APIPresenter;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
 import com.example.xinyuxinyuan.utils.ShareUtils;
 
@@ -28,15 +24,14 @@ public class MingShiPresenter implements MingShi.Presenter{
 
     public MingShiPresenter(MingShi.View view){
         this.view = view;
-
-       
         mingShiModel = RetrofitUtils.getRetrofitUtils().getService(MingShiModel.class);
     }
     @Override
     public void loadMingShiData() {
         Map<String,Integer> params = new HashMap<>();
-
-        mingShiModel.getMingShiData(params)
+        Map<String,String> headers = new HashMap<>();
+        headers.put("apptoken", ShareUtils.getToken());
+        mingShiModel.getMingShiData(params,headers)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<MingShiBean>() {

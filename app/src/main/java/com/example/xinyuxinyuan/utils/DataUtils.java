@@ -13,4 +13,8 @@ public class DataUtils {
         Date d = new Date(time);
         return new SimpleDateFormat("MM-dd HH:mm").format(d);
     }
+    public static String getDateToStringMMDD(long time) {
+        Date d = new Date(time);
+        return new SimpleDateFormat("MM-dd").format(d);
+    }
 }

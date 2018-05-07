@@ -22,7 +22,6 @@
             android:layout_height="wrap_content">
 
 
-
             <ImageView
                 android:id="@+id/tuijian_zuoye_item_userPhoto"
                 android:background="@mipmap/user_head_portrait"
@@ -56,7 +55,8 @@
                         android:layout_height="wrap_content" />
 
                     <TextView
-                        android:textSize="14sp"
+                        android:id="@+id/tuijian_zuoye_item_laizis"
+                        android:textSize="15sp"
                         android:textColor="#999999"
                         android:layout_width="wrap_content"
                         android:text="来自"
@@ -84,27 +84,26 @@
                         android:layout_width="wrap_content"
                         android:textColor="@color/black"
                         android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/tuijian_zuoye_item_Content_yincang"
-                        android:textSize="18sp"
-                        android:layout_width="wrap_content"
-                        android:textColor="@color/black"
-                        android:layout_height="wrap_content" />
-
-
                 </LinearLayout>
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_marginTop="10dp"
                     android:layout_height="wrap_content" >
-
+                    <TextView
+                        android:id="@+id/tuijian_zuoye_item_Content_yincang"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:textColor="#bebbbb"
+                        android:textSize="14sp" />
                     <ImageView
                         android:id="@+id/tuijian_zuoye_item_image"
                         android:layout_width="wrap_content"
                         android:maxWidth="236dp"
                         android:maxHeight="236dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@+id/tuijian_zuoye_item_Content_yincang"
                         android:scaleType="fitXY"
                         android:layout_height="wrap_content" />
 
@@ -169,6 +168,18 @@
                 </LinearLayout>
 
             </LinearLayout>
+            <Button
+                android:id="@+id/tuijian_zuoye_item_shapeBut"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="180dp"
+                android:text="啦啦"
+                android:background="@drawable/ban_yuan_shape"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
 
@@ -363,4 +374,5 @@
         </LinearLayout>
 
     </LinearLayout>
+
 </LinearLayout>

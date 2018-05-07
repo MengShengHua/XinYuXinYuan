@@ -26,7 +26,7 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
 
     private RadioGroup home_radioGroup;
-    private  APIPresenter presenter;
+
     private RadioButton ming_shi_btn;
 
 
@@ -37,8 +37,7 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void init() {
-        presenter = new APIPresenter();
-        presenter.loadApiToken();
+
         home_radioGroup = findViewById(R.id.home_radioGroup);
         home_radioGroup.setOnCheckedChangeListener(this);
         ming_shi_btn = findViewById(R.id.ming_shi_btn);

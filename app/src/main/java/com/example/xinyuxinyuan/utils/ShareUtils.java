@@ -46,9 +46,24 @@ public class ShareUtils {
     }
     //得到用户登录id
     public static int getLoginUserId(){
-
         SharedPreferences sharedPreferences = App.context.getSharedPreferences("LoginUserId", Context.MODE_PRIVATE);
         return sharedPreferences.getInt("LoginUserId",0);
+    }
+
+
+    //设置用户登录id
+    public static void setPage(int page){
+        SharedPreferences sharedPreferences = App.context.getSharedPreferences("page", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = sharedPreferences.edit();
+        edit.putInt("page",page);
+        edit.commit();
+    }
+
+
+    //得到用户登录id
+    public static int getPage(){
+        SharedPreferences sharedPreferences = App.context.getSharedPreferences("page", Context.MODE_PRIVATE);
+        return sharedPreferences.getInt("page",1);
     }
 
 }

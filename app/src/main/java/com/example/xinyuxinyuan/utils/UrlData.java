@@ -33,4 +33,15 @@ public class UrlData {
     * 作业页面
     * */
     public static final String ZUO_YE = "v1/m/homewok/home";
+
+
+    /**
+     * 宝典页面轮播图
+     */
+    public static final String BAO_DIAN_LUN_BO_UEL = "v1/m/artcircle/slideshow";
+
+    /**
+     * 宝典首页
+     */
+    public static final String BAO_DIAN = "v1/m/artcircle/home";
 }

@@ -17,6 +17,7 @@ import com.example.xinyuxinyuan.contract.Bean.MingShiBean;
 import com.example.xinyuxinyuan.contract.home.MingShi;
 import com.example.xinyuxinyuan.presenter.home.MingShiPresenter;
 import com.example.xinyuxinyuan.utils.MyScrollView;
+import com.example.xinyuxinyuan.utils.zidingyi.CustomDrawable;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.KeChengTuiJian_Adpater;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.MingShiTuiJian_Adpater;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.TuiJianZuoYe_Adpater;
@@ -111,15 +112,22 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
         LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext());
         tuijian_zuoye_recyclerView.setLayoutManager(linearLayoutManager2);
 
-//        CustomDrawable cd= new CustomDrawable(context, mingshi_pullRefreshLayout);
-//        mingshi_pullRefreshLayout.setRefreshDrawable(cd);
-//        mingshi_pullRefreshLayout.setColorSchemeColors(new int[]{R.color.colorAccent, R.color.colorPrimary, R.color.white, R.color.colorPrimary});
-//        mingshi_pullRefreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                flashLoad();
-//            }
-//        });
+        //这是上拉刷新滑动监听
+        CustomDrawable cd= new CustomDrawable(getContext(), mingshi_pullRefreshLayout);
+        mingshi_pullRefreshLayout.setRefreshDrawable(cd);
+        mingshi_pullRefreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                flashLoad();
+                mingshi_pullRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        mingShiPresenter.loadMingShiData();
+                        mingshi_pullRefreshLayout.setRefreshing(false);
+                    }
+                },1000);
+            }
+        });
 
         //设置名师推荐的适配器
         mingShiTuiJian_adpater = new MingShiTuiJian_Adpater(getContext(),userList);
@@ -136,20 +144,17 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
 
     //重新加载数据
     private void flashLoad() {
-        mingshi_myScrollView.post(new Runnable() {
-            @Override
-            public void run() {
-                //设置滚动偏移
-                mingshi_myScrollView.scrollTo(0, 0);
-            }
-        });
+
         //清空轮播图的集合
         lunBoList.clear();
-
-
-
+        //清空名师推荐的数据
+        userList.clear();
+        //清空课程推荐的数据
+        kechengList.clear();
+        //清空作业推荐的数据
+        zuoyeList.clear();
         //再次请求数据
-        mingShiPresenter.loadMingShiData();
+
     }
 
     @Override
@@ -161,11 +166,8 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
     //这是请求道数据的方法
     @Override
     public void showMingShiData(MingShiBean.DataBean data) {
-//        //关闭掉上拉刷新
-//        mingshi_pullRefreshLayout.setRefreshing(false);
         //这是设置轮播的数据
         if (lunBoList.size() == 0) {
-            lunBoList.clear();
             for (MingShiBean.DataBean.SystemAdsBean systemAdsBean : data.getSystemAds()) {
                 lunBoList.add(systemAdsBean.getMobileImgUrl());
             }

@@ -19,20 +19,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitUtils {
     private static RetrofitUtils retrofitUtils;
     private Retrofit retrofit;
-    private OkHttpClient okHttpClient;
 
     private RetrofitUtils() {
-         okHttpClient = new OkHttpClient.Builder()
-                .connectTimeout(8000, TimeUnit.SECONDS)
-                .readTimeout(120000,TimeUnit.SECONDS)
-                .writeTimeout(20000,TimeUnit.SECONDS)
-                .retryOnConnectionFailure(false)//关闭重复的请求
-                .addInterceptor(new ReceivedCookiesInterceptor(App.context))
-                .addInterceptor(new AddCookiesInterceptor(App.context))
-                .build();
 
          retrofit= new Retrofit.Builder()
-                .client(okHttpClient)
                 .baseUrl(UrlData.KEHU_DUAN)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

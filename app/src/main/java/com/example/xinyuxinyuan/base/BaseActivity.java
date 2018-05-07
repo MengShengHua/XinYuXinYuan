@@ -33,9 +33,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (App.context == null) {
             App.context = this;
-        }
     }
 
     @Override

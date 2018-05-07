@@ -18,5 +18,5 @@ import retrofit2.http.POST;
 public interface ZuoYeModel {
     @FormUrlEncoded
     @POST(UrlData.ZUO_YE)
-    Observable<ZuoYeBean> getZuoYeData(@FieldMap Map<String,String> params, @HeaderMap Map<String,String> heards);
+    Observable<ZuoYeBean> getZuoYeData(@FieldMap Map<String,Integer> params, @HeaderMap Map<String,String> headers);
 }

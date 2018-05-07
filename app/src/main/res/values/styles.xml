@@ -21,4 +21,15 @@
 
     </style>
 
+
+
+    <style name="login_line_style">
+
+        <item name="android:background">@color/login_line_c</item>
+
+    </style>
+
+
+
+
 </resources>
