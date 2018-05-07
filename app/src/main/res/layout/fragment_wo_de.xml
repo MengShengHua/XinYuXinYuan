@@ -1,14 +1,85 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0df4c2"
+
     tools:context="com.example.xinyuxinyuan.view.fragment.wode.WoDeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:src="@mipmap/myself_head_bg" />
 
-</FrameLayout>
+
+    <ImageView
+        android:id="@+id/myFragment_Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:src="@mipmap/default_userimg" />
+
+    <ImageView
+        android:id="@+id/myFragment_Message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="20dp"
+        android:src="@mipmap/myself_message" />
+
+    <ImageView
+        android:id="@+id/myFragment_Set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/myFragment_Message"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_toLeftOf="@+id/myFragment_Message"
+        android:layout_toStartOf="@+id/myFragment_Message"
+        android:src="@mipmap/myself_setting" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:text="登陆后享受更多精彩服务" />
+
+    <Button
+        android:id="@+id/myFragment_Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginLeft="72dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="45dp"
+        android:background="#ffd900"
+        android:text="注册"
+        android:textColor="#FFFF" />
+
+    <Button
+        android:id="@+id/myFragment_Login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/myFragment_Register"
+        android:layout_toLeftOf="@+id/myFragment_Set"
+        android:layout_toStartOf="@+id/myFragment_Set"
+        android:background="#4e64d1"
+        android:text="登录"
+        android:textColor="#FFFF" />
+</RelativeLayout>

@@ -15,7 +15,7 @@ public class ZuoYePresenter implements ZuoYe.Presenter{
     }
 
     @Override
-    public void loadZuoYeData() {
+    public void loadZuoYeData(int sortord) {
 
     }
 }

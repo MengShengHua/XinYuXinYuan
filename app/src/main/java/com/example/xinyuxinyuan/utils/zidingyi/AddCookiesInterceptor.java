@@ -1,9 +1,12 @@
 package com.example.xinyuxinyuan.utils.zidingyi;
+
 import android.content.Context;
+import android.util.Log;
 
 import com.example.xinyuxinyuan.utils.ShareUtils;
 
 import java.io.IOException;
+
 import okhttp3.Interceptor;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -20,13 +23,12 @@ public class AddCookiesInterceptor implements Interceptor {
     public AddCookiesInterceptor(Context context) {
         super();
         this.context = context;
-
     }
 
     @Override
     public Response intercept(Chain chain) throws IOException {
         final Request.Builder builder = chain.request().newBuilder();
-        if(ShareUtils.getToken() != null){
+        if (ShareUtils.getToken() != null) {
             builder.addHeader("apptoken", ShareUtils.getToken());
         }
         return chain.proceed(builder.build());

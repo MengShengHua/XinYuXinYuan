@@ -1,22 +1,27 @@
 package com.example.xinyuxinyuan.view.activity.register;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.presenter.regist.ImplementsRegisterContract;
-import com.example.xinyuxinyuan.contract.RegisterContract.RegisterContract;
+import com.example.xinyuxinyuan.contract.RegisterContract;
+import com.example.xinyuxinyuan.presenter.RegisterPersenter;
 import com.example.xinyuxinyuan.utils.ToastUtils;
+import com.example.xinyuxinyuan.view.activity.perfectinformation.PerfectinActivity;
+import com.example.xinyuxinyuan.view.activity.univ.UnivStarActivity;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener, RegisterContract.RegisterView {
     //    返回按钮
@@ -54,7 +59,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             }
         }
     };
-    private ImplementsRegisterContract contract;
+    private RegisterPersenter contract;
 
     @Override
     protected int getLayoutId() {
@@ -79,7 +84,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 //        使用协议
         register_tvAgreement.setOnClickListener(this);
 //        创建P层对象
-        contract = new ImplementsRegisterContract(this);
+        contract = new RegisterPersenter(this);
     }
 
     @Override
@@ -164,7 +169,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
             case R.id.register_ivClear:
 //                清空手机号框
                 register_etPhone.setText("");
-
+                register_ivClear.setVisibility(View.GONE);
                 break;
 //                获取验证码
             case R.id.register_tvGetYanzhengma:
@@ -175,7 +180,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 break;
 //                使用协议
             case R.id.register_tvAgreement:
-
+                startActivity(new Intent(RegisterActivity.this, UnivStarActivity.class));
                 break;
 
         }
@@ -199,7 +204,18 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
      */
     @Override
     public void showYanZhengMaMessage(String message) {
-        ToastUtils.childThread(message, 0);
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+//        ToastUtils.childThread(message, 0);
     }
+
+    @Override
+    public void showGoToPerfect(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        if (message.contains("成功")) {
+            startActivity(new Intent(RegisterActivity.this, PerfectinActivity.class));
+            finish();
+        }
+    }
+
 
 }

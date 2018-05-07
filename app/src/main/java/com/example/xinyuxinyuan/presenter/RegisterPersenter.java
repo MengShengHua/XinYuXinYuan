@@ -1,10 +1,10 @@
-package com.example.xinyuxinyuan.presenter.regist;
+package com.example.xinyuxinyuan.presenter;
 
 import android.graphics.Color;
 import android.widget.Button;
 
 import com.example.xinyuxinyuan.contract.Bean.JavaBean;
-import com.example.xinyuxinyuan.contract.RegisterContract.RegisterContract;
+import com.example.xinyuxinyuan.contract.RegisterContract;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
 import com.example.xinyuxinyuan.model.regist.RegistModel;
 
@@ -18,11 +18,11 @@ import io.reactivex.schedulers.Schedulers;
  * Created by asd on 2018/5/3.
  */
 
-public class ImplementsRegisterContract implements RegisterContract.RegisterPresenter {
+public class RegisterPersenter implements RegisterContract.RegisterPresenter {
     private RegisterContract.RegisterView view;
     private RegistModel service;
 
-    public ImplementsRegisterContract(RegisterContract.RegisterView view) {
+    public RegisterPersenter(RegisterContract.RegisterView view) {
         this.view = view;
         service = RetrofitUtils.getRetrofitUtils().getService(RegistModel.class);
     }
@@ -42,6 +42,11 @@ public class ImplementsRegisterContract implements RegisterContract.RegisterPres
         } else {
             return false;
         }
+    }
+
+    @Override
+    public void loadVerificationPhone(String phone) {
+
     }
 
 
@@ -93,7 +98,7 @@ public class ImplementsRegisterContract implements RegisterContract.RegisterPres
                 .subscribe(new Consumer<JavaBean>() {
                     @Override
                     public void accept(JavaBean javaBean) throws Exception {
-                        view.showYanZhengMaMessage(javaBean.getMessage());
+                        view.showGoToPerfect(javaBean.getMessage());
                     }
                 });
 

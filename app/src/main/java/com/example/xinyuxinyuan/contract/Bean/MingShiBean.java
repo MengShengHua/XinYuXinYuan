@@ -49,6 +49,17 @@ public class MingShiBean {
         private List<SystemAdsBean> systemAds;
         private List<UsersBean> users;
 
+        @Override
+        public String toString() {
+            return "DataBean{" +
+                    "liveCourses=" + liveCourses +
+                    ", lives=" + lives +
+                    ", homewoks=" + homewoks +
+                    ", systemAds=" + systemAds +
+                    ", users=" + users +
+                    '}';
+        }
+
         public List<LiveCoursesBean> getLiveCourses() {
             return liveCourses;
         }

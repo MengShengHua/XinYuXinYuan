@@ -1,19 +1,27 @@
 package com.example.xinyuxinyuan.view.activity.login;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.xinyuxinyuan.App;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
+import com.example.xinyuxinyuan.contract.Bean.LoginBean;
+import com.example.xinyuxinyuan.contract.LoginContract;
+import com.example.xinyuxinyuan.presenter.IpLoginPersenter;
+import com.example.xinyuxinyuan.utils.LoginShareUtils;
+import com.example.xinyuxinyuan.utils.ToastUtils;
+import com.example.xinyuxinyuan.view.activity.forgetpassword.ForGetPasswordActivity;
+import com.example.xinyuxinyuan.view.activity.home.HomeActivity;
 import com.example.xinyuxinyuan.view.activity.register.RegisterActivity;
 
-public class LoginActivity extends BaseActivity implements View.OnClickListener {
+public class LoginActivity extends BaseActivity implements View.OnClickListener, LoginContract.LoginView {
 
 
     private TextView loginActivity_close;
@@ -25,6 +33,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private ImageView loginActivity_weixin;
     private ImageView loginActivity_QQ;
     private ImageView loginActivity_weibo;
+    private ImageView loginActivity_clearPhone;
+    private ImageView loginActivity_clearPassword;
+    private IpLoginPersenter persenter;
 
     @Override
     protected int getLayoutId() {
@@ -39,8 +50,12 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         loginActivity_register = findViewById(R.id.loginActivity_register);
 //        手机号框
         loginActivity_phone = findViewById(R.id.loginActivity_phone);
+//        清空账号
+        loginActivity_clearPhone = findViewById(R.id.loginActivity_clearPhone);
 //        密码框
         loginActivity_password = findViewById(R.id.loginActivity_password);
+//        清空密码
+        loginActivity_clearPassword = findViewById(R.id.loginActivity_clearPassword);
 //        忘记密码
         loginActivity_forgetPassword = findViewById(R.id.loginActivity_forgetPassword);
 //        登录
@@ -52,24 +67,103 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 //        微博
         loginActivity_weibo = findViewById(R.id.loginActivity_weibo);
 
-        loginActivity_register.setOnClickListener(this);
-        loginActivity_close.setOnClickListener(this);
+
     }
 
     @Override
     protected void loadData() {
+        Intent intent = getIntent();
+        String phone = intent.getStringExtra("phone");
+        String password = intent.getStringExtra("password");
+        loginActivity_phone.setText(phone);
+        loginActivity_password.setText(password);
+        persenter = new IpLoginPersenter(this);
+        loginActivity_clearPhone.setOnClickListener(this);
+        loginActivity_clearPassword.setOnClickListener(this);
+        loginActivity_register.setOnClickListener(this);
+        loginActivity_close.setOnClickListener(this);
+        loginActivity_weixin.setOnClickListener(this);
+        loginActivity_QQ.setOnClickListener(this);
+        loginActivity_weibo.setOnClickListener(this);
+        loginActivity_forgetPassword.setOnClickListener(this);
+        loginActivity_Login.setOnClickListener(this);
+//        文本框的状态监听
+        loginActivity_phone.addTextChangedListener(new TextWatcher() {
+            @Override
+//            变化时
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                loginActivity_clearPhone.setVisibility(View.VISIBLE);
+            }
 
+            @Override
+//            变化前
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+//            变化后
+            public void afterTextChanged(Editable s) {
+
+                persenter.loadJudgePhone(loginActivity_phone.getText().toString().trim(), loginActivity_Login, loginActivity_clearPhone);
+            }
+        });
+        loginActivity_password.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                loginActivity_clearPassword.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                persenter.loadJudgePassword(loginActivity_password.getText().toString().trim(), loginActivity_Login, loginActivity_clearPassword);
+
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
+        String phone = loginActivity_phone.getText().toString().trim();
+        String password = loginActivity_password.getText().toString().trim();
         switch (v.getId()) {
             case R.id.loginActivity_close:
-                finish();
+                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                 break;
             case R.id.loginActivity_register:
 //                跳转注册页面
                 startActivityForResult(new Intent(LoginActivity.this, RegisterActivity.class), 100);
+                break;
+            case R.id.loginActivity_Login:
+                persenter.loadJudgeLogin(phone, password, loginActivity_Login);
+                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+
+                break;
+            case R.id.loginActivity_weixin:
+                ToastUtils.mainThread("微信登陆开发中", 0);
+                break;
+            case R.id.loginActivity_QQ:
+                ToastUtils.mainThread("QQ登陆开发中", 0);
+                break;
+            case R.id.loginActivity_weibo:
+                ToastUtils.mainThread("微博登陆开发中", 0);
+                break;
+            case R.id.loginActivity_forgetPassword:
+                startActivity(new Intent(LoginActivity.this, ForGetPasswordActivity.class));
+                finish();
+                break;
+            case R.id.loginActivity_clearPhone:
+                loginActivity_phone.setText("");
+                loginActivity_clearPhone.setVisibility(View.GONE);
+                break;
+            case R.id.loginActivity_clearPassword:
+                loginActivity_password.setText("");
+                loginActivity_clearPassword.setVisibility(View.GONE);
                 break;
         }
     }
@@ -78,5 +172,28 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+    }
+
+    @Override
+    public void showJudgeMessage(String Message) {
+        if (Message != null) {
+            ToastUtils.mainThread(Message, 0);
+
+        }
+    }
+
+    @Override
+    public void showLoginMessage(LoginBean loginBean) {
+        if (loginBean.getData() != null) {
+//            登录成功，保存所返回的数据
+            LoginShareUtils.UserMessage(App.context, loginBean.getData().getNickname(),
+                    loginBean.getData().getMobile(),
+                    loginBean.getData().getPhoto(),
+                    loginBean.getData().getId(),
+                    loginBean.getData().getToken());
+            ToastUtils.mainThread("登录成功", 0);
+            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            finish();
+        }
     }
 }

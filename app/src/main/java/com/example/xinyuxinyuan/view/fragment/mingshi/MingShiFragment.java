@@ -1,22 +1,29 @@
 package com.example.xinyuxinyuan.view.fragment.mingshi;
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baoyz.widget.PullRefreshLayout;
+import com.example.xinyuxinyuan.App;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
 import com.example.xinyuxinyuan.contract.Bean.MingShiBean;
 import com.example.xinyuxinyuan.contract.home.MingShi;
 import com.example.xinyuxinyuan.presenter.home.MingShiPresenter;
 import com.example.xinyuxinyuan.utils.MyScrollView;
+import com.example.xinyuxinyuan.view.activity.home.HomeActivity;
+import com.example.xinyuxinyuan.view.activity.login.LoginActivity;
+import com.example.xinyuxinyuan.view.activity.messagesetting.MessageSettingActivity;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.KeChengTuiJian_Adpater;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.MingShiTuiJian_Adpater;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.TuiJianZuoYe_Adpater;
@@ -25,10 +32,12 @@ import com.recker.flybanner.FlyBanner;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MingShiFragment extends BaseFragment implements MingShi.View {
+public class MingShiFragment extends BaseFragment implements MingShi.View, View.OnClickListener {
 
 
     private MingShiPresenter mingShiPresenter;
@@ -45,6 +54,7 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
     private TextView tuijian_zuoye_gengduo;
     private TextView kecheng_gengduo;
     private TextView mingshi_gengduo;
+    private ImageView title_message_image;
     private List<String> lunBoList = new ArrayList<>();
     List<MingShiBean.DataBean.UsersBean> userList = new ArrayList<>();
     List<MingShiBean.DataBean.LiveCoursesBean> kechengList = new ArrayList<>();
@@ -86,6 +96,8 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
         kecheng_tuijian_recyclerView = view.findViewById(R.id.kecheng_tuijian_recyclerView);
         tuijian_zuoye_recyclerView = view.findViewById(R.id.tuijian_zuoye_recyclerView);
         yi_qi_liao_yikao = view.findViewById(R.id.yi_qi_liao_yikao);
+        title_message_image = view.findViewById(R.id.title_message_image);
+        title_message_image.setOnClickListener(this);
         /*
         * 这是设置名师推荐的linearLayoutManager
         * */
@@ -99,7 +111,7 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
         /*
         * 这是设置课程推荐的linearLayoutManager
         * */
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
         //设置水平滑动
         kecheng_tuijian_recyclerView.setLayoutManager(gridLayoutManager);
 
@@ -111,26 +123,17 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
         LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(getContext());
         tuijian_zuoye_recyclerView.setLayoutManager(linearLayoutManager2);
 
-//        CustomDrawable cd= new CustomDrawable(context, mingshi_pullRefreshLayout);
-//        mingshi_pullRefreshLayout.setRefreshDrawable(cd);
-//        mingshi_pullRefreshLayout.setColorSchemeColors(new int[]{R.color.colorAccent, R.color.colorPrimary, R.color.white, R.color.colorPrimary});
-//        mingshi_pullRefreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//                flashLoad();
-//            }
-//        });
 
         //设置名师推荐的适配器
-        mingShiTuiJian_adpater = new MingShiTuiJian_Adpater(getContext(),userList);
+        mingShiTuiJian_adpater = new MingShiTuiJian_Adpater(getContext(), userList);
         mingshi_tuijian_recyclerView.setAdapter(mingShiTuiJian_adpater);
 
         //設置課程推薦的適配器
-        keChengTuiJian_adpater = new KeChengTuiJian_Adpater(getContext(),kechengList);
+        keChengTuiJian_adpater = new KeChengTuiJian_Adpater(getContext(), kechengList);
         kecheng_tuijian_recyclerView.setAdapter(keChengTuiJian_adpater);
 
         //设置推荐作业的适配器
-        tuiJianZuoYe_adpater = new TuiJianZuoYe_Adpater(getContext(),zuoyeList);
+        tuiJianZuoYe_adpater = new TuiJianZuoYe_Adpater(getContext(), zuoyeList);
         tuijian_zuoye_recyclerView.setAdapter(tuiJianZuoYe_adpater);
     }
 
@@ -145,9 +148,6 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
         });
         //清空轮播图的集合
         lunBoList.clear();
-
-
-
         //再次请求数据
         mingShiPresenter.loadMingShiData();
     }
@@ -174,21 +174,39 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
 
 
         //这是名师推荐的数据
-        if(mingShiTuiJian_adpater != null && mingShiTuiJian_adpater.getItemCount()==0){
+        if (mingShiTuiJian_adpater != null && mingShiTuiJian_adpater.getItemCount() == 0) {
             userList.addAll(data.getUsers());
             mingShiTuiJian_adpater.notifyDataSetChanged();
         }
 
         //这是课程推荐的数据
-        if(keChengTuiJian_adpater != null && keChengTuiJian_adpater.getItemCount()==0){
+        if (keChengTuiJian_adpater != null && keChengTuiJian_adpater.getItemCount() == 0) {
             kechengList.addAll(data.getLiveCourses());
             keChengTuiJian_adpater.notifyDataSetChanged();
         }
 
         //这是推荐作业的数据
-        if(tuiJianZuoYe_adpater != null && tuiJianZuoYe_adpater.getItemCount()==0){
+        if (tuiJianZuoYe_adpater != null && tuiJianZuoYe_adpater.getItemCount() == 0) {
             zuoyeList.addAll(data.getHomewoks());
             tuiJianZuoYe_adpater.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.title_message_image:
+                SharedPreferences loginPreferences = getContext().getSharedPreferences("Login", MODE_PRIVATE);
+                String phone = loginPreferences.getString("phone", "用户未登录");
+                if ("用户未登录".equals(phone)) {
+                    startActivity(new Intent(getContext(), LoginActivity.class));
+//                    getActivity().finish();
+                } else {
+                    ////                用户登录了跳转消息提醒Activity
+                    startActivity(new Intent(getContext(), MessageSettingActivity.class));
+//                    getActivity().finish();
+                }
+                break;
         }
     }
 }

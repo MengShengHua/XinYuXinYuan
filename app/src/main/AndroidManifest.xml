@@ -29,8 +29,27 @@
         <activity
             android:name=".view.activity.register.RegisterActivity"
             android:label="@string/title_activity_register"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.activity.perfectinformation.PerfectinActivity"
+            android:label="@string/title_activity_perfectin"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.activity.univ.UnivStarActivity"
+            android:label="@string/title_activity_univ_star"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.activity.forgetpassword.ForGetPasswordActivity"
+            android:label="@string/title_activity_for_get_password"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.activity.resetpassword.ResetPasswordActivity"
+            android:label="@string/title_activity_reset_password"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.activity.messagesetting.MessageSettingActivity"
+            android:label="@string/title_activity_message_setting"
             android:theme="@style/AppTheme"></activity>
-
     </application>
 
 </manifest>

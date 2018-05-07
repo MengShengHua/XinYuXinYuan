@@ -6,6 +6,7 @@ package com.example.xinyuxinyuan.contract.Bean;
 
 public class JavaBean {
 
+
     /**
      * code : 0
      * data : {}

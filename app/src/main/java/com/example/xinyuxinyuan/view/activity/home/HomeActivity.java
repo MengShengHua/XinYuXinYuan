@@ -1,20 +1,19 @@
 package com.example.xinyuxinyuan.view.activity.home;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
 import com.example.xinyuxinyuan.presenter.api.APIPresenter;
-import com.example.xinyuxinyuan.utils.ShareUtils;
 import com.example.xinyuxinyuan.view.activity.login.LoginActivity;
+import com.example.xinyuxinyuan.view.activity.messagesetting.MessageSettingActivity;
 import com.example.xinyuxinyuan.view.activity.register.RegisterActivity;
 import com.example.xinyuxinyuan.view.fragment.baodian.BaoDianFragment;
 import com.example.xinyuxinyuan.view.fragment.mingshi.MingShiFragment;
@@ -25,9 +24,10 @@ import com.example.xinyuxinyuan.view.fragment.zuoye.ZuoYeFragment;
 public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener{
 
 
+    private FrameLayout home_frameLayout;
     private RadioGroup home_radioGroup;
-    private  APIPresenter presenter;
-    private RadioButton ming_shi_btn;
+    private ImageView title_message_image;
+    private APIPresenter presenter;
 
 
     @Override
@@ -37,12 +37,13 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void init() {
+
         presenter = new APIPresenter();
         presenter.loadApiToken();
+        home_frameLayout = findViewById(R.id.home_frameLayout);
         home_radioGroup = findViewById(R.id.home_radioGroup);
         home_radioGroup.setOnCheckedChangeListener(this);
-        ming_shi_btn = findViewById(R.id.ming_shi_btn);
-        ming_shi_btn.setChecked(true);
+        replacetContenView(R.id.home_frameLayout, MingShiFragment.class, null);
     }
 
     @Override
@@ -68,6 +69,9 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             case R.id.wo_de_btn:
                 replacetContenView(R.id.home_frameLayout, WoDeFragment.class, null);
                 break;
+
         }
     }
+
+
 }

@@ -17,34 +17,67 @@
             android:id="@+id/loginActivity_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
             android:text="关闭"
-            android:textSize="15dp" />
+            android:textSize="20dp" />
 
         <TextView
             android:id="@+id/loginActivity_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="280dp"
+            android:layout_marginRight="10dp"
             android:text="注册"
-            android:textSize="15dp" />
+            android:textSize="20dp" />
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/loginActivity_phone"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="输入手机号" />
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/loginActivity_password"
+        <EditText
+            android:id="@+id/loginActivity_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:hint="输入手机号" />
+
+        <ImageView
+            android:id="@+id/loginActivity_clearPhone"
+
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_alignEnd="@+id/loginActivity_phone"
+            android:layout_alignRight="@+id/loginActivity_phone"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/clear"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
-        android:hint="输入密码" />
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/loginActivity_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:hint="输入密码" />
+
+        <ImageView
+            android:id="@+id/loginActivity_clearPassword"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_alignEnd="@+id/loginActivity_password"
+            android:layout_alignRight="@+id/loginActivity_password"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/clear"
+            android:visibility="gone" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/loginActivity_forgetPassword"
@@ -67,9 +100,9 @@
         android:textColor="#FFFF" />
 
     <LinearLayout
-        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal">
 

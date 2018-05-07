@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f7f6f6"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/multiplexingTitle_return"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@mipmap/return_previous" />
+
+    <TextView
+        android:id="@+id/multiplexingTitle_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:text="标题" />
+</LinearLayout>

@@ -32,8 +32,8 @@ public class RetrofitUtils {
                 .build();
 
          retrofit= new Retrofit.Builder()
-                .client(okHttpClient)
-                .baseUrl(UrlData.KEHU_DUAN)
+//                .client(okHttpClient)
+                .baseUrl("https://www.univstar.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();

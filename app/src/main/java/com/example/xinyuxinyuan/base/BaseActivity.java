@@ -9,23 +9,28 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.text.style.BulletSpan;
+import android.util.Log;
 
 import com.example.xinyuxinyuan.App;
 
+/**
+ * finish 走onStop()方法
+ */
 public abstract class BaseActivity extends AppCompatActivity {
 
     private BaseFragment lastFragment;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-
+//        App.context = null;
+        App.context = this;
         if (Build.VERSION.SDK_INT >= 23) {
             String[] mPermissionList = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CALL_PHONE, Manifest.permission.READ_LOGS, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SET_DEBUG_APP, Manifest.permission.SYSTEM_ALERT_WINDOW, Manifest.permission.GET_ACCOUNTS, Manifest.permission.WRITE_APN_SETTINGS};
             ActivityCompat.requestPermissions(this, mPermissionList, 123);
         }
-        App.context = this;
         init();
         loadData();
     }
@@ -33,22 +38,20 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (App.context == null) {
-            App.context = this;
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        App.context = null;
+        App.context = this;
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-//        App.context = null;
+        App.context=null;
     }
+    /* @Override
+    protected void onPause() {
+        super.onPause();
+        App.context = null;
+    }
+*/
 
     //统一加载布局
     protected abstract int getLayoutId();

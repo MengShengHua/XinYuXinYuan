@@ -1,4 +1,4 @@
-package com.example.xinyuxinyuan.contract.RegisterContract;
+package com.example.xinyuxinyuan.contract;
 
 import android.widget.Button;
 
@@ -10,6 +10,7 @@ public interface RegisterContract {
     interface RegisterPresenter {
         boolean loadPhone(String phone);
 
+        void loadVerificationPhone(String phone);
 
         void loadYanZhengMa(Button button, String phone);
 
@@ -18,5 +19,7 @@ public interface RegisterContract {
 
     interface RegisterView {
         void showYanZhengMaMessage(String message);
+
+        void showGoToPerfect(String message);
     }
 }

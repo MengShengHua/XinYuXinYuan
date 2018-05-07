@@ -16,6 +16,15 @@ public class APIBean {
     private String message;
     private DataBean data;
 
+    @Override
+    public String toString() {
+        return "APIBean{" +
+                "code=" + code +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                '}';
+    }
+
     public int getCode() {
         return code;
     }

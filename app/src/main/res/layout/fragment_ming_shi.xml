@@ -3,11 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical">
 
+    android:orientation="vertical">
     <include
-        android:id="@+id/mingshi_top"
-        layout="@layout/fu_yong_layout" />
+    android:id="@+id/mingshi_top"
+    layout="@layout/fu_yong_layout" />
 
     <com.baoyz.widget.PullRefreshLayout
         android:id="@+id/mingshi_pullRefreshLayout"
@@ -48,6 +48,7 @@
                         android:orientation="vertical">
 
                         <ImageView
+
                             android:layout_width="50dp"
                             android:layout_height="40dp"
                             android:src="@mipmap/home_master_find_shape" />

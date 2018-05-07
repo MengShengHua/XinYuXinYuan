@@ -1,5 +1,7 @@
 package com.example.xinyuxinyuan.presenter.api;
 
+import android.util.Log;
+
 import com.example.xinyuxinyuan.contract.Bean.APIBean;
 import com.example.xinyuxinyuan.model.home.APIModel;
 import com.example.xinyuxinyuan.utils.DataUtils;
@@ -26,11 +28,11 @@ public class APIPresenter {
         params.put("loginUserId", 0);
         RetrofitUtils.getRetrofitUtils().getService(APIModel.class)
                 .loadApiToken(params)
-                .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
                 .subscribe(new Observer<APIBean>() {
 
-                    private String jiemahouToken;
+                    private String jiemahouToken = null;
 
                     @Override
                     public void onSubscribe(Disposable d) {
@@ -52,7 +54,7 @@ public class APIPresenter {
                         //拼接系统时间在加密  移除换行  全部转为大写
                         String newApptoken = EncryptUtil.encrypt(time + jiemahouToken).replaceAll("\\n", "").toUpperCase();
 
-                        ShareUtils.setToken(newApptoken,time);
+                        ShareUtils.setToken(newApptoken, time);
                     }
 
                     @Override
