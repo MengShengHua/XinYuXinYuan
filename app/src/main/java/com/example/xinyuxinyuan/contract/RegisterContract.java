@@ -10,6 +10,12 @@ public interface RegisterContract {
     interface RegisterPresenter {
         boolean loadPhone(String phone);
 
+
+
+
+
+
+
         void loadVerificationPhone(String phone);
 
         void loadYanZhengMa(Button button, String phone);
