@@ -72,7 +72,6 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
             case R.id.wo_de_btn:
                 SharedPreferences login = getSharedPreferences("Login", MODE_PRIVATE);
                 String nickname = login.getString("nickname", null);
-//                String nickname = LoginShareUtils.getUserMessage(HomeActivity.this, "nickname");
                 if (nickname == null) {
                     replacetContenView(R.id.home_frameLayout, WoDeFragment.class, null);
                 } else {
