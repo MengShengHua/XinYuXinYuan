@@ -1,7 +1,7 @@
 package com.example.xinyuxinyuan.model.home;
 
-import com.example.xinyuxinyuan.contract.Bean.APIBean;
-import com.example.xinyuxinyuan.utils.url.LoginAndRegister;
+import com.example.xinyuxinyuan.contract.bean.APIBean;
+import com.example.xinyuxinyuan.utils.UrlData;
 
 import java.util.Map;
 
@@ -16,6 +16,6 @@ import retrofit2.http.POST;
 
 public interface APIModel {
     @FormUrlEncoded
-    @POST(LoginAndRegister.API)
+    @POST(UrlData.API)
     Observable<APIBean> loadApiToken(@FieldMap Map<String,Integer> params);
 }

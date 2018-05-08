@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".App"
@@ -30,38 +31,8 @@
             android:name=".view.activity.register.RegisterActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".view.activity.perfectinformation.PerfectinActivity"
-            android:label="@string/title_activity_perfectin"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".view.activity.univ.UnivStarActivity"
-            android:label="@string/title_activity_univ_star"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".view.activity.forgetpassword.ForGetPasswordActivity"
-            android:label="@string/title_activity_for_get_password"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".view.activity.resetpassword.ResetPasswordActivity"
-            android:label="@string/title_activity_reset_password"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".view.activity.messagesetting.MessageSettingActivity"
-            android:label="@string/title_activity_message_setting"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".view.activity.wode.MyMessageActivity"
-            android:label="@string/title_activity_my_message"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".view.activity.wode.SetActivity"
-            android:label="@string/title_activity_set"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".view.activity.wode.PersonalActivity"
-            android:label="@string/title_activity_personal"
-            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".view.activity.home.zhaolaoshi.ZhaoLaoShiActivity" />
+        <activity android:name=".view.activity.home.xianshangke.XianShangKeActivity"></activity>
     </application>
 
 </manifest>

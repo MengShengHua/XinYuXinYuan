@@ -1,7 +1,7 @@
 package com.example.xinyuxinyuan.model.home;
 
-import com.example.xinyuxinyuan.contract.Bean.MingShiBean;
-import com.example.xinyuxinyuan.utils.url.LoginAndRegister;
+import com.example.xinyuxinyuan.contract.bean.MingShiBean;
+import com.example.xinyuxinyuan.utils.UrlData;
 
 import java.util.Map;
 
@@ -17,6 +17,6 @@ import retrofit2.http.POST;
 
 public interface MingShiModel {
     @FormUrlEncoded
-    @POST(LoginAndRegister.MINGSHI)
-    Observable<MingShiBean> getMingShiData(@FieldMap Map<String,Integer> params, @HeaderMap Map<String,String> headerMap);
+    @POST(UrlData.MINGSHI)
+    Observable<MingShiBean> getMingShiData(@FieldMap Map<String,Integer> params, @HeaderMap Map<String,String> headers);
 }
