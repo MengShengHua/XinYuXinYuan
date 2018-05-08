@@ -1,11 +1,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
     tools:context="com.example.xinyuxinyuan.view.fragment.zuoye.ZuoYeFragment">
 
     <include
-        android:id="@+id/zuoye_fuyong"
+        android:id="@+id/home_zuoye_fragment_fuyong"
         layout="@layout/fu_yong_layout" />
 
     <com.baoyz.widget.PullRefreshLayout
@@ -13,10 +16,122 @@
         layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#f6f6f6">
+        android:background="#ffffff">
 
 
+        <!-- 第一部分:CoordinatorLayout -->
+        <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/scrollview"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff">
 
+            <!-- 第二部分:缩放控件-->
+            <android.support.design.widget.AppBarLayout
+                android:id="@+id/id_appbarlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff">
+
+                <android.support.design.widget.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_tool_bar_test_ctl"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:expandedTitleMarginEnd="64dp"
+                    app:expandedTitleMarginStart="48dp"
+                    app:layout_scrollFlags="scroll">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/submit_work" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp"
+                            android:gravity="center">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+
+                                <LinearLayout
+                                    android:id="@+id/home_zuoye_fragment_tijiao_linearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="24dp"
+                                        android:layout_height="26dp"
+                                        android:src="@mipmap/commit_work" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="提交课程作业"
+                                        android:textColor="#b3b3b3"
+                                        android:textSize="13sp" />
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:id="@+id/home_zuoye_fragment_qiujiao_linearLayout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="67dp"
+                                    android:gravity="center_horizontal"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="发布求教作品"
+                                        android:textColor="#b3b3b3"
+                                        android:textSize="13sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                </android.support.design.widget.CollapsingToolbarLayout>
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/home_zuoye_fragment_tablayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#ffffff">
+
+                </android.support.design.widget.TabLayout>
+            </android.support.design.widget.AppBarLayout>
+
+            <com.example.xinyuxinyuan.utils.zidingyi.MyViewPager
+                android:id="@+id/home_zuoye_fragment_viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"></com.example.xinyuxinyuan.utils.zidingyi.MyViewPager>
+
+
+        </android.support.design.widget.CoordinatorLayout>
 
     </com.baoyz.widget.PullRefreshLayout>
 </LinearLayout>

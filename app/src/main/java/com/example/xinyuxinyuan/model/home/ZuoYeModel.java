@@ -1,7 +1,7 @@
 package com.example.xinyuxinyuan.model.home;
 
 import com.example.xinyuxinyuan.contract.Bean.ZuoYeBean;
-import com.example.xinyuxinyuan.utils.url.LoginAndRegister;
+import com.example.xinyuxinyuan.utils.UrlData;
 
 import java.util.Map;
 
@@ -17,6 +17,6 @@ import retrofit2.http.POST;
 
 public interface ZuoYeModel {
     @FormUrlEncoded
-    @POST(LoginAndRegister.ZUO_YE)
-    Observable<ZuoYeBean> getZuoYeData(@FieldMap Map<String,String> params, @HeaderMap Map<String,String> heards);
+    @POST(UrlData.ZUO_YE)
+    Observable<ZuoYeBean> getZuoYeData(@FieldMap Map<String,Integer> params, @HeaderMap Map<String,String> headers);
 }

@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.example.xinyuxinyuan.contract.Bean.APIBean;
 import com.example.xinyuxinyuan.model.home.APIModel;
-import com.example.xinyuxinyuan.utils.DataUtils;
 import com.example.xinyuxinyuan.utils.EncryptUtil;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
 import com.example.xinyuxinyuan.utils.ShareUtils;

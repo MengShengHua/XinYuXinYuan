@@ -16,7 +16,7 @@ import com.example.xinyuxinyuan.view.activity.home.HomeActivity;
 public class AnimActivity extends BaseActivity implements AnimView, Animation.AnimationListener {
 
     private ImageView anim_image;
-    private APIPresenter presenter;
+    private  APIPresenter presenter;
 
     @Override
     protected int getLayoutId() {
@@ -26,7 +26,6 @@ public class AnimActivity extends BaseActivity implements AnimView, Animation.An
     @Override
     protected void init() {
         anim_image = findViewById(R.id.anim_image);
-
         presenter = new APIPresenter();
         presenter.loadApiToken();
     }
