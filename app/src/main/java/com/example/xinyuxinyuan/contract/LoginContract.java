@@ -3,7 +3,7 @@ package com.example.xinyuxinyuan.contract;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.xinyuxinyuan.contract.Bean.LoginBean;
+import com.example.xinyuxinyuan.contract.bean.LoginBean;
 
 /**
  * Created by asd on 2018/5/4.

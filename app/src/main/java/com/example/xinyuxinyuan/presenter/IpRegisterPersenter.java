@@ -3,7 +3,7 @@ package com.example.xinyuxinyuan.presenter;
 import android.graphics.Color;
 import android.widget.Button;
 
-import com.example.xinyuxinyuan.contract.Bean.JavaBean;
+import com.example.xinyuxinyuan.contract.bean.JavaBean;
 import com.example.xinyuxinyuan.contract.RegisterContract;
 import com.example.xinyuxinyuan.model.regist.RegistModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

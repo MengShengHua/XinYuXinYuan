@@ -3,7 +3,6 @@ package com.example.xinyuxinyuan.contract;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.xinyuxinyuan.contract.Bean.JavaBean;
 
 /**
  * Created by asd on 2018/5/5.
@@ -24,6 +23,6 @@ public interface ForPasswordContract {
     interface ForPasswordView {
         void showYanZhengMaMessage(String message);
 
-        void showNextStep(JavaBean javaBean);
+        void showNextStep(com.example.xinyuxinyuan.contract.bean.JavaBean javaBean);
     }
 }

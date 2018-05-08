@@ -1,10 +1,7 @@
 package com.example.xinyuxinyuan.view.activity.messagesetting;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,11 +9,9 @@ import android.widget.TextView;
 import com.example.xinyuxinyuan.App;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.Bean.MessageRemindBean;
+import com.example.xinyuxinyuan.contract.bean.MessageRemindBean;
 import com.example.xinyuxinyuan.contract.message.MessageRemindContract;
 import com.example.xinyuxinyuan.presenter.message.MessageRemindPresenter;
-import com.example.xinyuxinyuan.utils.LoginShareUtils;
-import com.example.xinyuxinyuan.utils.ShareUtils;
 import com.example.xinyuxinyuan.utils.ToastUtils;
 import com.example.xinyuxinyuan.view.activity.adapter.MessageAdapter;
 

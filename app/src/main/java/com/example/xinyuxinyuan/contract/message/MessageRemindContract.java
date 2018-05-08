@@ -1,6 +1,6 @@
 package com.example.xinyuxinyuan.contract.message;
 
-import com.example.xinyuxinyuan.contract.Bean.MessageRemindBean;
+import com.example.xinyuxinyuan.contract.bean.MessageRemindBean;
 
 /**
  * Created by asd on 2018/5/7.

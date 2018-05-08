@@ -7,12 +7,11 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.widget.Button;
 
-import com.example.xinyuxinyuan.contract.Bean.CheckUserLoginModel;
-import com.example.xinyuxinyuan.contract.Bean.UpLoadImgModel;
+import com.example.xinyuxinyuan.contract.bean.CheckUserLoginModel;
+import com.example.xinyuxinyuan.contract.bean.UpLoadImgModel;
 import com.example.xinyuxinyuan.contract.PerfectinContract;
 import com.example.xinyuxinyuan.model.regist.RegistModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
-import com.example.xinyuxinyuan.utils.ToastUtils;
 
 import java.io.File;
 import java.util.Date;

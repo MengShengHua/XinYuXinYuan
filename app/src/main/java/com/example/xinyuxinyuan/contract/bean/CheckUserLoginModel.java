@@ -1,16 +1,15 @@
-package com.example.xinyuxinyuan.contract.Bean;
+package com.example.xinyuxinyuan.contract.bean;
 
 /**
  * Created by asd on 2018/5/4.
  */
 
-public class LoginBean {
-
+public class CheckUserLoginModel {
 
     /**
-     * code : 1
-     * message : cid为空
-     * data : {"nickname":"顾陈","mobile":"17633301440","photo":"http://qiniu.5roo.com/feed24bae7e14a249aa48eaad4fdd162.jpg","id":827,"token":"eyJhbGciOiJIUzUxMiJ9.eyJyYW5kb21LZXkiOiJoMmN1MXciLCJzdWIiOiI4MjciLCJleHAiOjE1MjYxMDk4OTUsImlhdCI6MTUyNTUwNTA5NX0.v_zK_MezbRMdEBLeRrVVa0xbZLw7-x4jUprDZ57X9SZQHJ30WXtoMTc5PIQvlnMTcChTk3RcniIcDrH11RgS6g"}
+     * code : 0
+     * message : 成功
+     * data : {"nickname":"0050953","mobile":null,"photo":null,"id":743,"token":"eyJhbGciOiJIUzUxMiJ9.eyJyYW5kb21LZXkiOiJmMjQzaWsiLCJzdWIiOiI3NDMiLCJleHAiOjE1MjYwMjk4MTgsImlhdCI6MTUyNTQyNTAxOH0.HGEbB53KTvpLtVWkkBMGGJswnu9nQEUuRqpF7AxzqK1GqkvHXbE2mkdAbS_mryQhSqIGYykaN4yZTgh8eXBVoQ"}
      */
 
     private int code;
@@ -43,16 +42,16 @@ public class LoginBean {
 
     public static class DataBean {
         /**
-         * nickname : 顾陈
-         * mobile : 17633301440
-         * photo : http://qiniu.5roo.com/feed24bae7e14a249aa48eaad4fdd162.jpg
-         * id : 827
-         * token : eyJhbGciOiJIUzUxMiJ9.eyJyYW5kb21LZXkiOiJoMmN1MXciLCJzdWIiOiI4MjciLCJleHAiOjE1MjYxMDk4OTUsImlhdCI6MTUyNTUwNTA5NX0.v_zK_MezbRMdEBLeRrVVa0xbZLw7-x4jUprDZ57X9SZQHJ30WXtoMTc5PIQvlnMTcChTk3RcniIcDrH11RgS6g
+         * nickname : 0050953
+         * mobile : null
+         * photo : null
+         * id : 743
+         * token : eyJhbGciOiJIUzUxMiJ9.eyJyYW5kb21LZXkiOiJmMjQzaWsiLCJzdWIiOiI3NDMiLCJleHAiOjE1MjYwMjk4MTgsImlhdCI6MTUyNTQyNTAxOH0.HGEbB53KTvpLtVWkkBMGGJswnu9nQEUuRqpF7AxzqK1GqkvHXbE2mkdAbS_mryQhSqIGYykaN4yZTgh8eXBVoQ
          */
 
         private String nickname;
-        private String mobile;
-        private String photo;
+        private Object mobile;
+        private Object photo;
         private int id;
         private String token;
 
@@ -64,19 +63,19 @@ public class LoginBean {
             this.nickname = nickname;
         }
 
-        public String getMobile() {
+        public Object getMobile() {
             return mobile;
         }
 
-        public void setMobile(String mobile) {
+        public void setMobile(Object mobile) {
             this.mobile = mobile;
         }
 
-        public String getPhoto() {
+        public Object getPhoto() {
             return photo;
         }
 
-        public void setPhoto(String photo) {
+        public void setPhoto(Object photo) {
             this.photo = photo;
         }
 

@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.Button;
 
-import com.example.xinyuxinyuan.contract.Bean.CheckUserLoginModel;
-import com.example.xinyuxinyuan.contract.Bean.UpLoadImgModel;
+import com.example.xinyuxinyuan.contract.bean.CheckUserLoginModel;
+import com.example.xinyuxinyuan.contract.bean.UpLoadImgModel;
 
 import java.io.File;
 import java.util.Date;

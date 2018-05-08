@@ -2,20 +2,16 @@ package com.example.xinyuxinyuan.view.activity.resetpassword;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.Bean.ResetBean;
+import com.example.xinyuxinyuan.contract.bean.ResetBean;
 import com.example.xinyuxinyuan.contract.ResetPasswordContract;
 import com.example.xinyuxinyuan.presenter.ResetPasswordPresenter;
 import com.example.xinyuxinyuan.utils.ToastUtils;

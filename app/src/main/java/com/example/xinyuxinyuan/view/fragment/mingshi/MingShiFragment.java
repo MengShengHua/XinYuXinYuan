@@ -24,6 +24,7 @@ import com.example.xinyuxinyuan.view.activity.home.HomeActivity;
 import com.example.xinyuxinyuan.view.activity.home.xianshangke.XianShangKeActivity;
 import com.example.xinyuxinyuan.view.activity.home.zhaolaoshi.ZhaoLaoShiActivity;
 import com.example.xinyuxinyuan.view.activity.login.LoginActivity;
+import com.example.xinyuxinyuan.view.activity.messagesetting.MessageSettingActivity;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.KeChengTuiJian_Adpater;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.MingShiTuiJian_Adpater;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.TuiJianZuoYe_Adpater;
@@ -232,7 +233,7 @@ public class MingShiFragment extends BaseFragment implements MingShi.View, View.
 //                    getActivity().finish();
         } else {
             ////                用户登录了跳转消息提醒Activity
-//            startActivity(new Intent(getContext(), MessageSettingActivity.class));
+            startActivity(new Intent(getContext(), MessageSettingActivity.class));
 //                    getActivity().finish();
         }
                 break;

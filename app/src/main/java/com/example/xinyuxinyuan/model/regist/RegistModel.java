@@ -1,10 +1,10 @@
 package com.example.xinyuxinyuan.model.regist;
 
-import com.example.xinyuxinyuan.contract.Bean.CheckUserLoginModel;
-import com.example.xinyuxinyuan.contract.Bean.JavaBean;
-import com.example.xinyuxinyuan.contract.Bean.LoginBean;
-import com.example.xinyuxinyuan.contract.Bean.ResetBean;
-import com.example.xinyuxinyuan.contract.Bean.UpLoadImgModel;
+import com.example.xinyuxinyuan.contract.bean.CheckUserLoginModel;
+import com.example.xinyuxinyuan.contract.bean.JavaBean;
+import com.example.xinyuxinyuan.contract.bean.LoginBean;
+import com.example.xinyuxinyuan.contract.bean.ResetBean;
+import com.example.xinyuxinyuan.contract.bean.UpLoadImgModel;
 import com.example.xinyuxinyuan.utils.url.LoginAndRegister;
 
 import java.util.List;

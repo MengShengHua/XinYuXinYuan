@@ -10,6 +10,7 @@ import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
 import com.example.xinyuxinyuan.view.fragment.baodian.BaoDianFragment;
 import com.example.xinyuxinyuan.view.fragment.mingshi.MingShiFragment;
+import com.example.xinyuxinyuan.view.fragment.wode.MyInformationFragment;
 import com.example.xinyuxinyuan.view.fragment.wode.WoDeFragment;
 import com.example.xinyuxinyuan.view.fragment.yugao.YuGaoFragment;
 import com.example.xinyuxinyuan.view.fragment.zuoye.ZuoYeFragment;
@@ -74,7 +75,7 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 if (nickname == null) {
                     replacetContenView(R.id.home_frameLayout, WoDeFragment.class, null);
                 } else {
-//                    replacetContenView(R.id.home_frameLayout, MyInformationFragment.class, null);
+                    replacetContenView(R.id.home_frameLayout, MyInformationFragment.class, null);
                 }
                 break;
         }

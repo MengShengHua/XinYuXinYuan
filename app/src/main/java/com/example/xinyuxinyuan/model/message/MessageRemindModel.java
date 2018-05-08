@@ -1,8 +1,6 @@
 package com.example.xinyuxinyuan.model.message;
 
-import com.example.xinyuxinyuan.contract.Bean.CheckUserLoginModel;
-import com.example.xinyuxinyuan.contract.Bean.MessageRemindBean;
-import com.example.xinyuxinyuan.utils.url.LoginAndRegister;
+import com.example.xinyuxinyuan.contract.bean.MessageRemindBean;
 import com.example.xinyuxinyuan.utils.url.MessageRemindUrl;
 
 import java.util.Map;

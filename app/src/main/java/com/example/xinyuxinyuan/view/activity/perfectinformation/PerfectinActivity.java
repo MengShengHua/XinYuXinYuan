@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,8 +19,8 @@ import android.widget.RelativeLayout;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.Bean.CheckUserLoginModel;
-import com.example.xinyuxinyuan.contract.Bean.UpLoadImgModel;
+import com.example.xinyuxinyuan.contract.bean.CheckUserLoginModel;
+import com.example.xinyuxinyuan.contract.bean.UpLoadImgModel;
 import com.example.xinyuxinyuan.presenter.IpPerfectinPersenter;
 import com.example.xinyuxinyuan.contract.PerfectinContract;
 import com.example.xinyuxinyuan.utils.ShareUtils;

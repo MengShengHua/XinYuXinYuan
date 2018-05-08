@@ -5,10 +5,15 @@ import com.example.xinyuxinyuan.App;
 import com.example.xinyuxinyuan.utils.zidingyi.AddCookiesInterceptor;
 import com.example.xinyuxinyuan.utils.zidingyi.ReceivedCookiesInterceptor;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+import okhttp3.Cache;
+import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 
+import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -22,17 +27,12 @@ public class RetrofitUtils {
     private OkHttpClient okHttpClient;
 
     private RetrofitUtils() {
-         okHttpClient = new OkHttpClient.Builder()
-                .connectTimeout(8000, TimeUnit.SECONDS)
-                .readTimeout(120000,TimeUnit.SECONDS)
-                .writeTimeout(20000,TimeUnit.SECONDS)
-                .retryOnConnectionFailure(false)//关闭重复的请求
-                .addInterceptor(new ReceivedCookiesInterceptor(App.context))
-                .addInterceptor(new AddCookiesInterceptor(App.context))
+        okHttpClient = new OkHttpClient.Builder()
+                .cache(new Cache(App.context.getCacheDir(), 1024 * 1024 * 100))
                 .build();
 
-         retrofit= new Retrofit.Builder()
-//                .client(okHttpClient)
+        retrofit = new Retrofit.Builder()
+                .client(okHttpClient)
                 .baseUrl("https://www.univstar.com/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -40,11 +40,10 @@ public class RetrofitUtils {
     }
 
 
-
-    public static RetrofitUtils getRetrofitUtils(){
-        if (retrofitUtils == null){
-            synchronized (RetrofitUtils.class){
-                if (retrofitUtils == null){
+    public static RetrofitUtils getRetrofitUtils() {
+        if (retrofitUtils == null) {
+            synchronized (RetrofitUtils.class) {
+                if (retrofitUtils == null) {
                     return retrofitUtils = new RetrofitUtils();
                 }
             }
@@ -52,7 +51,6 @@ public class RetrofitUtils {
         }
         return retrofitUtils;
     }
-
 
 
     public <T> T getService(Class<T> tClass) {

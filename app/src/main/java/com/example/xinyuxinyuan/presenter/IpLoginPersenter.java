@@ -2,12 +2,11 @@ package com.example.xinyuxinyuan.presenter;
 
 import android.graphics.Color;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.xinyuxinyuan.contract.Bean.LoginBean;
+import com.example.xinyuxinyuan.contract.bean.LoginBean;
 import com.example.xinyuxinyuan.contract.LoginContract;
 import com.example.xinyuxinyuan.model.regist.RegistModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

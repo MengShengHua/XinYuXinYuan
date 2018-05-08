@@ -2,13 +2,10 @@ package com.example.xinyuxinyuan.presenter.message;
 
 import android.util.Log;
 
-import com.example.xinyuxinyuan.App;
-import com.example.xinyuxinyuan.contract.Bean.MessageRemindBean;
+import com.example.xinyuxinyuan.contract.bean.MessageRemindBean;
 import com.example.xinyuxinyuan.contract.message.MessageRemindContract;
 import com.example.xinyuxinyuan.model.message.MessageRemindModel;
-import com.example.xinyuxinyuan.utils.LoginShareUtils;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
-import com.example.xinyuxinyuan.utils.ShareUtils;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package com.example.xinyuxinyuan.contract.Bean;
+package com.example.xinyuxinyuan.contract.bean;
 
 /**
  * Created by vicoltree on 17/10/29.
