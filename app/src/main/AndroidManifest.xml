@@ -32,7 +32,11 @@
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme" />
         <activity android:name=".view.activity.home.zhaolaoshi.ZhaoLaoShiActivity" />
-        <activity android:name=".view.activity.home.xianshangke.XianShangKeActivity"></activity>
+        <activity android:name=".view.activity.home.xianshangke.XianShangKeActivity" />
+        <activity android:name=".view.activity.messagesetting.MessageSettingActivity" />
+        <activity android:name=".view.activity.wode.SetActivity" />
+        <activity android:name=".view.activity.wode.PersonalActivity" />
+        <activity android:name=".view.activity.wode.MyMessageActivity" />
     </application>
 
 </manifest>
