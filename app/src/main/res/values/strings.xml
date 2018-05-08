@@ -10,4 +10,7 @@
     <string name="title_activity_for_get_password">ForGetPasswordActivity</string>
     <string name="title_activity_reset_password">ResetPasswordActivity</string>
     <string name="title_activity_message_setting">MessageSettingActivity</string>
+    <string name="title_activity_my_message">MyMessageActivity</string>
+    <string name="title_activity_set">SetActivity</string>
+    <string name="title_activity_personal">PersonalActivity</string>
 </resources>

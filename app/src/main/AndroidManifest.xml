@@ -49,6 +49,18 @@
         <activity
             android:name=".view.activity.messagesetting.MessageSettingActivity"
             android:label="@string/title_activity_message_setting"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.activity.wode.MyMessageActivity"
+            android:label="@string/title_activity_my_message"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.activity.wode.SetActivity"
+            android:label="@string/title_activity_set"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".view.activity.wode.PersonalActivity"
+            android:label="@string/title_activity_personal"
             android:theme="@style/AppTheme"></activity>
     </application>
 
