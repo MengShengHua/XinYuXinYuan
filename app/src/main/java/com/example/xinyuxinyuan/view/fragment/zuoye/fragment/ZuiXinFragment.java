@@ -8,7 +8,7 @@ import android.view.View;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
-import com.example.xinyuxinyuan.contract.Bean.ZuoYeBean;
+import com.example.xinyuxinyuan.contract.bean.ZuoYeBean;
 import com.example.xinyuxinyuan.contract.home.ZuoYe;
 import com.example.xinyuxinyuan.presenter.home.ZuoYePresenter;
 import com.example.xinyuxinyuan.utils.ShareUtils;

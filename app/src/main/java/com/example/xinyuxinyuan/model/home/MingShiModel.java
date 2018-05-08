@@ -1,6 +1,6 @@
 package com.example.xinyuxinyuan.model.home;
 
-import com.example.xinyuxinyuan.contract.Bean.MingShiBean;
+import com.example.xinyuxinyuan.contract.bean.MingShiBean;
 import com.example.xinyuxinyuan.utils.UrlData;
 
 import java.util.Map;

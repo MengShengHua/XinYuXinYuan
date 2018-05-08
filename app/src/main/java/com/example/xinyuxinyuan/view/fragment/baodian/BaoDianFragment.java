@@ -4,22 +4,19 @@ package com.example.xinyuxinyuan.view.fragment.baodian;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 
 import com.baoyz.widget.PullRefreshLayout;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
-import com.example.xinyuxinyuan.contract.Bean.BaoDianBean;
-import com.example.xinyuxinyuan.contract.Bean.BaoDian_LunBo_Bean;
+import com.example.xinyuxinyuan.contract.bean.BaoDianBean;
+import com.example.xinyuxinyuan.contract.bean.BaoDian_LunBo_Bean;
 import com.example.xinyuxinyuan.contract.home.BaoDian;
 import com.example.xinyuxinyuan.presenter.home.BaoDianPresenter;
 import com.example.xinyuxinyuan.utils.ShareUtils;
 import com.example.xinyuxinyuan.utils.zidingyi.MyViewPager;
 import com.example.xinyuxinyuan.view.fragment.baodian.adpater.BaoDianViewPagerAdpater;
 import com.example.xinyuxinyuan.view.fragment.baodian.fragment.FuYongFragment;
-import com.example.xinyuxinyuan.view.fragment.zuoye.adpater.ViewPagerAdpater;
 import com.recker.flybanner.FlyBanner;
 
 import java.util.ArrayList;
@@ -33,8 +30,8 @@ public class BaoDianFragment extends BaseFragment implements BaoDian.View {
 
     private FlyBanner home_baodian_fragment_flyBanner;
     private PullRefreshLayout home_baodian_fragment_pullRefreshLayout;
-    private TabLayout home_baodian_fragment_tablayout;
-    private MyViewPager home_baodian_fragment_viewPager;
+    public TabLayout home_baodian_fragment_tablayout;
+    public MyViewPager home_baodian_fragment_viewPager;
     private BaoDianPresenter baoDianPresenter;
     private List<String> lunboList = new ArrayList<>();
     private List<Fragment> mFragments = new ArrayList<>();

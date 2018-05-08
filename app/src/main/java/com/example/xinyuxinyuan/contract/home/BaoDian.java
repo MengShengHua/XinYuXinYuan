@@ -1,7 +1,7 @@
 package com.example.xinyuxinyuan.contract.home;
 
-import com.example.xinyuxinyuan.contract.Bean.BaoDianBean;
-import com.example.xinyuxinyuan.contract.Bean.BaoDian_LunBo_Bean;
+import com.example.xinyuxinyuan.contract.bean.BaoDianBean;
+import com.example.xinyuxinyuan.contract.bean.BaoDian_LunBo_Bean;
 
 /**
  * Created by 键盘上的手艺人 on 2018/5/7.

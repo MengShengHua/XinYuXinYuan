@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:name=".App"
@@ -29,8 +30,9 @@
         <activity
             android:name=".view.activity.register.RegisterActivity"
             android:label="@string/title_activity_register"
-            android:theme="@style/AppTheme"></activity>
-
+            android:theme="@style/AppTheme" />
+        <activity android:name=".view.activity.home.zhaolaoshi.ZhaoLaoShiActivity" />
+        <activity android:name=".view.activity.home.xianshangke.XianShangKeActivity"></activity>
     </application>
 
 </manifest>

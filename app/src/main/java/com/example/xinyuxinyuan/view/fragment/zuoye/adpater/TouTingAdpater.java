@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.xinyuxinyuan.R;
-import com.example.xinyuxinyuan.contract.Bean.ZuoYeBean;
+import com.example.xinyuxinyuan.contract.bean.ZuoYeBean;
 import com.example.xinyuxinyuan.utils.DataUtils;
 import com.example.xinyuxinyuan.utils.zidingyi.GlideCircleTransform;
 

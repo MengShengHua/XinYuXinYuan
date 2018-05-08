@@ -2,8 +2,8 @@ package com.example.xinyuxinyuan.presenter.home;
 
 import android.util.Log;
 
-import com.example.xinyuxinyuan.contract.Bean.BaoDianBean;
-import com.example.xinyuxinyuan.contract.Bean.BaoDian_LunBo_Bean;
+import com.example.xinyuxinyuan.contract.bean.BaoDianBean;
+import com.example.xinyuxinyuan.contract.bean.BaoDian_LunBo_Bean;
 import com.example.xinyuxinyuan.contract.home.BaoDian;
 import com.example.xinyuxinyuan.model.home.BaoDianModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

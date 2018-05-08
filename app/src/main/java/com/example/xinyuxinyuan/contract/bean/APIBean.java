@@ -1,4 +1,4 @@
-package com.example.xinyuxinyuan.contract.Bean;
+package com.example.xinyuxinyuan.contract.bean;
 
 /**
  * Created by 键盘上的手艺人 on 2018/5/4.

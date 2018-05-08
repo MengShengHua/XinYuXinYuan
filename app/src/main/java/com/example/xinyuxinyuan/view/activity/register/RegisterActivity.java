@@ -1,6 +1,7 @@
 package com.example.xinyuxinyuan.view.activity.register;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
@@ -17,6 +18,7 @@ import com.example.xinyuxinyuan.base.BaseActivity;
 import com.example.xinyuxinyuan.presenter.regist.ImplementsRegisterContract;
 import com.example.xinyuxinyuan.contract.RegisterContract.RegisterContract;
 import com.example.xinyuxinyuan.utils.ToastUtils;
+import com.example.xinyuxinyuan.view.activity.univ.UnivStarActivity;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener, RegisterContract.RegisterView {
     //    返回按钮
@@ -175,7 +177,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 break;
 //                使用协议
             case R.id.register_tvAgreement:
-
+                startActivity(new Intent(RegisterActivity.this, UnivStarActivity.class));
                 break;
 
         }

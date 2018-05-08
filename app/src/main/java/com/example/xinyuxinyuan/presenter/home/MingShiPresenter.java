@@ -1,6 +1,6 @@
 package com.example.xinyuxinyuan.presenter.home;
 
-import com.example.xinyuxinyuan.contract.Bean.MingShiBean;
+import com.example.xinyuxinyuan.contract.bean.MingShiBean;
 import com.example.xinyuxinyuan.contract.home.MingShi;
 import com.example.xinyuxinyuan.model.home.MingShiModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

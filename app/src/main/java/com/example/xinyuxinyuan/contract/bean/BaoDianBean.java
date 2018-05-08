@@ -1,4 +1,4 @@
-package com.example.xinyuxinyuan.contract.Bean;
+package com.example.xinyuxinyuan.contract.bean;
 
 import java.util.List;
 

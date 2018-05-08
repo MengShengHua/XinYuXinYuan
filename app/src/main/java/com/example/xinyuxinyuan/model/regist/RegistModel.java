@@ -1,6 +1,6 @@
 package com.example.xinyuxinyuan.model.regist;
 
-import com.example.xinyuxinyuan.contract.Bean.JavaBean;
+import com.example.xinyuxinyuan.contract.bean.JavaBean;
 import com.example.xinyuxinyuan.utils.UrlData;
 
 import java.util.Map;

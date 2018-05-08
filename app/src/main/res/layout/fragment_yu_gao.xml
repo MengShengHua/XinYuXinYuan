@@ -4,130 +4,136 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context="com.example.xinyuxinyuan.view.fragment.yugao.YuGaoFragment">
-<include
-    android:id="@+id/yu_gao_fuyong_layout"
-    layout="@layout/fu_yong_layout"/>
+
+    <include
+        android:id="@+id/yu_gao_fuyong_layout"
+        layout="@layout/fu_yong_layout" />
+
     <RelativeLayout
-        android:id="@+id/home_notice_fragment_timesort_btn_group"
+        android:id="@+id/home_yugao_fragment_timesort_btn_group"
         android:layout_width="match_parent"
-        android:layout_below="@id/yu_gao_fuyong_layout"
-        android:layout_height="44.5dp">
+        android:layout_height="44.5dp"
+        android:layout_below="@id/yu_gao_fuyong_layout">
 
         <TextView
-            android:id="@+id/home_notice_fragment_timesort_btn"
+            android:id="@+id/home_yugao_fragment_shijianText"
             android:layout_width="match_parent"
+            android:layout_height="44dp"
             android:gravity="center"
             android:text="时间筛选"
-            android:textSize="15sp"
             android:textColor="@color/blue_arlt"
-            android:layout_height="44dp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/home_notice_fragment_timesort_btn_singline"
-            android:layout_width="match_parent"
             style="@style/login_line_style"
-            android:visibility="visible"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:layout_alignParentBottom="true"
-            android:layout_height="1dp" />
+            android:visibility="visible" />
 
     </RelativeLayout>
 
 
     <com.baoyz.widget.PullRefreshLayout
-        android:id="@+id/home_notice_fragment_swipe"
+        android:id="@+id/home_yugao_fragment_pullRefreshLayout"
         android:layout_width="match_parent"
-        android:background="#f6f6f6"
-        android:layout_below="@id/home_notice_fragment_timesort_btn_group"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/home_yugao_fragment_timesort_btn_group"
+        android:background="#f6f6f6">
+
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/home_notice_fragment_listview"
+            android:id="@+id/home_yugao_fragment_recyclerView"
             android:layout_width="match_parent"
-            android:scrollbars="none"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
             android:cacheColorHint="@color/transparent"
             android:divider="@color/transparent"
             android:dividerHeight="1px"
-            android:background="@color/white"
             android:fadingEdge="none"
-            android:layout_height="wrap_content">
+            android:scrollbars="none">
+
         </android.support.v7.widget.RecyclerView>
     </com.baoyz.widget.PullRefreshLayout>
 
+
     <RelativeLayout
-        android:id="@+id/home_notice_fragment_listview_empty"
+        android:id="@+id/home_yugao_fragment_recyclerView_wu_neirong"
         android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginTop="160dp"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="160dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="80dp"
-                android:src="@mipmap/empty_content"
-                android:layout_height="77dp" />
+                android:layout_height="77dp"
+                android:src="@mipmap/empty_content" />
+
             <TextView
                 android:layout_width="wrap_content"
-                android:text="暂无内容"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:textSize="14sp"
+                android:text="暂无内容"
                 android:textColor="@color/black"
-                android:layout_height="wrap_content" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/home_notice_fragment_listview_fault"
+        android:id="@+id/home_yugao_fragment_recyclerView_wangluo"
         android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_marginTop="160dp"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="160dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <ImageView
                 android:layout_width="80dp"
-                android:src="@mipmap/netwok_fault"
-                android:layout_height="77dp" />
+                android:layout_height="77dp"
+                android:src="@mipmap/netwok_fault" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:text="网络不给力"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="14dp"
-                android:textSize="12sp"
+                android:text="网络不给力"
                 android:textColor="@color/black"
-                android:layout_height="wrap_content" />
+                android:textSize="12sp" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:text="请检查网络链接后，点击重试"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textSize="12sp"
+                android:text="请检查网络链接后，点击重试"
                 android:textColor="@color/gray"
-                android:layout_height="wrap_content" />
+                android:textSize="12sp" />
 
 
             <Button
-                android:id="@+id/home_notice_fragment_listview_fault_btn"
+                android:id="@+id/home_yugao_fragment_recyclerView_chongshi_btn"
                 android:layout_width="82dp"
-                android:background="@drawable/button_blue_bg_active"
+                android:layout_height="32dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/button_blue_bg_active"
+                android:gravity="center"
                 android:text="重试"
                 android:textColor="@color/white"
-                android:textSize="14sp"
-                android:gravity="center"
-                android:layout_height="32dp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -137,119 +143,119 @@
 
     <!--时间筛选view-->
     <LinearLayout
-        android:id="@+id/home_notice_fragment_timesort_group"
+        android:id="@+id/home_yugao_fragment_yincang_group"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@id/home_notice_fragment_timesort_btn_group"
+        android:layout_height="2000dp"
+        android:layout_below="@id/home_yugao_fragment_timesort_btn_group"
         android:background="#99000000"
-        android:visibility="gone"
-        android:layout_height="2000dp">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
             android:background="@color/white"
-            android:layout_height="wrap_content">
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
                 style="@style/login_line_style"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
                 android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:layout_height="1dp" />
+                android:layout_marginRight="12dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
+                android:layout_height="88dp"
                 android:gravity="center"
-                android:layout_height="88dp">
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/home_notice_fragment_timesort_start_group"
+                    android:id="@+id/home_yugao_fragment_timesort_start_group"
                     android:layout_width="140dp"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/home_notice_fragment_timesort_start_tv"
+                        android:id="@+id/home_yugao_fragment_timesort_start_tv"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:layout_height="wrap_content" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:background="@color/black"
+                        android:layout_height="1dp"
                         android:layout_marginTop="12dp"
-                        android:layout_height="1dp" />
+                        android:background="@color/black" />
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:text="至"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
                     android:layout_marginRight="12dp"
-                    android:textSize="14sp"
+                    android:text="至"
                     android:textColor="#999999"
-                    android:layout_height="wrap_content" />
+                    android:textSize="14sp" />
 
 
                 <LinearLayout
-                    android:id="@+id/home_notice_fragment_timesort_end_group"
+                    android:id="@+id/home_yugao_fragment_timesort_end_group"
                     android:layout_width="140dp"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/home_notice_fragment_timesort_end_tv"
+                        android:id="@+id/home_yugao_fragment_timesort_end_tv"
                         android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
-                        android:layout_height="wrap_content" />
+                        android:textSize="14sp" />
 
                     <TextView
                         android:layout_width="match_parent"
+                        android:layout_height="1dp"
                         android:layout_marginTop="12dp"
-                        android:background="@color/black"
-                        android:layout_height="1dp" />
+                        android:background="@color/black" />
 
                 </LinearLayout>
 
             </LinearLayout>
 
             <TextView
-                android:layout_width="match_parent"
                 style="@style/login_line_style"
+                android:layout_width="match_parent"
                 android:layout_height="1dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
+                android:layout_height="44dp"
                 android:background="@color/white"
-                android:layout_height="44dp">
+                android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/home_notice_fragment_resbtn"
+                    android:id="@+id/home_yugao_fragment_chongzhi_text"
                     android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="重置"
                     android:gravity="center"
-                    android:textSize="15sp"
-                    android:layout_height="match_parent" />
+                    android:text="重置"
+                    android:textSize="15sp" />
 
                 <TextView
-                    android:id="@+id/home_notice_fragment_surebtn"
+                    android:id="@+id/home_yugao_fragment_queding_text"
                     android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:background="@color/blue_arlt"
+                    android:gravity="center"
                     android:text="确定"
                     android:textColor="@color/white"
-                    android:gravity="center"
-                    android:background="@color/blue_arlt"
-                    android:textSize="15sp"
-                    android:layout_height="match_parent" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 

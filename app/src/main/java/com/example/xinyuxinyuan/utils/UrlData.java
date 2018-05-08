@@ -44,4 +44,9 @@ public class UrlData {
      * 宝典首页
      */
     public static final String BAO_DIAN = "v1/m/artcircle/home";
+
+    /**
+     * 预告首页
+     */
+    public static final String YU_GAO = "v1/m/forthcoming/home";
 }

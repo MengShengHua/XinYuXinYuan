@@ -1,11 +1,13 @@
 package com.example.xinyuxinyuan.view.fragment.mingshi;
-
-
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -13,11 +15,15 @@ import android.widget.TextView;
 import com.baoyz.widget.PullRefreshLayout;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
-import com.example.xinyuxinyuan.contract.Bean.MingShiBean;
+import com.example.xinyuxinyuan.contract.bean.MingShiBean;
 import com.example.xinyuxinyuan.contract.home.MingShi;
 import com.example.xinyuxinyuan.presenter.home.MingShiPresenter;
 import com.example.xinyuxinyuan.utils.MyScrollView;
 import com.example.xinyuxinyuan.utils.zidingyi.CustomDrawable;
+import com.example.xinyuxinyuan.view.activity.home.HomeActivity;
+import com.example.xinyuxinyuan.view.activity.home.xianshangke.XianShangKeActivity;
+import com.example.xinyuxinyuan.view.activity.home.zhaolaoshi.ZhaoLaoShiActivity;
+import com.example.xinyuxinyuan.view.activity.login.LoginActivity;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.KeChengTuiJian_Adpater;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.MingShiTuiJian_Adpater;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.TuiJianZuoYe_Adpater;
@@ -25,11 +31,10 @@ import com.recker.flybanner.FlyBanner;
 
 import java.util.ArrayList;
 import java.util.List;
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MingShiFragment extends BaseFragment implements MingShi.View {
+public class MingShiFragment extends BaseFragment implements MingShi.View, View.OnClickListener {
 
 
     private MingShiPresenter mingShiPresenter;
@@ -46,6 +51,7 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
     private TextView tuijian_zuoye_gengduo;
     private TextView kecheng_gengduo;
     private TextView mingshi_gengduo;
+    private ImageView title_message_image;
     private List<String> lunBoList = new ArrayList<>();
     List<MingShiBean.DataBean.UsersBean> userList = new ArrayList<>();
     List<MingShiBean.DataBean.LiveCoursesBean> kechengList = new ArrayList<>();
@@ -55,10 +61,6 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
     private MingShiTuiJian_Adpater mingShiTuiJian_adpater;
     private KeChengTuiJian_Adpater keChengTuiJian_adpater;
     private TuiJianZuoYe_Adpater tuiJianZuoYe_adpater;
-
-    public MingShiFragment() {
-        // Required empty public constructor
-    }
 
 
     @Override
@@ -87,6 +89,7 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
         kecheng_tuijian_recyclerView = view.findViewById(R.id.kecheng_tuijian_recyclerView);
         tuijian_zuoye_recyclerView = view.findViewById(R.id.tuijian_zuoye_recyclerView);
         yi_qi_liao_yikao = view.findViewById(R.id.yi_qi_liao_yikao);
+        title_message_image = view.findViewById(R.id.title_message_image);
         /*
         * 这是设置名师推荐的linearLayoutManager
         * */
@@ -140,6 +143,13 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
         //设置推荐作业的适配器
         tuiJianZuoYe_adpater = new TuiJianZuoYe_Adpater(getContext(),zuoyeList);
         tuijian_zuoye_recyclerView.setAdapter(tuiJianZuoYe_adpater);
+
+        mingshi_zhaolaoshi.setOnClickListener(this);
+        mingshi_xianshangke.setOnClickListener(this);
+        mingshi_jiaozuoye.setOnClickListener(this);
+        mingshi_xianxiake.setOnClickListener(this);
+        mingshi_liaoyikao.setOnClickListener(this);
+        title_message_image.setOnClickListener(this);
     }
 
     //重新加载数据
@@ -154,12 +164,13 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
         //清空作业推荐的数据
         zuoyeList.clear();
         //再次请求数据
-
     }
 
     @Override
     protected void loadData() {
         mingShiPresenter.loadMingShiData();
+//
+
     }
 
 
@@ -191,6 +202,40 @@ public class MingShiFragment extends BaseFragment implements MingShi.View {
         if(tuiJianZuoYe_adpater != null && tuiJianZuoYe_adpater.getItemCount()==0){
             zuoyeList.addAll(data.getHomewoks());
             tuiJianZuoYe_adpater.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.mingshi_zhaolaoshi:
+                startActivity(new Intent(getContext(), ZhaoLaoShiActivity.class));
+                break;
+            case R.id.mingshi_xianshangke:
+                startActivity(new Intent(getContext(), XianShangKeActivity.class));
+                break;
+            case R.id.mingshi_jiaozuoye:
+                ((HomeActivity)getActivity()).zuo_ye_btn.setChecked(true);
+                break;
+            case R.id.mingshi_xianxiake:
+                ((HomeActivity)getActivity()).yu_gao_btn.setChecked(true);
+                break;
+            case R.id.mingshi_liaoyikao:
+                ((HomeActivity)getActivity()).bao_dian_btn.setChecked(true);
+                ((HomeActivity)getActivity()).baoDianFragment.home_baodian_fragment_viewPager.setCurrentItem(2);
+                break;
+            case R.id.title_message_image:
+                SharedPreferences loginPreferences = getContext().getSharedPreferences("Login", Context.MODE_PRIVATE);
+        String phone = loginPreferences.getString("phone", "用户未登录");
+        if ("用户未登录".equals(phone)) {
+            startActivity(new Intent(getContext(), LoginActivity.class));
+//                    getActivity().finish();
+        } else {
+            ////                用户登录了跳转消息提醒Activity
+//            startActivity(new Intent(getContext(), MessageSettingActivity.class));
+//                    getActivity().finish();
+        }
+                break;
         }
     }
 }
