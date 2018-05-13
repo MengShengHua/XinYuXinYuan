@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    tools:context="com.example.xinyuxinyuan.view.activity.home.huifu.HuiFuActivity">
+
+    <include
+        android:id="@+id/huifu_title"
+        layout="@layout/title_fu_yong" />
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/huifu_recyclerView"
+        android:layout_below="@+id/huifu_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.RecyclerView>
+
+
+    <EditText
+        android:id="@+id/huifu_editText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="说点什么..." />
+
+    <Button
+        android:id="@+id/huifu_sendBtn"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/huifu_editText"
+        android:layout_alignBottom="@+id/huifu_editText"
+        android:layout_toEndOf="@+id/huifu_editText"
+        android:layout_toRightOf="@+id/huifu_editText"
+        android:background="@color/blue_arlt"
+        android:gravity="center"
+        android:text="发送"
+        android:textColor="#ffffff" />
+
+
+</RelativeLayout>

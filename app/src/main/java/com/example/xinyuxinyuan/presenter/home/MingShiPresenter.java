@@ -1,5 +1,7 @@
 package com.example.xinyuxinyuan.presenter.home;
 
+import android.util.Log;
+
 import com.example.xinyuxinyuan.contract.bean.MingShiBean;
 import com.example.xinyuxinyuan.contract.home.MingShi;
 import com.example.xinyuxinyuan.model.home.MingShiModel;

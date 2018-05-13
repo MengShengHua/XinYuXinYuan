@@ -1,9 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.home.zhaolaoshi.ZhaoLaoShiActivity">
+    android:orientation="vertical"
+    tools:context=".view.activity.home.zhaolaoshi.activity.ZhaoLaoShiActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include
+        android:id="@+id/zhao_laoshi_title"
+        layout="@layout/title_fu_yong"></include>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/zhao_laoshi_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zhao_laoshi_title"></android.support.design.widget.TabLayout>
+
+    <com.example.xinyuxinyuan.utils.zidingyi.MyViewPager
+        android:id="@+id/zhao_laoshi_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zhao_laoshi_tablayout">
+
+    </com.example.xinyuxinyuan.utils.zidingyi.MyViewPager>
+</RelativeLayout>

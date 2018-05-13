@@ -20,7 +20,7 @@ import java.util.List;
  * Created by 键盘上的手艺人 on 2018/5/4.
  */
 
-public class KeChengTuiJian_Adpater extends RecyclerView.Adapter<KeChengTuiJian_Adpater.Hodler>{
+public class KeChengTuiJian_Adpater extends RecyclerView.Adapter<KeChengTuiJian_Adpater.Hodler> implements View.OnClickListener {
     Context context;
     List<MingShiBean.DataBean.LiveCoursesBean> kechengList;
     public KeChengTuiJian_Adpater(Context context, List<MingShiBean.DataBean.LiveCoursesBean> kechengList) {
@@ -33,6 +33,7 @@ public class KeChengTuiJian_Adpater extends RecyclerView.Adapter<KeChengTuiJian_
     public Hodler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.kecheng_tuijian_item_layout, parent, false);
         Hodler hodler = new Hodler(inflate);
+        inflate.setOnClickListener(this);
         return hodler;
     }
 
@@ -47,6 +48,8 @@ public class KeChengTuiJian_Adpater extends RecyclerView.Adapter<KeChengTuiJian_
         }else{
             holder.kecheng_tuijian_item_tubiao.setImageResource(R.mipmap.home_level_vip_yellow);
         }
+        holder.itemView.setTag(position);
+
     }
 
     @Override
@@ -71,4 +74,21 @@ public class KeChengTuiJian_Adpater extends RecyclerView.Adapter<KeChengTuiJian_
             kecheng_tuijian_item_tubiao = itemView.findViewById(R.id.kecheng_tuijian_item_tubiao);
         }
     }
+
+
+        public interface MyFace{
+            void setItemClick(View view,int position);
+        }
+        private MyFace myFace;
+
+        public void getItemClick(MyFace myFace){
+            this.myFace = myFace;
+        }
+
+        @Override
+        public void onClick(View view) {
+            if(myFace != null){
+                myFace.setItemClick(view, (Integer) view.getTag());
+            }
+        }
 }

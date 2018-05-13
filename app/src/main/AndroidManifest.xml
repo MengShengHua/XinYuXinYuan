@@ -6,6 +6,15 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
 
     <application
         android:name=".App"
@@ -16,6 +25,29 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".view.activity.home.HomeActivity" />
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="561cae6ae0f55abd990035bf" />
+
         <activity android:name=".view.activity.anim.AnimActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,12 +63,17 @@
             android:name=".view.activity.register.RegisterActivity"
             android:label="@string/title_activity_register"
             android:theme="@style/AppTheme" />
-        <activity android:name=".view.activity.home.zhaolaoshi.ZhaoLaoShiActivity" />
-        <activity android:name=".view.activity.home.xianshangke.XianShangKeActivity" />
+        <activity android:name=".view.activity.home.zhaolaoshi.activity.ZhaoLaoShiActivity" />
+        <activity android:name=".view.activity.home.xianshangke.activity.XianShangKeActivity" />
         <activity android:name=".view.activity.messagesetting.MessageSettingActivity" />
         <activity android:name=".view.activity.wode.SetActivity" />
         <activity android:name=".view.activity.wode.PersonalActivity" />
         <activity android:name=".view.activity.wode.MyMessageActivity" />
+        <activity android:name=".view.activity.home.zhaolaoshi.activity.XiangQingActivity" />
+        <activity android:name=".view.activity.home.xianshangke.activity.XiangQing_Mai_Activity" />
+        <activity android:name=".view.activity.home.zuoyexiangqing.ZuoYeXiangQingActivity" />
+        <activity android:name=".view.activity.home.huifu.HuiFuActivity" />
+        <activity android:name=".view.activity.home.fabuzuoye.FaBuZuoYeActivity"></activity>
     </application>
 
 </manifest>

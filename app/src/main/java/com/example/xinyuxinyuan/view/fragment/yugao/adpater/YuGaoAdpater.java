@@ -20,7 +20,7 @@ import java.util.List;
  * Created by 键盘上的手艺人 on 2018/5/7.
  */
 
-public class YuGaoAdpater extends RecyclerView.Adapter<YuGaoAdpater.Hodler>{
+public class YuGaoAdpater extends RecyclerView.Adapter<YuGaoAdpater.Hodler> implements View.OnClickListener {
     Context context;
     List<YuGaoBean.DataBean.ListBean> mList;
     public YuGaoAdpater(Context context, List<YuGaoBean.DataBean.ListBean> mList) {
@@ -33,6 +33,8 @@ public class YuGaoAdpater extends RecyclerView.Adapter<YuGaoAdpater.Hodler>{
     public YuGaoAdpater.Hodler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.yugao_item_layout, parent, false);
         Hodler hodler = new Hodler(inflate);
+
+        inflate.setOnClickListener(this);
         return hodler;
     }
 
@@ -49,6 +51,9 @@ public class YuGaoAdpater extends RecyclerView.Adapter<YuGaoAdpater.Hodler>{
         holder.home_yugao_item_yuyue.setText(""+mList.get(position).getReservationNum()+"/"+mList.get(position).getSubscribeNum());
         holder.homeyugao_item_time.setText(DataUtils.getDateToString(mList.get(position).getStartDate()));
         Glide.with(context).load(mList.get(position).getCoverImg()).into(holder.home_yugao_item_img);
+
+        holder.itemView.setTag(position);
+
     }
 
     @Override
@@ -75,4 +80,20 @@ public class YuGaoAdpater extends RecyclerView.Adapter<YuGaoAdpater.Hodler>{
             homeyugao_item_time = itemView.findViewById(R.id.homeyugao_item_time);
         }
     }
+
+        public interface MyFace{
+            void setItemClick(View view,int position);
+        }
+        private MyFace myFace;
+
+        public void getItemClick(MyFace myFace){
+            this.myFace = myFace;
+        }
+
+        @Override
+        public void onClick(View view) {
+            if(myFace != null){
+                myFace.setItemClick(view, (Integer) view.getTag());
+            }
+        }
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#ffffff"
+    android:layout_height="wrap_content">
+   <ImageView
+       android:id="@+id/title_fuyong_finish"
+        android:background="@mipmap/register_return"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/title_fuyong_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="名师"
+        android:textSize="20sp"
+        android:textColor="#2f66b9" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"
+        android:background="@mipmap/home_master_search" />
+</RelativeLayout>

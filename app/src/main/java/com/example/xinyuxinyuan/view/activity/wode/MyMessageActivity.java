@@ -16,5 +16,4 @@ public class MyMessageActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_message);
     }
-
 }

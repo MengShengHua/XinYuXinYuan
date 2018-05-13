@@ -1,10 +1,14 @@
 package com.example.xinyuxinyuan.view.fragment.baodian;
 
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.baoyz.widget.PullRefreshLayout;
 import com.example.xinyuxinyuan.R;
@@ -15,6 +19,8 @@ import com.example.xinyuxinyuan.contract.home.BaoDian;
 import com.example.xinyuxinyuan.presenter.home.BaoDianPresenter;
 import com.example.xinyuxinyuan.utils.ShareUtils;
 import com.example.xinyuxinyuan.utils.zidingyi.MyViewPager;
+import com.example.xinyuxinyuan.view.activity.login.LoginActivity;
+import com.example.xinyuxinyuan.view.activity.messagesetting.MessageSettingActivity;
 import com.example.xinyuxinyuan.view.fragment.baodian.adpater.BaoDianViewPagerAdpater;
 import com.example.xinyuxinyuan.view.fragment.baodian.fragment.FuYongFragment;
 import com.recker.flybanner.FlyBanner;
@@ -25,7 +31,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BaoDianFragment extends BaseFragment implements BaoDian.View {
+public class BaoDianFragment extends BaseFragment implements BaoDian.View, View.OnClickListener {
 
 
     private FlyBanner home_baodian_fragment_flyBanner;
@@ -37,6 +43,7 @@ public class BaoDianFragment extends BaseFragment implements BaoDian.View {
     private List<Fragment> mFragments = new ArrayList<>();
     private List<String> mTitle = new ArrayList<>();
     private BaoDianViewPagerAdpater baoDianViewPagerAdpater;
+    private ImageView title_message_image;
 
 
     @Override
@@ -50,6 +57,7 @@ public class BaoDianFragment extends BaseFragment implements BaoDian.View {
         home_baodian_fragment_pullRefreshLayout = view.findViewById(R.id.home_baodian_fragment_pullRefreshLayout);
         home_baodian_fragment_tablayout = view.findViewById(R.id.home_baodian_fragment_tablayout);
         home_baodian_fragment_viewPager = view.findViewById(R.id.home_baodian_fragment_viewPager);
+        title_message_image = view.findViewById(R.id.title_message_image);
 
         //实例化P层对象
         baoDianPresenter = new BaoDianPresenter(this);
@@ -77,6 +85,7 @@ public class BaoDianFragment extends BaseFragment implements BaoDian.View {
                 }, 1000);
             }
         });
+        title_message_image.setOnClickListener(this);
     }
 
     @Override
@@ -121,5 +130,23 @@ public class BaoDianFragment extends BaseFragment implements BaoDian.View {
         }
 
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.title_message_image:
+                SharedPreferences loginPreferences = getContext().getSharedPreferences("Login", Context.MODE_PRIVATE);
+                String phone = loginPreferences.getString("phone", "用户未登录");
+                if ("用户未登录".equals(phone)) {
+                    startActivity(new Intent(getContext(), LoginActivity.class));
+                    //getActivity().finish();
+                }else {
+                    //用户登录了跳转消息提醒Activity
+                    startActivity(new Intent(getContext(), MessageSettingActivity.class));
+                    //getActivity().finish();
+                }
+                break;
+        }
     }
 }

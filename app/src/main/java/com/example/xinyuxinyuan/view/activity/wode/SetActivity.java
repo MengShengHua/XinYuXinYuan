@@ -62,14 +62,19 @@ public class SetActivity extends BaseActivity implements View.OnClickListener {
                 finish();
                 break;
             case R.id.setActivity_BindingPhone:
+
                 break;
             case R.id.setActivity_SheJiao:
+
                 break;
             case R.id.setActivity_LoginPassword:
+
                 break;
             case R.id.setActivity_clearCache:
+
                 break;
             case R.id.setActivity_UnivStar:
+
                 break;
             case R.id.setActivity_outLogin:
 //                退出登录清空数据
@@ -78,7 +83,6 @@ public class SetActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(SetActivity.this, HomeActivity.class));
                 finish();
                 break;
-
         }
     }
 

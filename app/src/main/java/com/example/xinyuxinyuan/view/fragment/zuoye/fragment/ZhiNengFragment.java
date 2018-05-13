@@ -1,6 +1,8 @@
 package com.example.xinyuxinyuan.view.fragment.zuoye.fragment;
 
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -11,6 +13,10 @@ import com.example.xinyuxinyuan.contract.bean.ZuoYeBean;
 import com.example.xinyuxinyuan.contract.home.ZuoYe;
 import com.example.xinyuxinyuan.presenter.home.ZuoYePresenter;
 import com.example.xinyuxinyuan.utils.ShareUtils;
+import com.example.xinyuxinyuan.view.activity.home.xianshangke.activity.XiangQing_Mai_Activity;
+import com.example.xinyuxinyuan.view.activity.home.zhaolaoshi.activity.XiangQingActivity;
+import com.example.xinyuxinyuan.view.activity.home.zuoyexiangqing.ZuoYeXiangQingActivity;
+import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.TuiJianZuoYe_Adpater;
 import com.example.xinyuxinyuan.view.fragment.zuoye.adpater.TouTingAdpater;
 
 import java.util.ArrayList;
@@ -24,6 +30,8 @@ public class ZhiNengFragment extends BaseFragment implements ZuoYe.View{
     public  ZuoYePresenter zuoYePresenter;
     private List<ZuoYeBean.DataBean.ListBean> mList = new ArrayList<>();
     private TouTingAdpater touTingAdpater;
+    private int sortord;
+
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_zhi_neng;
@@ -31,6 +39,9 @@ public class ZhiNengFragment extends BaseFragment implements ZuoYe.View{
 
     @Override
     protected void init(View view) {
+
+        Bundle arguments = getArguments();
+        sortord = arguments.getInt("sortord");
         //实例化作业页面p层对象
         zuoYePresenter = new ZuoYePresenter(this);
 
@@ -41,12 +52,21 @@ public class ZhiNengFragment extends BaseFragment implements ZuoYe.View{
         //设置适配器
         touTingAdpater = new TouTingAdpater(getContext(),mList);
         zhineng_recyclerView.setAdapter(touTingAdpater);
+        touTingAdpater.getItemClick(new TuiJianZuoYe_Adpater.MyFace() {
+            @Override
+            public void setItemClick(View view, int position) {
+                Intent intent = new Intent(getContext(), ZuoYeXiangQingActivity.class);
+                intent.putExtra("id",mList.get(position).getId());
+
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     protected void loadData() {
         //加载数据
-        zuoYePresenter.loadZuoYeData(0, ShareUtils.getLoginUserId(),ShareUtils.getPage(),20);
+        zuoYePresenter.loadZuoYeData(sortord, ShareUtils.getLoginUserId(),ShareUtils.getPage(),20);
     }
 
     //拿到数据

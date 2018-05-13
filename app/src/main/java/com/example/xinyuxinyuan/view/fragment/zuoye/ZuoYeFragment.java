@@ -1,18 +1,28 @@
 package com.example.xinyuxinyuan.view.fragment.zuoye;
+
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+
 import com.baoyz.widget.PullRefreshLayout;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
 import com.example.xinyuxinyuan.presenter.home.ZuoYePresenter;
 import com.example.xinyuxinyuan.utils.zidingyi.MyViewPager;
+import com.example.xinyuxinyuan.view.activity.login.LoginActivity;
+import com.example.xinyuxinyuan.view.activity.messagesetting.MessageSettingActivity;
 import com.example.xinyuxinyuan.view.fragment.zuoye.adpater.ViewPagerAdpater;
 import com.example.xinyuxinyuan.view.fragment.zuoye.fragment.TouTingFragment;
 import com.example.xinyuxinyuan.view.fragment.zuoye.fragment.ZhiNengFragment;
 import com.example.xinyuxinyuan.view.fragment.zuoye.fragment.ZuiXinFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,11 +46,7 @@ public class ZuoYeFragment extends BaseFragment implements View.OnClickListener,
     private ZhiNengFragment zhiNengFragment;
     private TouTingFragment touTingFragment;
     private ZuiXinFragment zuiXinFragment;
-
-    public ZuoYeFragment() {
-        // Required empty public constructor
-    }
-
+    private ImageView title_message_image;
 
     @Override
     protected int getLayoutId() {
@@ -55,6 +61,7 @@ public class ZuoYeFragment extends BaseFragment implements View.OnClickListener,
         home_zuoye_fragment_tablayout = view.findViewById(R.id.home_zuoye_fragment_tablayout);
         home_zuoye_fragment_tijiao_linearLayout = view.findViewById(R.id.home_zuoye_fragment_tijiao_linearLayout);
         home_zuoye_fragment_viewPager = view.findViewById(R.id.home_zuoye_fragment_viewPager);
+        title_message_image = view.findViewById(R.id.title_message_image);
 
         //设置viewPager的适配器
         adpater = new ViewPagerAdpater(getChildFragmentManager(), mTitle, mFragments);
@@ -80,21 +87,22 @@ public class ZuoYeFragment extends BaseFragment implements View.OnClickListener,
                 }, 1000);
             }
         });
+        title_message_image.setOnClickListener(this);
     }
 
     @Override
     protected void loadData() {
-
         if (adpater.getCount() == 0) {
-            zhiNengFragment = new ZhiNengFragment();
-            touTingFragment = new TouTingFragment();
-            zuiXinFragment = new ZuiXinFragment();
-            mFragments.add(zhiNengFragment);
-            mFragments.add(touTingFragment);
-            mFragments.add(zuiXinFragment);
             mTitle.add("智能筛选");
             mTitle.add("偷听最多");
             mTitle.add("最新点评");
+            for (int i = 0; i < mTitle.size(); i++) {
+                ZhiNengFragment zhiNengFragment = new ZhiNengFragment();
+                Bundle bundle = new Bundle();
+                bundle.putInt("sortord", i);
+                zhiNengFragment.setArguments(bundle);
+                mFragments.add(zhiNengFragment);
+            }
         }
         adpater.notifyDataSetChanged();
     }
@@ -107,6 +115,18 @@ public class ZuoYeFragment extends BaseFragment implements View.OnClickListener,
                 break;
             case R.id.home_zuoye_fragment_tijiao_linearLayout:
 
+                break;
+            case R.id.title_message_image:
+                SharedPreferences loginPreferences = getContext().getSharedPreferences("Login", Context.MODE_PRIVATE);
+                String phone = loginPreferences.getString("phone", "用户未登录");
+                if ("用户未登录".equals(phone)) {
+                    startActivity(new Intent(getContext(), LoginActivity.class));
+                    //getActivity().finish();
+                } else {
+                    //用户登录了跳转消息提醒Activity
+                    startActivity(new Intent(getContext(), MessageSettingActivity.class));
+                    //getActivity().finish();
+                }
                 break;
         }
     }

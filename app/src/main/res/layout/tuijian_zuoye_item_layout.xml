@@ -170,15 +170,17 @@
             </LinearLayout>
             <Button
                 android:id="@+id/tuijian_zuoye_item_shapeBut"
-                android:layout_width="100dp"
-                android:layout_height="35dp"
+                android:layout_width="70dp"
+                android:layout_height="28dp"
                 android:layout_marginTop="1dp"
-                android:layout_marginLeft="180dp"
+
                 android:text="啦啦"
                 android:background="@drawable/ban_yuan_shape"
                 android:gravity="center"
                 android:visibility="invisible"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="200dp"
+
+                android:layout_marginRight="70dp"
                 android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
@@ -258,6 +260,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/tuijian_zuoye_item_teacher_price_group"
                 android:layout_width="100dp"
                 android:background="@drawable/look_group_bg"
                 android:layout_alignParentRight="true"
@@ -315,6 +318,7 @@
 
 
             <LinearLayout
+                android:id="@+id/tuijian_zuoye_item_dianzan_group"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -323,16 +327,17 @@
                 <CheckBox
                     android:id="@+id/tuijian_zuoye_item_dianzan"
                     android:layout_width="wrap_content"
+                    android:textColor="@drawable/praise_check_tv_bg"
+                    android:checked="false"
                     android:button="@drawable/praise_check_bg"
                     android:layout_height="wrap_content"
-                    android:checked="false"
                     android:paddingLeft="8dp"
-                    android:textColor="@drawable/praise_check_tv_bg"/>
-
+                    />
             </LinearLayout>
 
 
             <LinearLayout
+                android:id="@+id/tuijian_zuoye_item_shang_group"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
@@ -351,6 +356,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/tuijian_zuoye_item_fenxiang_group"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:gravity="center"

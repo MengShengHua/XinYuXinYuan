@@ -19,7 +19,7 @@ import java.util.List;
  * Created by 键盘上的手艺人 on 2018/5/4.
  */
 
-public class MingShiTuiJian_Adpater extends RecyclerView.Adapter<MingShiTuiJian_Adpater.Holder>{
+public class MingShiTuiJian_Adpater extends RecyclerView.Adapter<MingShiTuiJian_Adpater.Holder> implements View.OnClickListener {
     Context context;
     List<MingShiBean.DataBean.UsersBean> userList;
     public MingShiTuiJian_Adpater(Context context, List<MingShiBean.DataBean.UsersBean> userList) {
@@ -32,6 +32,7 @@ public class MingShiTuiJian_Adpater extends RecyclerView.Adapter<MingShiTuiJian_
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.mingshi_tuijian_item_layout, parent, false);
         Holder holder = new Holder(inflate);
+        inflate.setOnClickListener(this);
         return holder;
     }
 
@@ -45,6 +46,8 @@ public class MingShiTuiJian_Adpater extends RecyclerView.Adapter<MingShiTuiJian_
         }else{
             holder.mingshi_tuijian_item_tubiao.setImageResource(R.mipmap.home_level_vip_yellow);
         }
+        holder.itemView.setTag(position);
+
     }
 
     @Override
@@ -67,4 +70,22 @@ public class MingShiTuiJian_Adpater extends RecyclerView.Adapter<MingShiTuiJian_
             mingshi_tuijian_item_tubiao = itemView.findViewById(R.id.mingshi_tuijian_item_tubiao);
         }
     }
+
+
+
+        public interface MyFace{
+            void setItemClick(View view,int position);
+        }
+        private MyFace myFace;
+
+        public void getItemClick(MyFace myFace){
+            this.myFace = myFace;
+        }
+
+        @Override
+        public void onClick(View view) {
+            if(myFace != null){
+                myFace.setItemClick(view, (Integer) view.getTag());
+            }
+        }
 }

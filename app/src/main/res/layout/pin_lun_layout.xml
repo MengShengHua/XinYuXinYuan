@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="#ffffff"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_marginTop="25dp"
+        android:id="@+id/pin_lun_item_image"
+        android:background="@mipmap/user_head_portrait"
+        android:layout_width="40dp"
+        android:layout_marginLeft="11dp"
+        android:layout_height="40dp" />
+
+    <TextView
+        android:id="@+id/pin_lun_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/pin_lun_item_image"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_toEndOf="@+id/pin_lun_item_image"
+        android:layout_toRightOf="@+id/pin_lun_item_image"
+        android:text="的非官方"
+        android:textColor="#000"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/pin_lun_item_neirong"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_alignLeft="@+id/pin_lun_item_name"
+        android:layout_alignStart="@+id/pin_lun_item_name"
+        android:layout_below="@+id/pin_lun_item_name"
+        android:text="都改好发给" />
+
+    <TextView
+        android:id="@+id/pin_lun_item_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pin_lun_item_neirong"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:text="6天前" />
+
+    <CheckBox
+        android:id="@+id/pin_lun_item_chect_dianzan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/pin_lun_item_data"
+        android:layout_alignRight="@+id/pin_lun_item_data"
+        android:layout_below="@+id/pin_lun_item_neirong"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="2dp"
+        android:button="@drawable/praise_check_bg"
+        android:checked="false"
+        android:textColor="@drawable/praise_check_tv_bg" />
+
+    <TextView
+        android:id="@+id/pin_lun_item_chect_huifu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pin_lun_item_chect_dianzan"
+        android:layout_alignBottom="@+id/pin_lun_item_chect_dianzan"
+        android:layout_toLeftOf="@+id/pin_lun_item_chect_dianzan"
+        android:layout_toStartOf="@+id/pin_lun_item_chect_dianzan"
+        android:text="回复"
+        android:layout_marginRight="3dp"
+        android:textColor="#2e13de" />
+
+    <View
+        android:layout_marginTop="5dp"
+        android:background="#afaaaa"
+        android:layout_below="@+id/pin_lun_item_chect_huifu"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"></View>
+
+    <TextView
+        android:id="@+id/pin_lun_item_gongjitiao_huifu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/pin_lun_item_chect_huifu"
+        android:visibility="gone"
+        android:layout_alignBottom="@+id/pin_lun_item_chect_huifu"
+        android:layout_alignLeft="@+id/pin_lun_item_neirong"
+        android:layout_alignStart="@+id/pin_lun_item_neirong"
+        android:text="共一条回复"
+        android:textColor="#2e13de" />
+
+
+</RelativeLayout>

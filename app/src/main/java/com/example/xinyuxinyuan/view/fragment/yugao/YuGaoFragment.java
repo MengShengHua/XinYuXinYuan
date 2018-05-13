@@ -4,6 +4,8 @@ package com.example.xinyuxinyuan.view.fragment.yugao;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -29,6 +31,9 @@ import com.example.xinyuxinyuan.contract.home.YuGao;
 import com.example.xinyuxinyuan.presenter.home.YuGaoPresenter;
 import com.example.xinyuxinyuan.utils.ShareUtils;
 import com.example.xinyuxinyuan.view.activity.home.HomeActivity;
+import com.example.xinyuxinyuan.view.activity.home.xianshangke.activity.XiangQing_Mai_Activity;
+import com.example.xinyuxinyuan.view.activity.login.LoginActivity;
+import com.example.xinyuxinyuan.view.activity.messagesetting.MessageSettingActivity;
 import com.example.xinyuxinyuan.view.fragment.yugao.adpater.YuGaoAdpater;
 
 import java.util.ArrayList;
@@ -162,6 +167,15 @@ public class YuGaoFragment extends BaseFragment implements View.OnClickListener,
                 }, 1000);
             }
         });
+        yuGaoAdpater.getItemClick(new YuGaoAdpater.MyFace() {
+            @Override
+            public void setItemClick(View view, int position) {
+                Intent intent = new Intent(getContext(), XiangQing_Mai_Activity.class);
+                intent.putExtra("id",mList.get(position).getId());
+                intent.putExtra("type",5);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -199,7 +213,16 @@ public class YuGaoFragment extends BaseFragment implements View.OnClickListener,
                 shijianClick();
                 break;
             case R.id.title_message_image:
-
+                SharedPreferences loginPreferences = getContext().getSharedPreferences("Login", Context.MODE_PRIVATE);
+                String phone = loginPreferences.getString("phone", "用户未登录");
+                if ("用户未登录".equals(phone)) {
+                    startActivity(new Intent(getContext(), LoginActivity.class));
+                    //getActivity().finish();
+                }else {
+                    //用户登录了跳转消息提醒Activity
+                    startActivity(new Intent(getContext(), MessageSettingActivity.class));
+                    //getActivity().finish();
+                }
                 break;
             case R.id.home_yugao_fragment_timesort_start_group:
                 showStartData();

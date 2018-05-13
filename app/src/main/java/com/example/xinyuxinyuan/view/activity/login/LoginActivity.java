@@ -3,6 +3,7 @@ package com.example.xinyuxinyuan.view.activity.login;
 import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,7 @@ import com.example.xinyuxinyuan.contract.bean.LoginBean;
 import com.example.xinyuxinyuan.contract.LoginContract;
 import com.example.xinyuxinyuan.presenter.IpLoginPersenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
+import com.example.xinyuxinyuan.utils.ShareUtils;
 import com.example.xinyuxinyuan.utils.ToastUtils;
 import com.example.xinyuxinyuan.view.activity.forgetpassword.ForGetPasswordActivity;
 import com.example.xinyuxinyuan.view.activity.home.HomeActivity;
@@ -193,6 +195,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                     loginBean.getData().getToken());
             ToastUtils.mainThread("登录成功", 0);
             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+            ShareUtils.setLoginUserId(Integer.parseInt(LoginShareUtils.getUserMessage(this,"id")));
+            Log.e("=================",""+ShareUtils.getLoginUserId());
             finish();
         }
     }
