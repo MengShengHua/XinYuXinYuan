@@ -73,7 +73,21 @@
         <activity android:name=".view.activity.home.xianshangke.activity.XiangQing_Mai_Activity" />
         <activity android:name=".view.activity.home.zuoyexiangqing.ZuoYeXiangQingActivity" />
         <activity android:name=".view.activity.home.huifu.HuiFuActivity" />
-        <activity android:name=".view.activity.home.fabuzuoye.FaBuZuoYeActivity"></activity>
+        <activity android:name=".view.activity.home.fabuzuoye.FaBuZuoYeActivity" />
+        <activity android:name=".view.activity.perfectinformation.PerfectinActivity" />
+        <activity android:name=".view.activity.wode.AuthenticationActivity" />
+        <activity android:name=".view.activity.wode.FollowAndFansActivity" />
+        <activity android:name=".view.activity.wode.giftconter.GiftConterActivity" />
+        <activity android:name=".view.activity.wode.HobbyActivity" />
+        <activity android:name=".view.activity.wode.order.DetailsActivity" />
+        <activity android:name=".view.activity.wode.order.OrderActivity" />
+        <activity android:name=".view.activity.wode.order.PaymentActivity" />
+        <activity android:name=".view.activity.wode.RechargeActivity" />
+        <activity android:name=".view.activity.wode.set.AboutUnivStarActivity" />
+        <activity android:name=".view.activity.wode.set.EditActivity" />
+        <activity android:name=".view.activity.wode.set.IntroduceActivity" />
+        <activity android:name=".view.activity.wode.set.ReplaceNewPhoneActivity" />
+        <activity android:name=".view.activity.wode.set.ReplacePhoneActivity" />
     </application>
 
 </manifest>

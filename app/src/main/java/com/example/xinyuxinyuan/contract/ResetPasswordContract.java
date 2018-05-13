@@ -16,6 +16,8 @@ public interface ResetPasswordContract {
         void loadJudgeNewPassword(String password, Button button, ImageView imageView);
 
         void loadOver(String phone, String password, String newPassword);
+
+        void loadModifyPassword(String phone, String password, String newPassword);
     }
 
     interface ResetPasswordView {

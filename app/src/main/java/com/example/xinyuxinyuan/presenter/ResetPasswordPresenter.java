@@ -91,4 +91,15 @@ public class ResetPasswordPresenter implements ResetPasswordContract.ResetPasswo
             view.showMessage("俩次密码不一致");
         }
     }
+
+    /**
+     * 修改密码界面调用此方法
+     * @param phone
+     * @param password
+     * @param newPassword
+     */
+    @Override
+    public void loadModifyPassword(String phone, String password, String newPassword) {
+
+    }
 }

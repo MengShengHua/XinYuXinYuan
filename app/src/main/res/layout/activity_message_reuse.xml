@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.xinyuxinyuan.view.activity.messagesetting.OrderMessageReuseActivity">
+
+    <include
+        android:id="@+id/setActivity_title"
+        layout="@layout/multiplexing_title" />
+
+    <ListView
+        android:id="@+id/orderReuserActivity_ListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:id="@+id/orderReuserActivity_NoDataImg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        android:src="@mipmap/empty_content" />
+
+    <TextView
+        android:id="@+id/orderReuserActivity_NoDataTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="暂无数据"
+        android:textSize="20dp" />
+</LinearLayout>

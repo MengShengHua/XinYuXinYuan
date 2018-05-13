@@ -1,7 +1,6 @@
 package com.example.xinyuxinyuan.view.activity.home.huifu;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -18,9 +17,6 @@ import com.example.xinyuxinyuan.contract.home.HuiFuPinLun;
 import com.example.xinyuxinyuan.contract.home.PinLun;
 import com.example.xinyuxinyuan.presenter.home.HuiFuPinLunPresenter;
 import com.example.xinyuxinyuan.presenter.home.PinLunPresenter;
-import com.example.xinyuxinyuan.view.activity.home.zuoyexiangqing.PinLunAdpater;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -51,7 +51,6 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void loadData() {
-
     }
 
     @Override

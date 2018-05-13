@@ -7,4 +7,7 @@ package com.example.xinyuxinyuan.utils.url;
 public class MessageRemindUrl {
     //    消息提醒
     public static final String MESSAGEREMIND = "v1/m/message/list";
+    //    订单提醒
+    public static final String ORDERREMIND = "v1/m/message/order";
+
 }

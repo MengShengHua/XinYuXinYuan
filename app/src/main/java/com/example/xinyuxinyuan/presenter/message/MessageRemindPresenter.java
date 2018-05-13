@@ -2,10 +2,12 @@ package com.example.xinyuxinyuan.presenter.message;
 
 import android.util.Log;
 
+import com.example.xinyuxinyuan.contract.bean.FansBean;
 import com.example.xinyuxinyuan.contract.bean.MessageRemindBean;
 import com.example.xinyuxinyuan.contract.message.MessageRemindContract;
 import com.example.xinyuxinyuan.model.message.MessageRemindModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
+import com.example.xinyuxinyuan.utils.ShareUtils;
 
 import java.util.HashMap;
 
@@ -28,8 +30,7 @@ public class MessageRemindPresenter implements MessageRemindContract.MessageRemi
 
     /**
      * 请求消息提醒页面的数据
-     *  自我感觉接口有问题
-     *  放弃请求
+     *
      * @param useId
      */
     @Override
@@ -40,7 +41,7 @@ public class MessageRemindPresenter implements MessageRemindContract.MessageRemi
 
         headerMap.put("Authorization", token);
         params.put("loginUserId", useId);
-        service.messageRemindBeanObservable(headerMap, params)
+        service.messageRemindBeanObservable(ShareUtils.getToken(), params)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(new Consumer<MessageRemindBean>() {

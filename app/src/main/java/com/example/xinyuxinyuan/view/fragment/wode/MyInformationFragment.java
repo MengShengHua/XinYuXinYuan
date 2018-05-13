@@ -3,13 +3,11 @@ package com.example.xinyuxinyuan.view.fragment.wode;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -19,16 +17,26 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.xinyuxinyuan.App;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
+import com.example.xinyuxinyuan.contract.bean.UserInforBean;
+import com.example.xinyuxinyuan.contract.my.FollowContract;
+import com.example.xinyuxinyuan.presenter.my.FollowPresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
+import com.example.xinyuxinyuan.view.activity.wode.AuthenticationActivity;
+import com.example.xinyuxinyuan.view.activity.wode.HobbyActivity;
 import com.example.xinyuxinyuan.view.activity.wode.MyMessageActivity;
+import com.example.xinyuxinyuan.view.activity.wode.giftconter.GiftConterActivity;
+import com.example.xinyuxinyuan.view.activity.wode.order.OrderActivity;
+import com.example.xinyuxinyuan.view.activity.wode.PersonalActivity;
+import com.example.xinyuxinyuan.view.activity.wode.RechargeActivity;
 import com.example.xinyuxinyuan.view.activity.wode.SetActivity;
+import com.example.xinyuxinyuan.view.activity.wode.FollowAndFansActivity;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyInformationFragment extends BaseFragment implements View.OnClickListener {
+public class MyInformationFragment extends BaseFragment implements View.OnClickListener, FollowContract.FollowContractView {
     private ImageView myInformation_Message;
     private ImageView myInformation_Set;
     private ImageView myInformation_Header;
@@ -50,7 +58,7 @@ public class MyInformationFragment extends BaseFragment implements View.OnClickL
     private TextView myInformation_RenZhengState;
     private LinearLayout myInformation_RenZheng;
     private ArrayList<String> userAllMessage;
-
+    private FollowPresenter presenter;
 
     @Override
     protected int getLayoutId() {
@@ -63,9 +71,23 @@ public class MyInformationFragment extends BaseFragment implements View.OnClickL
 
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.loadMyFollow(LoginShareUtils.getUserMessage(getContext(), "id"));
+        Log.e("----", "我的关注");
+    }
 
     @Override
     protected void loadData() {
+//        关注
+        presenter = new FollowPresenter(this);
+
         OnClickListener();
 //        获取用户登录的所有信息
         userAllMessage = LoginShareUtils.getUserAllMessage(App.context);
@@ -85,14 +107,16 @@ public class MyInformationFragment extends BaseFragment implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+        Intent followIntent = new Intent(getContext(), FollowAndFansActivity.class);
+        Intent orderIntent = new Intent(getContext(), OrderActivity.class);
         switch (v.getId()) {
             case R.id.myInformation_Message:
                 break;
             case R.id.myInformation_Set:
                 startActivity(new Intent(getContext(), SetActivity.class));
-                getActivity().finish();
                 break;
             case R.id.myInformation_Header:
+                startActivity(new Intent(getContext(), PersonalActivity.class));
                 break;
             case R.id.myInformation_UserName:
                 break;
@@ -104,42 +128,58 @@ public class MyInformationFragment extends BaseFragment implements View.OnClickL
                 intent.putExtra("id", userAllMessage.get(3));
                 intent.putExtra("token", userAllMessage.get(4));
                 startActivity(intent);
-                getActivity().finish();
                 break;
             case R.id.myInformation_work:
+//                复用名师
                 break;
             case R.id.myInformation_TieZi:
+//                复用宝典
                 break;
             case R.id.myInformation_follow:
+//                关注和粉丝通用一个Activity
+                followIntent.putExtra("FollowAndFans", "关注");
+                startActivity(followIntent);
                 break;
             case R.id.myInformation_Fans:
+//                关注和粉丝通用一个Activity
+                followIntent.putExtra("FollowAndFans", "粉丝");
+                startActivity(followIntent);
                 break;
             case R.id.myInformation_WaitForMoney:
+                orderIntent.putExtra("order", "待付款");
+                startActivity(orderIntent);
                 break;
             case R.id.myInformation_WaitForShiYong:
+                orderIntent.putExtra("order", "待使用");
+                startActivity(orderIntent);
                 break;
             case R.id.myInformation_WaitForReturnGoods:
+                orderIntent.putExtra("order", "待退货");
+                startActivity(orderIntent);
                 break;
             case R.id.myInformation_WaitForOrder:
+                orderIntent.putExtra("order", "我的订单");
+                startActivity(orderIntent);
                 break;
             case R.id.myInformation_JinDou:
                 break;
             case R.id.myInformation_Recharge:
+                startActivity(new Intent(getContext(), RechargeActivity.class));
                 break;
             case R.id.myInformation_Gift:
-
+                startActivity(new Intent(getContext(), GiftConterActivity.class));
                 break;
             case R.id.myInformation_Collection:
 
                 break;
             case R.id.myInformation_PianHao:
-
+                startActivity(new Intent(getContext(), HobbyActivity.class));
                 break;
             case R.id.myInformation_RenZhengState:
 
                 break;
             case R.id.myInformation_RenZheng:
-
+                startActivity(new Intent(getContext(), AuthenticationActivity.class));
                 break;
 
         }
@@ -210,5 +250,16 @@ public class MyInformationFragment extends BaseFragment implements View.OnClickL
         myInformation_RenZheng = view.findViewById(R.id.myInformation_RenZheng);
         //        是否认证的状态
         myInformation_RenZhengState = view.findViewById(R.id.myInformation_RenZhengState);
+    }
+
+    @Override
+    public void showMyFollow(UserInforBean userInforBean) {
+        UserInforBean.DataBean data = userInforBean.getData();
+        Log.e("数据", data.toString());
+        myInformation_follow.setText(data.getAttentionCount() + "");
+        myInformation_Fans.setText(data.getFansCount() + "");
+        myInformation_JinDou.setText(data.getBeanAmount() + "");
+        myInformation_work.setText(data.getHomewokCount() + "");
+        myInformation_TieZi.setText(data.getArtcircleCount() + "");
     }
 }

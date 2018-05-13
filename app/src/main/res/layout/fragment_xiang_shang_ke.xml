@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.xinyuxinyuan.view.activity.home.xianshangke.fragment.XiangShangKeFragment">
+
+
+    <TextView
+        android:id="@+id/xian_shangke_fragment_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/xian_shangke_fragment_image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:text="暂无内容"
+        android:visibility="gone"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/xian_shangke_fragment_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="145dp"
+        android:visibility="gone"
+        android:background="@mipmap/empty_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/xian_shangke_fragment_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

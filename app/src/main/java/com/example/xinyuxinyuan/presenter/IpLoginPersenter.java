@@ -91,7 +91,7 @@ public class IpLoginPersenter implements LoginContract.LoginPersnter {
         }
         String tEmail = "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$";
         if (phone.indexOf("@") == -1) {
-            tEmail = "^1[3578]\\d{9}$";
+            tEmail = "^1[123456789]\\d{9}$";
         }
         Pattern pattern = Pattern
                 .compile(tEmail);

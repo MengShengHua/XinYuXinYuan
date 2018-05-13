@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/wok_detail_aty_group"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <include
+        android:id="@+id/zuo_ye_xiang_qing_titleLayout"
+        layout="@layout/title_fu_yong"/>
+
+
+    <com.example.xinyuxinyuan.utils.MyScrollView
+        android:id="@+id/zuo_ye_xiang_qing_myScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#f6f6f6">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/zuo_ye_xiang_qing_contentView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            android:paddingBottom="10dp"
+                            android:id="@+id/linearLayout">
+
+                            <ImageView
+                                android:id="@+id/zuo_ye_xiang_qing_photo"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@mipmap/user_head_portrait"
+                                android:scaleType="centerCrop" />
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/zuo_ye_xiang_qing_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/zuo_ye_xiang_qing_time"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_above="@+id/textView4"
+                                        android:layout_alignEnd="@+id/linearLayout"
+                                        android:layout_alignRight="@+id/linearLayout"
+                                        android:layout_marginEnd="42dp"
+                                        android:layout_marginRight="42dp"
+                                        android:textColor="#999999"
+                                        android:textSize="14sp" />
+
+                                    <TextView
+                                        android:id="@+id/zuo_ye_xiang_qing_from"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textColor="#535353"
+                                        android:textSize="14sp" />
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="12dp"
+                            android:layout_marginTop="8dp"
+                            android:background="#f6f6f6"
+                            android:id="@+id/textView4" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp">
+
+                   <TextView
+                       android:id="@+id/zuo_ye_xiang_qing_neirong"
+                       android:layout_marginLeft="60dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content" />
+
+                    <ImageView
+                        android:id="@+id/zuo_ye_xiang_qing_image"
+                        android:layout_width="wrap_content"
+                        android:scaleType="fitXY"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="60dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/zuo_ye_xiang_qing_yincang_group"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+                    <View
+                        android:background="#cfcbcb"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"></View>
+
+                    <ImageView
+                        android:id="@+id/zuo_ye_xiang_qing_yincang_group_image"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginStart="14dp"
+                        android:background="@mipmap/user_head_portrait"
+                        android:scaleType="fitXY" />
+
+                    <TextView
+                        android:id="@+id/zuo_ye_xiang_qing_yincang_group_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/zuo_ye_xiang_qing_yincang_group_image"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginStart="14dp"
+                        android:layout_toEndOf="@+id/zuo_ye_xiang_qing_yincang_group_image"
+                        android:layout_toRightOf="@+id/zuo_ye_xiang_qing_yincang_group_image"
+                        android:textColor="#ff0000"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/zuo_ye_xiang_qing_yincang_group_daren"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/zuo_ye_xiang_qing_yincang_group_image"
+                        android:layout_alignLeft="@+id/zuo_ye_xiang_qing_yincang_group_name"
+                        android:layout_alignStart="@+id/zuo_ye_xiang_qing_yincang_group_name"
+                        />
+
+                    <ImageView
+                        android:id="@+id/zuo_ye_xiang_qing_yincang_group_vipImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/zuo_ye_xiang_qing_yincang_group_name"
+                        android:layout_toEndOf="@+id/zuo_ye_xiang_qing_yincang_group_name"
+                        android:layout_toRightOf="@+id/zuo_ye_xiang_qing_yincang_group_name"
+                        android:background="@mipmap/home_level_vip_blue" />
+
+                    <RelativeLayout
+                        android:id="@+id/zuo_ye_xiang_qing_touting_group"
+                        android:layout_width="100dp"
+                        android:layout_height="35dp"
+                        android:layout_alignBottom="@+id/zuo_ye_xiang_qing_yincang_group_daren"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginEnd="13dp"
+                        android:layout_marginRight="13dp"
+                        android:background="#fffb03">
+
+                        <TextView
+                            android:id="@+id/zuo_ye_xiang_qing_touting_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentStart="true"
+                            android:layout_centerVertical="true"
+                            android:text="1.0元偷听"
+                            android:layout_marginLeft="5dp"
+                            android:textColor="#000" />
+
+                        <ImageView
+                            android:id="@+id/zuo_ye_xiang_qing_touting_playImage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/zuo_ye_xiang_qing_touting_price"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@mipmap/play_small" />
+
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true"
+                        android:background="#a9a5a5"></View>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/zuo_ye_xiang_qing_shang_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="108dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/zuo_ye_xiang_qing_shang"
+                        android:layout_width="80dp"
+                        android:layout_height="32dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/detail_dashang_bg"
+                        android:gravity="center"
+                        android:text="赞赏"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/zuo_ye_xiang_qing_shangRecyclerView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"></android.support.v7.widget.RecyclerView>
+
+                </LinearLayout>
+
+                <!--评论列表-->
+
+                <LinearLayout
+                    android:id="@+id/zuo_ye_xiang_qing_pinlun_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="#F6F6F6"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:layout_marginTop="18dp"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:layout_marginTop="10dp"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="5dp"
+                                    android:layout_height="12dp"
+                                    android:src="@mipmap/rectangle" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginRight="20dp"
+                                    android:text="热门评论"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp" />
+
+                                <ImageView
+                                    android:layout_width="5dp"
+                                    android:layout_height="12dp"
+                                    android:src="@mipmap/rectangle" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/zuo_ye_xiang_pinLun_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:cacheColorHint="@color/transparent"
+                    android:divider="@color/transparent"
+                    android:dividerHeight="1px"
+                    android:fadingEdge="none"
+                    android:scrollbars="none"></android.support.v7.widget.RecyclerView>
+
+
+                <View
+                    android:background="#dcd8d8"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"></View>
+
+                <TextView
+                    android:id="@+id/zuo_ye_xiang_pinLun_chakan"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="查看更多评论"
+                    android:textColor="#2C272D"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </com.example.xinyuxinyuan.utils.MyScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/gray_fa"
+        android:visibility="visible">
+
+
+        <RelativeLayout
+            android:id="@+id/zuo_ye_xiang_xiePinLun_group"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white">
+
+
+            <TextView
+                android:id="@+id/zuo_ye_xiang_xiepinglun"
+                android:layout_width="200dp"
+                android:layout_height="32dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:background="@drawable/home_search_bg"
+                android:gravity="center_vertical"
+                android:paddingLeft="20dp"
+                android:text="写评论" />
+
+            <RelativeLayout
+                android:id="@+id/zuo_ye_xiang_dianzanshu_group"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/zuo_ye_xiang_dianzanshu_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/work_detail_praise_bg"
+                     />
+
+                <TextView
+                    android:id="@+id/zuo_ye_xiang_dianzanshu_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="-6dp"
+                    android:layout_toRightOf="@id/zuo_ye_xiang_dianzanshu_btn"
+                    android:text="0"
+                    android:textColor="@color/blue_arlt"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/zuo_ye_xiang_pinlunshu_group"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_toLeftOf="@id/zuo_ye_xiang_dianzanshu_group"
+                android:gravity="center"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:id="@+id/zuo_ye_xiang_pinlunshu_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/work_detail_comment" />
+
+                <TextView
+                    android:id="@+id/zuo_ye_xiang_pinlunshu_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="-8dp"
+                    android:layout_marginTop="-5dp"
+                    android:layout_toRightOf="@id/zuo_ye_xiang_pinlunshu_btn"
+                    android:text="0"
+                    android:textColor="@color/blue_arlt"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/zuo_ye_xiang_send_pinlun_group"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <Button
+                android:id="@+id/zuo_ye_xiang_send_pinlun_btn"
+                android:layout_width="80dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:background="@color/blue_arlt"
+                android:gravity="center"
+                android:text="发送"
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/zuo_ye_xiang_send_pinlun_editText"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_toLeftOf="@id/zuo_ye_xiang_send_pinlun_btn"
+                android:background="@drawable/button_white_bg"
+                android:hint="说点什么..."
+                android:maxLength="250"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.xinyuxinyuan.view.activity.wode.AuthenticationActivity">
+
+    <include
+        android:id="@+id/setActivity_title"
+        layout="@layout/multiplexing_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="106dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="33dp"
+                    android:src="@mipmap/approve_certification" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="认证后将点亮v图标，开通老师权限"
+                    android:textColor="#7EC0EE"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#F6F6F6" />
+
+        <EditText
+            android:id="@+id/myCertification_name"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="#fff"
+            android:hint="姓名"
+            android:padding="12dp"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#F6F6F6" />
+
+
+        <EditText
+            android:id="@+id/myCertification_majors"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="#fff"
+            android:hint="专业领域"
+            android:padding="12dp"
+            android:singleLine="true"
+            android:textColor="#000"
+            android:textSize="14sp" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#F6F6F6" />
+
+        <EditText
+            android:id="@+id/myCertification_inputMess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="#fff"
+            android:gravity="top"
+            android:hint="个人介绍"
+            android:minLines="5"
+            android:textColor="#666"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#F6F6F6" />
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="202dp">
+
+            <ImageView
+                android:id="@+id/myCertification_showIcCard"
+                android:layout_width="match_parent"
+                android:layout_height="202dp"
+                android:layout_margin="12dp"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:id="@+id/myCertification_postIcCard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+
+                <ImageView
+                    android:layout_width="76dp"
+                    android:layout_height="52dp"
+                    android:src="@mipmap/approve_message" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="上传您的身份证明"
+                    android:textColor="#ff333333"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="名片、工牌、工作邮箱后台截图等任一材料 请确保上传图片的手机号码与Univstar绑定的手机号码一致"
+                    android:textColor="#ff999999"
+                    android:textSize="12dp" />
+            </LinearLayout>
+        </RelativeLayout>
+        <Button
+
+            android:id="@+id/myCertification_postBtn"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#7EC0EE"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="#fff"
+            android:textSize="16dp" />
+
+
+    </LinearLayout>
+</LinearLayout>

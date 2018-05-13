@@ -177,6 +177,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 handler.post(runnable);
 //                发送验证码
                 contract.loadYanZhengMa(register_btRegister, register_etPhone.getText().toString().trim());
+
                 break;
 //                使用协议
             case R.id.register_tvAgreement:

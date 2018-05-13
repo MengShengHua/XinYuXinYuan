@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.xinyuxinyuan.view.activity.wode.order.OrderActivity">
+
+    <include
+        android:id="@+id/setActivity_title"
+        layout="@layout/multiplexing_title" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/myText" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f7f7f7"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/orderActivity_All"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="全部" />
+
+            <TextView
+                android:id="@+id/orderActivity_AllColor"
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#efe40f"
+                android:gravity="center_horizontal"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/orderActivity_daifukuang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="待付款" />
+
+            <TextView
+                android:id="@+id/orderActivity_daifukuangColor"
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#efe40f"
+                android:gravity="center_horizontal"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/orderActivity_daishiyong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="待使用" />
+
+            <TextView
+                android:id="@+id/orderActivity_daishiyongColor"
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#efe40f"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/orderActivity_tuihuo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="退货" />
+
+            <TextView
+                android:id="@+id/orderActivity_tuihuoColor"
+                android:layout_width="20dp"
+                android:layout_height="5dp"
+                android:layout_gravity="center_horizontal"
+                android:background="#efe40f"
+                android:gravity="center_horizontal"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/orderActivity_FrameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
+

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.xinyuxinyuan.view.activity.wode.set.IntroduceActivity">
+
+    <include
+        android:id="@+id/setActivity_title"
+        layout="@layout/multiplexing_title" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/univActivity_introduce1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="北京星语心愿教育科技有限公司是一家专注于艺考教育和企业艺培的互联网与体验课相结合的科技型公司，致力于为怀有艺术梦想的学生们提供名师指导的教育机会，助理备战考生合理运用时间、轻松迎战艺考的教育机构。"
+        android:textColor="@color/gray"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/univActivity_introduce2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我公司合作伙伴主要有北京电影学院、中央戏剧学院、北京舞蹈学院、上海戏剧学院、中国传媒大学、中国音乐学院、中央美术学院、清华美术学院、中国戏曲学院、南方航空、东方航空及国外众多家知名艺术院校合作，以卓越的实力助你走入海内外艺术院校的殿堂。"
+        android:textColor="@color/gray"
+        android:textSize="14dp" />
+</LinearLayout>

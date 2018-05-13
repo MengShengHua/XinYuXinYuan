@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.view.activity.register.RegisterActivity;
@@ -21,6 +22,8 @@ public class UnivStarActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        Intent intent = getIntent();
+        String setUnivStar = intent.getStringExtra("SetUnivStar");
         univActivity_return = (ImageView) findViewById(R.id.univActivity_return);
         univActivity_return.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,4 +1,4 @@
-package com.example.xinyuxinyuan.view.activity.adapter;
+package com.example.xinyuxinyuan.view.activity.messagesetting.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -36,7 +36,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.Holder> 
 
     @Override
     public void onBindViewHolder(Holder holder, int position) {
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy年MM月dd日   HH:mm:ss");
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
         Date curDate = new Date(System.currentTimeMillis());
         String time = formatter.format(curDate);
         MessageRemindBean.DataBean dataBean = dataBeanList.get(position);

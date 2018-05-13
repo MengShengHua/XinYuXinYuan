@@ -2,20 +2,22 @@ package com.example.xinyuxinyuan.view.activity.wode;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.xinyuxinyuan.App;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.base.BaseFragment;
 import com.example.xinyuxinyuan.presenter.my.SetPresenter;
+import com.example.xinyuxinyuan.utils.CacheUtils;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
+import com.example.xinyuxinyuan.utils.ToastUtils;
 import com.example.xinyuxinyuan.view.activity.home.HomeActivity;
-import com.example.xinyuxinyuan.view.fragment.wode.MyInformationFragment;
+import com.example.xinyuxinyuan.view.activity.wode.set.AboutUnivStarActivity;
+import com.example.xinyuxinyuan.view.activity.wode.set.ReplacePhoneActivity;
 
 public class SetActivity extends BaseActivity implements View.OnClickListener {
 
@@ -47,10 +49,11 @@ public class SetActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void loadData() {
+        OnClickListener();
         multiplexingTitle_title.setText("设置");
         setActivity_BindingPhoneNumber.setText(LoginShareUtils.getUserMessage(SetActivity.this, "phone"));
         presenter = new SetPresenter();
-        OnClickListener();
+        setActivity_cacheSize.setText(CacheUtils.getCacheSize());
     }
 
 
@@ -58,31 +61,36 @@ public class SetActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.multiplexingTitle_return:
-                startActivity(new Intent(SetActivity.this, HomeActivity.class));
                 finish();
                 break;
             case R.id.setActivity_BindingPhone:
-
+                Intent intent = new Intent(SetActivity.this, ReplacePhoneActivity.class);
+                intent.putExtra("key", setActivity_BindingPhoneNumber.getText().toString().trim());
+                startActivity(intent);
                 break;
             case R.id.setActivity_SheJiao:
-
+                ToastUtils.mainThread("功能正在开发敬请期待", 0);
                 break;
             case R.id.setActivity_LoginPassword:
-
+                Intent intent1 = new Intent(SetActivity.this, ReplacePhoneActivity.class);
+                intent1.putExtra("key", setActivity_modifyPassword.getText().toString().trim());
+                startActivity(intent1);
                 break;
             case R.id.setActivity_clearCache:
-
+                Log.e("-------", "清空缓存");
+                CacheUtils.deleteCache(App.context.getCacheDir());
+                setActivity_cacheSize.setText(CacheUtils.getCacheSize());
                 break;
             case R.id.setActivity_UnivStar:
-
+                startActivity(new Intent(SetActivity.this, AboutUnivStarActivity.class));
                 break;
             case R.id.setActivity_outLogin:
-//                退出登录清空数据
                 SharedPreferences preferences = getSharedPreferences("Login", MODE_PRIVATE);
+//                退出登录清空数据
                 presenter.loadClearUserAllData(preferences);
-                startActivity(new Intent(SetActivity.this, HomeActivity.class));
                 finish();
                 break;
+
         }
     }
 

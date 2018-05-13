@@ -46,6 +46,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     protected void init() {
+        Intent intent = getIntent();
+        String phone = intent.getStringExtra("phone");
+        String password = intent.getStringExtra("password");
 //        关闭
         loginActivity_close = findViewById(R.id.loginActivity_close);
 //        注册
@@ -68,17 +71,14 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
         loginActivity_QQ = findViewById(R.id.loginActivity_QQ);
 //        微博
         loginActivity_weibo = findViewById(R.id.loginActivity_weibo);
-
+        loginActivity_phone.setText(phone);
+        loginActivity_password.setText(password);
 
     }
 
     @Override
     protected void loadData() {
-        Intent intent = getIntent();
-        String phone = intent.getStringExtra("phone");
-        String password = intent.getStringExtra("password");
-        loginActivity_phone.setText(phone);
-        loginActivity_password.setText(password);
+
         persenter = new IpLoginPersenter(this);
         loginActivity_clearPhone.setOnClickListener(this);
         loginActivity_clearPassword.setOnClickListener(this);
@@ -143,8 +143,6 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                 break;
             case R.id.loginActivity_Login:
                 persenter.loadJudgeLogin(phone, password, loginActivity_Login);
-                startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-
                 break;
             case R.id.loginActivity_weixin:
                 ToastUtils.mainThread("微信登陆开发中", 0);
@@ -186,6 +184,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     public void showLoginMessage(LoginBean loginBean) {
+        if (loginBean.getMessage().contains("错误")) {
+            ToastUtils.mainThread(loginBean.getMessage(), 0);
+            return;
+        }
         if (loginBean.getData() != null) {
 //            登录成功，保存所返回的数据
             LoginShareUtils.UserMessage(App.context, loginBean.getData().getNickname(),
@@ -193,6 +195,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
                     loginBean.getData().getPhoto(),
                     loginBean.getData().getId(),
                     loginBean.getData().getToken());
+            Log.e("昵称", loginBean.getData().getNickname());
+            Log.e("手机号", loginBean.getData().getMobile());
             ToastUtils.mainThread("登录成功", 0);
             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
             ShareUtils.setLoginUserId(Integer.parseInt(LoginShareUtils.getUserMessage(this,"id")));

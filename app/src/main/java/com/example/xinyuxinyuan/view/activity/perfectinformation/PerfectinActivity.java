@@ -23,12 +23,14 @@ import com.example.xinyuxinyuan.contract.bean.CheckUserLoginModel;
 import com.example.xinyuxinyuan.contract.bean.UpLoadImgModel;
 import com.example.xinyuxinyuan.presenter.IpPerfectinPersenter;
 import com.example.xinyuxinyuan.contract.PerfectinContract;
+import com.example.xinyuxinyuan.utils.LoginShareUtils;
 import com.example.xinyuxinyuan.utils.ShareUtils;
 import com.example.xinyuxinyuan.utils.ToastUtils;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 
 public class PerfectinActivity extends BaseActivity implements View.OnClickListener, PerfectinContract.PerfectinView, RadioGroup.OnCheckedChangeListener {
 
@@ -226,7 +228,10 @@ public class PerfectinActivity extends BaseActivity implements View.OnClickListe
         contract.loadPerfectOver(perfectinActivity_Nickname.getText().toString().trim(),
                 SEX, ImgUrl, preferences.getString("phone", "手机号没有获取到"), perfectinActivity_Password.getText().toString().trim());
         ToastUtils.mainThread("完善成功", 0);
+//        将性别储存到SharedPreferences里
+        LoginShareUtils.userAddDataSharedPreferences(PerfectinActivity.this, null, "sex", String.valueOf(SEX));
     }
+
 
     @Override
     public void showPerfectOver(CheckUserLoginModel checkUserLoginModel) {

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/orderAdapter_Payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/orderAdapter_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4天，32科四按时打算多撒大大" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="30dp"
+            android:src="@mipmap/home_myself_right_arrow" />
+
+        <TextView
+            android:id="@+id/orderAdapter_orderStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_weight="1"
+            android:text="取消"
+            android:textColor="@color/colorPrimary" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/orderAdapter_orderImg"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/zhifubao_pay_label" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/orderAdapter_startDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="天大加拿大" />
+
+            <TextView
+                android:id="@+id/orderAdapter_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="￥1231"
+                android:textColor="#f2df0a" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/orderAdapter_btPayment"
+        android:layout_width="30dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="330dp"
+        android:background="@color/colorPrimary"
+        android:text="付款"
+        android:textColor="#FFFF" />
+</LinearLayout>

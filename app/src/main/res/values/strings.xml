@@ -13,4 +13,7 @@
     <string name="title_activity_my_message">MyMessageActivity</string>
     <string name="title_activity_set">SetActivity</string>
     <string name="title_activity_personal">PersonalActivity</string>
+    <string name="title_activity_replace_password">ReplacePasswordActivity</string>
+    <string name="title_activity_new_phone">NewPhoneActivity</string>
+    <string name="title_activity_modify">ModifyActivity</string>
 </resources>

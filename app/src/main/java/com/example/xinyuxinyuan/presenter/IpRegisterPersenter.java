@@ -18,6 +18,9 @@ import io.reactivex.schedulers.Schedulers;
  * Created by asd on 2018/5/3.
  */
 
+/**
+ * 未用到，不敢删除。
+ */
 public class IpRegisterPersenter implements RegisterContract.RegisterPresenter {
     private RegisterContract.RegisterView view;
     private final RegistModel service;
