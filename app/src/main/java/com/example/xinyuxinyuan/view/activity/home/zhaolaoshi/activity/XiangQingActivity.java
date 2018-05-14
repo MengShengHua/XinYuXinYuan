@@ -32,6 +32,8 @@ import com.example.xinyuxinyuan.utils.MyScrollView;
 import com.example.xinyuxinyuan.utils.ShareUtils;
 import com.example.xinyuxinyuan.utils.zidingyi.GlideCircleTransform;
 import com.example.xinyuxinyuan.view.activity.login.LoginActivity;
+import com.example.xinyuxinyuan.view.activity.wode.FollowAndFansActivity;
+import com.example.xinyuxinyuan.view.activity.wode.PersonalActivity;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareListener;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -85,6 +87,7 @@ public class XiangQingActivity extends BaseActivity implements XiangQing.View, V
     private String college;
     private String photo;
     private String nickname;
+    private int id1;
 
     @Override
     protected int getLayoutId() {
@@ -142,6 +145,7 @@ public class XiangQingActivity extends BaseActivity implements XiangQing.View, V
         xiangqing_image_finish.setOnClickListener(this);
         xiangqing_image_fenxiang.setOnClickListener(this);
         xiangqing_chectBox_dianzan.setOnClickListener(this);
+        xiangqing_image_touxiang.setOnClickListener(this);
     }
 
     @Override
@@ -152,19 +156,18 @@ public class XiangQingActivity extends BaseActivity implements XiangQing.View, V
 
     @Override
     public void showXiangQingData(XiangQingBean xiangQingBean) {
+        id1 = xiangQingBean.getData().getUser().get_$Id327();
         college = xiangQingBean.getData().getUser().getCollege();
         photo = xiangQingBean.getData().getUser().getPhoto();
         images = xiangQingBean.getData().getUser().getImages();
         nickname = xiangQingBean.getData().getUser().getNickname();
         zanCount = xiangQingBean.getData().getPraise().getPraiseCount();
         isPraise = xiangQingBean.getData().getPraise().getIsPraise();
-        id = xiangQingBean.getData().getUser().get_$Id327();
+        id1 = xiangQingBean.getData().getUser().get_$Id327();
         if (isPraise == 1) {
             xiangqing_chectBox_dianzan.setChecked(true);
-
         } else {
             xiangqing_chectBox_dianzan.setChecked(false);
-
         }
 
 
@@ -220,11 +223,11 @@ public class XiangQingActivity extends BaseActivity implements XiangQing.View, V
                 isLogin();
                 if (Tag) {
                     //发起关注取消请求
-                    guanZhuPresenter.loadQuXiaoGuanZhu(id, ShareUtils.getLoginUserId());
+                    guanZhuPresenter.loadQuXiaoGuanZhu(id1, ShareUtils.getLoginUserId());
 
                 } else {
                     //发起关注的请求
-                    guanZhuPresenter.loadGuanZhu(id, ShareUtils.getLoginUserId());
+                    guanZhuPresenter.loadGuanZhu(id1, ShareUtils.getLoginUserId());
                 }
                 break;
             case R.id.kecheng_lineaLayout:
@@ -240,10 +243,16 @@ public class XiangQingActivity extends BaseActivity implements XiangQing.View, V
 
                 break;
             case R.id.guanzhu_lineaLayout:
+                Intent intent1 = new Intent(this, FollowAndFansActivity.class);
+                intent1.putExtra("FollowAndFans","关注");
 
+                startActivity(intent1);
                 break;
             case R.id.fensi_lineaLayout:
-
+                Intent intent = new Intent(this, FollowAndFansActivity.class);
+                intent.putExtra("FollowAndFans","粉丝");
+                intent.putExtra("id",id1);
+                startActivity(intent);
                 break;
             case R.id.xiangqing_image_finish:
                 finish();
@@ -265,20 +274,23 @@ public class XiangQingActivity extends BaseActivity implements XiangQing.View, V
             case R.id.xiangqing_chectBox_dianzan:
                 isLogin();
                 if (xiangqing_chectBox_dianzan.isChecked()) {
-                    xiangqing_chectBox_dianzan.setText("" + (Integer.parseInt(xiangqing_chectBox_dianzan.getText().toString()) + 1));
                     dianZanPresenter.loadDianZanData(id, teacherId, ShareUtils.getLoginUserId(), "老师");
                 } else {
-
                     quXiaoDianZanPresenter.loadQuXiaoDianZan(id, teacherId, ShareUtils.getLoginUserId(), "老师");
-                    xiangqing_chectBox_dianzan.setText("" + (Integer.parseInt(xiangqing_chectBox_dianzan.getText().toString()) - 1));
                 }
+                break;
+            case R.id.xiangqing_image_touxiang:
+                Intent intent2 = new Intent(this, PersonalActivity.class);
+                intent2.putExtra("UserId",id1);
+                intent2.putExtra("photo",photo);
+                startActivity(intent2);
                 break;
         }
     }
 
     @Override
     public void showDianZanData(DianZanBean dianZanBean) {
-
+        xiangqing_chectBox_dianzan.setText("" + (Integer.parseInt(xiangqing_chectBox_dianzan.getText().toString()) + 1));
     }
 
     @Override
@@ -298,7 +310,7 @@ public class XiangQingActivity extends BaseActivity implements XiangQing.View, V
 
     @Override
     public void showQuXiaoDianZanData(QuXiaoDianZanBean quXiaoDianZan) {
-
+        xiangqing_chectBox_dianzan.setText("" + (Integer.parseInt(xiangqing_chectBox_dianzan.getText().toString()) - 1));
     }
 
     @Override

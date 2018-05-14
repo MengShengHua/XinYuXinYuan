@@ -45,7 +45,7 @@ public interface PersonPageModel {
     //    我的粉丝
     @FormUrlEncoded
     @POST(MyUrl.MyFANS)
-    Observable<FansBean> getMyFens(@FieldMap Map<String, String> params);
+    Observable<FansBean> getMyFens(@FieldMap Map<String, Object> params);
 
     //点击其他用户的个人主页
     //    获取用户信息
@@ -56,7 +56,6 @@ public interface PersonPageModel {
     //用户帖子
     @POST(PersonHomePageUrl.HOMEPAGERTIEZI)
     Observable<HomePagerTieZiBean> getUserTieZi(@FieldMap Map<String, Object> params);
-
 //    用户作作品
 
 }

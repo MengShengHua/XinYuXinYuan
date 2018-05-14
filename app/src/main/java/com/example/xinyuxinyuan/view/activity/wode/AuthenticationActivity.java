@@ -1,21 +1,17 @@
 package com.example.xinyuxinyuan.view.activity.wode;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
 import com.example.xinyuxinyuan.contract.bean.APIBean;
-import com.example.xinyuxinyuan.contract.my.authentication.AuthenticationContract;
-import com.example.xinyuxinyuan.presenter.my.authentication.AuthenticationPresenter;
+import com.example.xinyuxinyuan.contract.my.AuthenticationContract;
+import com.example.xinyuxinyuan.presenter.my.AuthenticationPresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
 import com.example.xinyuxinyuan.utils.ToastUtils;
 

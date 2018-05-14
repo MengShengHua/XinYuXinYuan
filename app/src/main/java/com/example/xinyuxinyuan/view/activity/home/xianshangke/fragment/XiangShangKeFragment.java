@@ -52,6 +52,7 @@ public class XiangShangKeFragment extends BaseFragment implements XianShangKe.Vi
         xian_shangke_fragment_recyclerView = view.findViewById(R.id.xian_shangke_fragment_recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         xian_shangke_fragment_recyclerView.setLayoutManager(linearLayoutManager);
+
         if(type.equals("讲堂")){
             xian_shangke_fragment_recyclerView.setVisibility(View.VISIBLE);
             xian_shangke_fragment_text.setVisibility(View.GONE);
@@ -74,7 +75,6 @@ public class XiangShangKeFragment extends BaseFragment implements XianShangKe.Vi
             public void setItemClick(View view, int position) {
                 Intent intent = new Intent(getContext(), XiangQing_Mai_Activity.class);
                 intent.putExtra("id",mList.get(position).getId());
-
                 intent.putExtra("type",0);
                 startActivity(intent);
             }

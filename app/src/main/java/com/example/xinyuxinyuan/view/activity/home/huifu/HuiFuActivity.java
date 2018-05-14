@@ -8,19 +8,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
+import com.example.xinyuxinyuan.contract.bean.HuiBean;
 import com.example.xinyuxinyuan.contract.bean.HuiFuBean;
 import com.example.xinyuxinyuan.contract.bean.ZuoYeXiangQingBean;
+import com.example.xinyuxinyuan.contract.home.Hui;
 import com.example.xinyuxinyuan.contract.home.HuiFuPinLun;
 import com.example.xinyuxinyuan.contract.home.PinLun;
 import com.example.xinyuxinyuan.presenter.home.HuiFuPinLunPresenter;
+import com.example.xinyuxinyuan.presenter.home.HuiPresenter;
 import com.example.xinyuxinyuan.presenter.home.PinLunPresenter;
+import com.example.xinyuxinyuan.utils.ShareUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HuiFuActivity extends BaseActivity implements View.OnClickListener, HuiFuPinLun.View,PinLun.View {
+public class HuiFuActivity extends BaseActivity implements View.OnClickListener, HuiFuPinLun.View,PinLun.View,Hui.View {
 
     private ImageView title_fuyong_finish;
     private TextView title_fuyong_text;
@@ -35,6 +38,7 @@ public class HuiFuActivity extends BaseActivity implements View.OnClickListener,
     private HuiFuAdpater huiFuAdpater;
     private List<HuiFuBean> mList = new ArrayList<>();
     private ZuoYeXiangQingBean.DataBean.CommentsBean.ListBean listBean;
+    private HuiPresenter huiPresenter;
 
     @Override
     protected int getLayoutId() {
@@ -51,6 +55,7 @@ public class HuiFuActivity extends BaseActivity implements View.OnClickListener,
         huiFuPinLunPresenter = new HuiFuPinLunPresenter(this);
 
         pinLunPresenter = new PinLunPresenter(this);
+        huiPresenter = new HuiPresenter(this);
 
         title_fuyong_finish = (ImageView) findViewById(R.id.title_fuyong_finish);
         title_fuyong_text = (TextView) findViewById(R.id.title_fuyong_text);
@@ -69,7 +74,7 @@ public class HuiFuActivity extends BaseActivity implements View.OnClickListener,
 
     @Override
     protected void loadData() {
-
+        huiPresenter.showHuiData(ShareUtils.getLoginUserId(),pid,pid);
     }
 
     @Override
@@ -95,5 +100,11 @@ public class HuiFuActivity extends BaseActivity implements View.OnClickListener,
     @Override
     public void showPinLunData(ZuoYeXiangQingBean.DataBean.CommentsBean.ListBean listBean) {
 
+    }
+
+    @Override
+    public void loadHuiData(HuiBean huiBean) {
+        mList.add(new HuiFuBean(200,"成功",new HuiFuBean.DataBean(huiBean.getData().getComment().getPhoto(),huiBean.getData().getComment().getPraiseNum(),huiBean.getData().getComment().getUserId(),huiBean.getData().getComment().getContent(),huiBean.getData().getComment().getRealname(),huiBean.getData().getComment().getReplyName(),huiBean.getData().getComment().getNickname(),huiBean.getData().getComment().getReplyId(),huiBean.getData().getComment().getReplyNum(),huiBean.getData().getComment().getIsPraise(),huiBean.getData().getComment().getId(),huiBean.getData().getComment().getUserType(),huiBean.getData().getComment().getCreateDate())));
+        huiFuAdpater.notifyDataSetChanged();
     }
 }

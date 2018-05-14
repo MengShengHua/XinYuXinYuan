@@ -116,7 +116,9 @@ public class MyInformationFragment extends BaseFragment implements View.OnClickL
                 startActivity(new Intent(getContext(), SetActivity.class));
                 break;
             case R.id.myInformation_Header:
-                startActivity(new Intent(getContext(), PersonalActivity.class));
+                Intent intent1 = new Intent(getContext(), PersonalActivity.class);
+                intent1.putExtra("photo",userAllMessage.get(2));
+                startActivity(intent1);
                 break;
             case R.id.myInformation_UserName:
                 break;

@@ -85,9 +85,13 @@ public class SetActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(new Intent(SetActivity.this, AboutUnivStarActivity.class));
                 break;
             case R.id.setActivity_outLogin:
+
                 SharedPreferences preferences = getSharedPreferences("Login", MODE_PRIVATE);
 //                退出登录清空数据
                 presenter.loadClearUserAllData(preferences);
+                Intent intent2 = new Intent(this, HomeActivity.class);
+                intent2.putExtra("fragment", "100");
+                startActivity(intent2);
                 finish();
                 break;
 

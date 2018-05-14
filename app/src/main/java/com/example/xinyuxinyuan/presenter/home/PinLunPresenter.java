@@ -28,7 +28,6 @@ public class PinLunPresenter implements PinLun.Presenter{
     }
     /**
      *
-     * @param pid       (回复才有）评论ID 默认为0
      * @param userId    评论人ID
      * @param content   评论内容
      * @param refId     关联的ID

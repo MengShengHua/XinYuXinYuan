@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.xinyuxinyuan.App;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
 import com.example.xinyuxinyuan.contract.bean.GuanZhuBean;
@@ -40,6 +41,11 @@ import com.example.xinyuxinyuan.utils.UrlData;
 import com.example.xinyuxinyuan.utils.zidingyi.GlideCircleTransform;
 import com.example.xinyuxinyuan.view.activity.home.zhaolaoshi.activity.XiangQingActivity;
 import com.example.xinyuxinyuan.view.activity.login.LoginActivity;
+import com.umeng.socialize.ShareAction;
+import com.umeng.socialize.UMShareListener;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.media.UMWeb;
 
 public class XiangQing_Mai_Activity extends BaseActivity implements XiangQingMai.View, View.OnClickListener, GuanZhu.View, ShouChang.View, YuGaoXiangQing.View {
 
@@ -78,6 +84,10 @@ public class XiangQing_Mai_Activity extends BaseActivity implements XiangQingMai
     private String numBer;
     private int attentionId;
     private int attentionId1;
+    private String nickname;
+    private String content;
+    private String coverImg;
+    private String title;
 
     @Override
     protected int getLayoutId() {
@@ -196,14 +206,19 @@ public class XiangQing_Mai_Activity extends BaseActivity implements XiangQingMai
         } else if (xiangQingMaiBean.getData().getIsFavorite() == 1) {
             activity_xiang_qing_mai_shoucang_checkBox.setChecked(true);
         }
-        Glide.with(this).load(xiangQingMaiBean.getData().getCoverImg()).into(activity_xiang_qing_mai_image);
+        Glide.with(this).load(coverImg).into(activity_xiang_qing_mai_image);
+        nickname = xiangQingMaiBean.getData().getNickname();
+        content = xiangQingMaiBean.getData().getContent();
+        coverImg = xiangQingMaiBean.getData().getCoverImg();
+        title = xiangQingMaiBean.getData().getTitle();
+
         activity_xiang_qing_mai_chongbo.setText("重播");
         activity_xiang_qing_mai_timeQian.setText("讲堂课堂");
         activity_xiang_qing_mai_time.setText(DataUtils.getDateToString(xiangQingMaiBean.getData().getStartDate()));
         activity_xiang_qing_mai_biaoyan.setText("表演");
         activity_xiang_qing_mai_yuyueCount.setText(xiangQingMaiBean.getData().getSubscribe() + "/" + xiangQingMaiBean.getData().getSubscribeNum());
         activity_xiang_qing_mai_price.setText("" + xiangQingMaiBean.getData().getPrice());
-        activity_xiang_qing_mai_name.setText(xiangQingMaiBean.getData().getNickname());
+        activity_xiang_qing_mai_name.setText(nickname);
         activity_xiang_qing_mai_type.setText(xiangQingMaiBean.getData().getIntro());
 
 
@@ -237,7 +252,14 @@ public class XiangQing_Mai_Activity extends BaseActivity implements XiangQingMai
                 finish();
                 break;
             case R.id.activity_xiang_qing_mai_fenxiangImage:
-                Toast.makeText(this, "分享", Toast.LENGTH_SHORT).show();
+                UMWeb web = new UMWeb("http://www.baidu.com");
+                web.setTitle(title);//标题
+                web.setDescription(content);//描述
+                new ShareAction(App.context)
+                        .setDisplayList(SHARE_MEDIA.SINA,SHARE_MEDIA.QQ,SHARE_MEDIA.WEIXIN)
+                        .setCallback(shareListener)
+                        .withMedia(web)
+                        .open();
                 break;
             case R.id.activity_xiang_qing_mai_shoucang_checkBoxGroup:
 
@@ -372,4 +394,45 @@ public class XiangQing_Mai_Activity extends BaseActivity implements XiangQingMai
             return;
         }
     }
+
+
+    private UMShareListener shareListener = new UMShareListener() {
+        /**
+         * @descrption 分享开始的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onStart(SHARE_MEDIA platform) {
+
+        }
+
+        /**
+         * @descrption 分享成功的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onResult(SHARE_MEDIA platform) {
+            Toast.makeText(XiangQing_Mai_Activity.this,"成功了",Toast.LENGTH_LONG).show();
+        }
+
+        /**
+         * @descrption 分享失败的回调
+         * @param platform 平台类型
+         * @param t 错误原因
+         */
+        @Override
+        public void onError(SHARE_MEDIA platform, Throwable t) {
+            Toast.makeText(XiangQing_Mai_Activity.this,"失败"+t.getMessage(),Toast.LENGTH_LONG).show();
+        }
+
+        /**
+         * @descrption 分享取消的回调
+         * @param platform 平台类型
+         */
+        @Override
+        public void onCancel(SHARE_MEDIA platform) {
+            Toast.makeText(XiangQing_Mai_Activity.this,"取消了",Toast.LENGTH_LONG).show();
+
+        }
+    };
 }

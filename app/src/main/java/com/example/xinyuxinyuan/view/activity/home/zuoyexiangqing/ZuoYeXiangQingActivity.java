@@ -128,7 +128,7 @@ public class ZuoYeXiangQingActivity extends BaseActivity implements View.OnClick
         zuo_ye_xiang_qing_shangRecyclerView = (RecyclerView) findViewById(R.id.zuo_ye_xiang_qing_shangRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        
+
         zuo_ye_xiang_qing_shangRecyclerView.setLayoutManager(linearLayoutManager);
         zuo_ye_xiang_qing_shang_group = (LinearLayout) findViewById(R.id.zuo_ye_xiang_qing_shang_group);
         zuo_ye_xiang_qing_pinlun_group = (LinearLayout) findViewById(R.id.zuo_ye_xiang_qing_pinlun_group);
@@ -322,6 +322,7 @@ public class ZuoYeXiangQingActivity extends BaseActivity implements View.OnClick
         zuo_ye_xiang_qing_shangRecyclerView.setAdapter(touXiangAdpater);
         //设置评论列表的适配器
         List<ZuoYeXiangQingBean.DataBean.CommentsBean.ListBean> list = zuoYeXiangQingBean.getData().getComments().getList();
+        zuoYeXiangQingBean.getData().getRewardUserList();
         pinLunAdpater = new PinLunAdpater(ZuoYeXiangQingActivity.this, list);
         zuo_ye_xiang_pinLun_recyclerView.setAdapter(pinLunAdpater);
     }

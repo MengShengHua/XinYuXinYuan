@@ -126,5 +126,9 @@ public class UrlData {
      */
     public static final String Notice_WebView_Url = "http://share.univstar.com/view/course.html?courseid=%s";
 
+    /**
+     * 评论的回复列表
+     */
+    public static final String HUI = "v1/m/artcircle/reply";
 }
 

@@ -2,16 +2,21 @@ package com.example.xinyuxinyuan.view.fragment.mingshi.adpater;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +33,7 @@ import com.example.xinyuxinyuan.presenter.dianzan.DianZanPresenter;
 import com.example.xinyuxinyuan.presenter.dianzan.QuXiaoDianZanPresenter;
 import com.example.xinyuxinyuan.utils.DataUtils;
 import com.example.xinyuxinyuan.utils.ShareUtils;
+import com.example.xinyuxinyuan.utils.ToastUtils;
 import com.example.xinyuxinyuan.utils.zidingyi.GlideCircleTransform;
 import com.example.xinyuxinyuan.view.activity.home.zhaolaoshi.activity.XiangQingActivity;
 import com.example.xinyuxinyuan.view.activity.home.zuoyexiangqing.ZuoYeXiangQingActivity;
@@ -54,12 +60,17 @@ public class TuiJianZuoYe_Adpater extends RecyclerView.Adapter<TuiJianZuoYe_Adpa
     private String content;
     private String coverImg;
     private String source;
+    private PopupWindow popupWindow;
+    private Button jindou_dismiss;
+    private TextView jindou_weixin;
+    private TextView jindou_zhifubao;
 
     public TuiJianZuoYe_Adpater(Context context, List<MingShiBean.DataBean.HomewoksBean> zuoyeList) {
         this.context = context;
         this.zuoyeList = zuoyeList;
         dianZanPresenter = new DianZanPresenter(this);
         quXiaoDianZanPresenter = new QuXiaoDianZanPresenter(this);
+
     }
 
     @NonNull
@@ -68,6 +79,34 @@ public class TuiJianZuoYe_Adpater extends RecyclerView.Adapter<TuiJianZuoYe_Adpa
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.tuijian_zuoye_item_layout, parent, false);
         Holder holder = new Holder(inflate);
         inflate.setOnClickListener(this);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.jindou_popup, null);
+        jindou_zhifubao = view.findViewById(R.id.jindou_zhifubao);
+        jindou_zhifubao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.mainThread("支付宝功能开发中", 0);
+            }
+        });
+        jindou_weixin = view.findViewById(R.id.jindou_weixin);
+        jindou_weixin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ToastUtils.mainThread("微信功能开发中", 0);
+            }
+        });
+        jindou_dismiss = view.findViewById(R.id.jindou_dismiss);
+        jindou_dismiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+
+        popupWindow = new PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT, true);
+        popupWindow.setTouchable(true);
+        popupWindow.setFocusable(true);
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+
         return holder;
     }
 
@@ -79,7 +118,7 @@ public class TuiJianZuoYe_Adpater extends RecyclerView.Adapter<TuiJianZuoYe_Adpa
         holder.tuijian_zuoye_item_dianzan.setText("" + praiseNum);
         if (zuoyeList.get(position).getIsAnswer() == 0) {
             holder.tuijian_zuoye_item_dianzan.setChecked(false);
-        } else if (zuoyeList.get(position).getIsPraise() == 1) {
+        } else{
             holder.tuijian_zuoye_item_dianzan.setChecked(true);
         }
 
@@ -156,9 +195,12 @@ public class TuiJianZuoYe_Adpater extends RecyclerView.Adapter<TuiJianZuoYe_Adpa
         });
 
         holder.tuijian_zuoye_item_teacher_price_group.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "请选择支付方式", Toast.LENGTH_SHORT).show();
+                popupWindow.showAtLocation(holder.tuijian_zuoye_item_dianzan, Gravity.BOTTOM, 0, 0);
+                popupWindow.setAnimationStyle(R.style.PopupAnimation);
+                popupWindow.setClippingEnabled(true);
             }
         });
 
@@ -168,7 +210,7 @@ public class TuiJianZuoYe_Adpater extends RecyclerView.Adapter<TuiJianZuoYe_Adpa
             public void onClick(View v) {
                 if (holder.tuijian_zuoye_item_dianzan.isChecked() == true) {
                     holder.tuijian_zuoye_item_dianzan.setText("" + (Integer.parseInt(holder.tuijian_zuoye_item_dianzan.getText().toString()) + 1));
-                    dianZanPresenter.loadDianZanData(zuoyeList.get(position).getId(), zuoyeList.get(position).getId(), ShareUtils.getLoginUserId(), "学生作业");
+                    dianZanPresenter.loadDianZanData(zuoyeList.get(position).getTUserId(), zuoyeList.get(position).getId(), ShareUtils.getLoginUserId(), "学生作业");
                 } else {
                     holder.tuijian_zuoye_item_dianzan.setText("" + (Integer.parseInt(holder.tuijian_zuoye_item_dianzan.getText().toString()) - 1));
                     quXiaoDianZanPresenter.loadQuXiaoDianZan(zuoyeList.get(position).getId(), zuoyeList.get(position).getId(), ShareUtils.getLoginUserId(), "学生作业");
@@ -273,6 +315,7 @@ public class TuiJianZuoYe_Adpater extends RecyclerView.Adapter<TuiJianZuoYe_Adpa
             myFace.setItemClick(view, (Integer) view.getTag());
         }
     }
+
 
     private UMShareListener shareListener = new UMShareListener() {
         /**

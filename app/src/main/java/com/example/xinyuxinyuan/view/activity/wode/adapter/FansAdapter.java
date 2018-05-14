@@ -69,7 +69,11 @@ public class FansAdapter extends BaseAdapter implements PersonInforContract.Pers
         TextView followadapter_FollowName = convertView.findViewById(R.id.followadapter_FollowName);
         final Button followadapter_bt_Follow = convertView.findViewById(R.id.followadapter_bt_Follow);
         String photo = list.get(position).getPhoto();
-        if (photo.endsWith(".jpg") || photo.endsWith(".png")) {
+        if(photo == null){
+            followadapter_FollowHeader.setBackgroundResource(R.mipmap.user_head_portrait);
+        }
+
+//        if (photo.endsWith(".jpg") || photo.endsWith(".png")) {
             Glide.with(context).load(list.get(position).getPhoto()).asBitmap()
                     .override(200, 200).into(new BitmapImageViewTarget(followadapter_FollowHeader) {
                 @Override
@@ -79,14 +83,14 @@ public class FansAdapter extends BaseAdapter implements PersonInforContract.Pers
                     followadapter_FollowHeader.setImageDrawable(drawable);
                 }
             });
-        } else if (photo.contains("null")) {
-            followadapter_FollowHeader.setBackgroundResource(R.mipmap.user_head_portrait);
-        }
+
+
         followadapter_FollowHeader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent fansIntent = new Intent(context, PersonalActivity.class);
                 fansIntent.putExtra("UserId", list.get(position).getFansId() + "");
+                fansIntent.putExtra("photo", list.get(position).getPhoto());
 //                传到个人界面判断你是否关注这个人
                 if (followadapter_bt_Follow.getText().toString().trim().equals("已关注")) {
                     fansIntent.putExtra("是否关注", "yes");

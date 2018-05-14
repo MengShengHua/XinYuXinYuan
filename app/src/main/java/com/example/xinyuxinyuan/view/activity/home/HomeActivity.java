@@ -1,5 +1,6 @@
 package com.example.xinyuxinyuan.view.activity.home;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.FrameLayout;
@@ -51,6 +52,20 @@ public class HomeActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void loadData() {
+        Intent intent = getIntent();
+//        分别是从我的fragment点击的登录里，和退出的登录里，
+// 传过来的值，为了退出登录和未登录时分辨出条哪个Fragment
+//        String fragment = intent.getStringExtra("fragment");
+//        if (fragment != null) {
+//            if (fragment.equals("100")) {
+//                replacetContenView(R.id.home_frameLayout, WoDeFragment.class, null);
+//                wo_de_btn.setChecked(true);
+//            } else if (fragment.equals("200")) {
+//                wo_de_btn.setChecked(true);
+//                replacetContenView(R.id.home_frameLayout, MyInformationFragment.class, null);
+//            }
+//        }
+
     }
 
     @Override

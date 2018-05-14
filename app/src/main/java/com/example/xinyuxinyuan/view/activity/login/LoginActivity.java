@@ -23,6 +23,8 @@ import com.example.xinyuxinyuan.view.activity.forgetpassword.ForGetPasswordActiv
 import com.example.xinyuxinyuan.view.activity.home.HomeActivity;
 import com.example.xinyuxinyuan.view.activity.register.RegisterActivity;
 
+import java.util.ArrayList;
+
 public class LoginActivity extends BaseActivity implements View.OnClickListener, LoginContract.LoginView {
 
 
@@ -198,10 +200,15 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
             Log.e("昵称", loginBean.getData().getNickname());
             Log.e("手机号", loginBean.getData().getMobile());
             ToastUtils.mainThread("登录成功", 0);
-            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
             ShareUtils.setLoginUserId(Integer.parseInt(LoginShareUtils.getUserMessage(this,"id")));
-            Log.e("=================",""+ShareUtils.getLoginUserId());
-            finish();
+            ArrayList<String> userAllMessage = LoginShareUtils.getUserAllMessage(LoginActivity.this);
+            if (userAllMessage.size() == 5) {
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                intent.putExtra("fragment", "200");
+                startActivity(intent);
+                finish();
+            }
+
         }
     }
 }

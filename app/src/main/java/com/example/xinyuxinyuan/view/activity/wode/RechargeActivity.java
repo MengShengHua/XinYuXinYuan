@@ -2,6 +2,7 @@ package com.example.xinyuxinyuan.view.activity.wode;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -66,7 +67,15 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
         popupWindow = new PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT, true);
         popupWindow.setTouchable(true);
         popupWindow.setFocusable(true);
-        popupWindow.setBackgroundDrawable(new ColorDrawable(Color.BLUE));
+        popupWindow.setBackgroundDrawable(new BitmapDrawable());
+        popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                // popupWindow隐藏时恢复屏幕正常透明度
+                setBackgroundAlpha(1.0f);
+            }
+        });
+
 
     }
 
@@ -116,6 +125,14 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.jindou_dismiss:
                 popupWindow.dismiss();
+                popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                    @Override
+                    public void onDismiss() {
+                        // popupWindow隐藏时恢复屏幕正常透明度
+                        setBackgroundAlpha(1.0f);
+                    }
+                });
+
                 break;
         }
     }
@@ -129,9 +146,17 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
             @Override
             public void onClick(View v, int location) {
                 popupWindow.showAtLocation(rechareActivity_balanceCount, Gravity.BOTTOM, 0, 0);
+                setBackgroundAlpha(0.5f);//设置屏幕透明度
                 popupWindow.setAnimationStyle(R.style.PopupAnimation);
                 popupWindow.setClippingEnabled(true);
             }
         });
     }
+    public void setBackgroundAlpha(float bgAlpha) {
+        WindowManager.LayoutParams lp = (RechargeActivity.this).getWindow()
+                .getAttributes();
+        lp.alpha = bgAlpha;
+        (RechargeActivity.this).getWindow().setAttributes(lp);
+    }
+
 }

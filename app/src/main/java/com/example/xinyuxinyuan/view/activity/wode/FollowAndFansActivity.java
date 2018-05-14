@@ -33,6 +33,7 @@ public class FollowAndFansActivity extends BaseActivity implements View.OnClickL
     private FollowAdapter followAdapter;
     private FansAdapter fansAdapter;
     private List<FansBean.DataBean.ListBean> list;
+    private int id;
 
     private void initView() {
         multiplexingTitle_return = (ImageView) findViewById(R.id.multiplexingTitle_return);
@@ -57,6 +58,8 @@ public class FollowAndFansActivity extends BaseActivity implements View.OnClickL
 //        这里粉丝和关注通用这的这个ctivity，判断获取出来的值，显示不同的数据
          Intent intent = getIntent();
         String followAndFans = intent.getStringExtra("FollowAndFans");
+        id = intent.getIntExtra("id", 0);
+
         if (followAndFans.equals("关注")) {
             multiplexingTitle_title.setText("关注");
             loadFollowMethod();
@@ -69,9 +72,16 @@ public class FollowAndFansActivity extends BaseActivity implements View.OnClickL
 
     //粉丝
     private void loadFansMethod() {
-        HashMap<String, String> parmas = new HashMap<>();
-        parmas.put("loginUserId", LoginShareUtils.getUserMessage(this, "id"));
 
+        HashMap<String, Object> parmas = new HashMap<>();
+        if(id != 0){
+            parmas.put("loginUserId", id+"");
+
+        }else{
+            parmas.put("loginUserId", LoginShareUtils.getUserMessage(this, "id"));
+        }
+        parmas.put("page",1);
+        parmas.put("rows",50);
         RetrofitUtils.getRetrofitUtils().getService(PersonPageModel.class).getMyFens(parmas)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())

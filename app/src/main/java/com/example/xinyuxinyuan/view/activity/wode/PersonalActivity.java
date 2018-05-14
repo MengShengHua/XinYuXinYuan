@@ -40,6 +40,7 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
     //    传过来的用户ID
     private String UserId;
     private String judgeFollow;
+    private String photo;
 
     @Override
     protected void onResume() {
@@ -50,15 +51,7 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
             }
             presenter.loadUserInfor(664 + "", LoginShareUtils.getUserMessage(this, "id"));
         }
-        Glide.with(this).load(LoginShareUtils.getUserMessage(this, "photo")).asBitmap()
-                .override(200, 200).into(new BitmapImageViewTarget(personalActivity_Header) {
-            @Override
-            protected void setResource(Bitmap resource) {
-                RoundedBitmapDrawable drawable = RoundedBitmapDrawableFactory.create(getResources(), resource);
-                drawable.setCircular(true);
-                personalActivity_Header.setImageDrawable(drawable);
-            }
-        });
+
     }
 
     private void initView() {
@@ -98,7 +91,7 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
     @Override
     protected void init() {
         initView();
-        replacetContenView(R.id.personalActivity_FrameLayout, MingShiFragment.class, null);
+        //replacetContenView(R.id.personalActivity_FrameLayout, MingShiFragment.class, null);
     }
 
     @Override
@@ -106,6 +99,8 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
         presenter = new PersonHomePagerPresenter(this);
         Intent intent = getIntent();
         UserId = intent.getStringExtra("UserId");
+        photo = intent.getStringExtra("photo");
+
 //        获取从粉丝页面穿过的值
         judgeFollow = intent.getStringExtra("是否关注");
         if ("yes".equals(judgeFollow)) {
@@ -113,6 +108,21 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
             personalActivity_Bt_follow.setBackgroundColor(Color.parseColor("#ffffff"));
             personalActivity_Bt_follow.setTextColor(Color.parseColor("#dfdddd"));
         }
+
+        if(!photo.contains("null")){
+            Glide.with(this).load(photo).asBitmap()
+                    .override(200, 200).into(new BitmapImageViewTarget(personalActivity_Header) {
+                @Override
+                protected void setResource(Bitmap resource) {
+                    RoundedBitmapDrawable drawable = RoundedBitmapDrawableFactory.create(getResources(), resource);
+                    drawable.setCircular(true);
+                    personalActivity_Header.setImageDrawable(drawable);
+                }
+            });
+        } else {
+            personalActivity_Header.setBackgroundResource(R.mipmap.user_head_portrait);
+        }
+
     }
 
 
@@ -140,7 +150,7 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
                 personalActivity_TieziColor.setVisibility(View.GONE);
                 personalActivity_worksColor.setVisibility(View.VISIBLE);
 //                跳转到名师Fragment界面，名师界面获取此界面的接口回调的值，根据用户ID在进行一次网络访问
-                replacetContenView(R.id.personalActivity_FrameLayout, MingShiFragment.class, null);
+               // replacetContenView(R.id.personalActivity_FrameLayout, MingShiFragment.class, null);
                 break;
             case R.id.personalActivity_Tiezi:
                 personalActivity_works.setTextColor(Color.parseColor("#666666"));
@@ -148,7 +158,7 @@ public class PersonalActivity extends BaseActivity implements View.OnClickListen
                 personalActivity_TieziColor.setVisibility(View.VISIBLE);
                 personalActivity_worksColor.setVisibility(View.GONE);
 //                跳转到宝典Fragment里的随便复用的，，要把对用户ID传过去，获取到用户的帖子
-                replacetContenView(R.id.personalActivity_FrameLayout, ZhiNengFragment.class, null);
+              //  replacetContenView(R.id.personalActivity_FrameLayout, ZhiNengFragment.class, null);
                 break;
         }
 

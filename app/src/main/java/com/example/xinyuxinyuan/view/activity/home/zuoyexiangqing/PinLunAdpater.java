@@ -111,8 +111,10 @@ public class PinLunAdpater extends RecyclerView.Adapter<PinLunAdpater.Hodler> im
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,HuiFuActivity.class);
+                int id = list.get(position).getId();
+                int userId = list.get(position).getUserId();
                 intent.putExtra("pid",list.get(position).getId());
-                intent.putExtra("userId",list.get(position).getUserId());
+                intent.putExtra("userId",ShareUtils.getLoginUserId());
                 context.startActivity(intent);
             }
         });
