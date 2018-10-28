@@ -1,8 +1,8 @@
 package com.example.xinyuxinyuan.model.my.order;
 
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
-import com.example.xinyuxinyuan.contract.bean.OrderAllBean;
-import com.example.xinyuxinyuan.contract.bean.OrderDetailsBean;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
+import com.example.xinyuxinyuan.model.bean.OrderAllBean;
+import com.example.xinyuxinyuan.model.bean.OrderDetailsBean;
 import com.example.xinyuxinyuan.utils.url.MyUrl;
 
 import java.util.Map;

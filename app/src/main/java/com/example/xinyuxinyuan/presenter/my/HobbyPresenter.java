@@ -1,7 +1,7 @@
 package com.example.xinyuxinyuan.presenter.my;
 
-import com.example.xinyuxinyuan.contract.bean.APIBean;
-import com.example.xinyuxinyuan.contract.bean.HobbyBean;
+import com.example.xinyuxinyuan.model.bean.APIBean;
+import com.example.xinyuxinyuan.model.bean.HobbyBean;
 import com.example.xinyuxinyuan.contract.my.HobbyContract;
 import com.example.xinyuxinyuan.model.my.HobbyModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

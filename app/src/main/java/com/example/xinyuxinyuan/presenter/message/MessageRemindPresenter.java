@@ -2,8 +2,7 @@ package com.example.xinyuxinyuan.presenter.message;
 
 import android.util.Log;
 
-import com.example.xinyuxinyuan.contract.bean.FansBean;
-import com.example.xinyuxinyuan.contract.bean.MessageRemindBean;
+import com.example.xinyuxinyuan.model.bean.MessageRemindBean;
 import com.example.xinyuxinyuan.contract.message.MessageRemindContract;
 import com.example.xinyuxinyuan.model.message.MessageRemindModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

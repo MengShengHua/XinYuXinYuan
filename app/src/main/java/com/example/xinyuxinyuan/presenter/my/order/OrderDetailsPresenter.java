@@ -1,7 +1,7 @@
 package com.example.xinyuxinyuan.presenter.my.order;
 
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
-import com.example.xinyuxinyuan.contract.bean.OrderDetailsBean;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
+import com.example.xinyuxinyuan.model.bean.OrderDetailsBean;
 import com.example.xinyuxinyuan.contract.my.order.OrderDetailsContract;
 import com.example.xinyuxinyuan.model.my.order.OrderModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

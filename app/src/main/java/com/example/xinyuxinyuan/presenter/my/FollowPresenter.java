@@ -1,6 +1,6 @@
 package com.example.xinyuxinyuan.presenter.my;
 
-import com.example.xinyuxinyuan.contract.bean.UserInforBean;
+import com.example.xinyuxinyuan.model.bean.UserInforBean;
 import com.example.xinyuxinyuan.contract.my.FollowContract;
 import com.example.xinyuxinyuan.model.my.personpage.PersonPageModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

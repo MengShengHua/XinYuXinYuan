@@ -6,10 +6,12 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.xinyuxinyuan.App;
+import com.example.xinyuxinyuan.FansService;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.FansBean;
-import com.example.xinyuxinyuan.contract.bean.FollowBean;
+import com.example.xinyuxinyuan.model.bean.FansBean;
+import com.example.xinyuxinyuan.model.bean.FollowBean;
 import com.example.xinyuxinyuan.model.my.personpage.PersonPageModel;
 import com.example.xinyuxinyuan.presenter.my.FollowPresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
@@ -56,7 +58,7 @@ public class FollowAndFansActivity extends BaseActivity implements View.OnClickL
     @Override
     protected void loadData() {
 //        这里粉丝和关注通用这的这个ctivity，判断获取出来的值，显示不同的数据
-         Intent intent = getIntent();
+        Intent intent = getIntent();
         String followAndFans = intent.getStringExtra("FollowAndFans");
         id = intent.getIntExtra("id", 0);
 
@@ -74,14 +76,14 @@ public class FollowAndFansActivity extends BaseActivity implements View.OnClickL
     private void loadFansMethod() {
 
         HashMap<String, Object> parmas = new HashMap<>();
-        if(id != 0){
-            parmas.put("loginUserId", id+"");
+        if (id != 0) {
+            parmas.put("loginUserId", id + "");
 
-        }else{
+        } else {
             parmas.put("loginUserId", LoginShareUtils.getUserMessage(this, "id"));
         }
-        parmas.put("page",1);
-        parmas.put("rows",50);
+        parmas.put("page", 1);
+        parmas.put("rows", 50);
         RetrofitUtils.getRetrofitUtils().getService(PersonPageModel.class).getMyFens(parmas)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
@@ -91,6 +93,14 @@ public class FollowAndFansActivity extends BaseActivity implements View.OnClickL
                         list = fansBean.getData().getList();
                         fansAdapter = new FansAdapter(list, FollowAndFansActivity.this, getResources());
                         followActivity_listview.setAdapter(fansAdapter);
+
+//                        if (App.last < list.size()) {
+//                            Intent FansServiceIntent = new Intent(FollowAndFansActivity.this, FansService.class);
+//                            FansServiceIntent.putExtra("countFans", list.size() - App.last + "");
+//                            App.last = list.size();
+//                            startService(FansServiceIntent);
+//                        }
+
                     }
                 });
     }
@@ -122,4 +132,5 @@ public class FollowAndFansActivity extends BaseActivity implements View.OnClickL
 
         }
     }
+
 }

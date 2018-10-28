@@ -1,8 +1,5 @@
 package com.example.xinyuxinyuan.view.activity.wode;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -12,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.HobbyBean;
+import com.example.xinyuxinyuan.model.bean.HobbyBean;
 import com.example.xinyuxinyuan.contract.my.HobbyContract;
 import com.example.xinyuxinyuan.presenter.my.HobbyPresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;

@@ -1,9 +1,7 @@
 package com.example.xinyuxinyuan.view.activity.wode.adapter;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
-import com.example.xinyuxinyuan.contract.bean.HobbyBean;
+import com.example.xinyuxinyuan.model.bean.HobbyBean;
 
 import java.util.List;
 

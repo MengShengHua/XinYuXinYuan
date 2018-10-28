@@ -1,6 +1,6 @@
 package com.example.xinyuxinyuan.contract.home;
 
-import com.example.xinyuxinyuan.contract.bean.DianZanBean;
+import com.example.xinyuxinyuan.model.bean.DianZanBean;
 
 /**
  * Created by 键盘上的手艺人 on 2018/5/9.

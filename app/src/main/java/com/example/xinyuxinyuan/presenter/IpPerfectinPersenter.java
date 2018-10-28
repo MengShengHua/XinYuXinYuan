@@ -7,11 +7,12 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.widget.Button;
 
-import com.example.xinyuxinyuan.contract.bean.CheckUserLoginModel;
-import com.example.xinyuxinyuan.contract.bean.UpLoadImgModel;
+import com.example.xinyuxinyuan.model.bean.CheckUserLoginModel;
+import com.example.xinyuxinyuan.model.bean.UpLoadImgModel;
 import com.example.xinyuxinyuan.contract.PerfectinContract;
 import com.example.xinyuxinyuan.model.regist.RegistModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
+import com.example.xinyuxinyuan.utils.ShareUtils;
 
 import java.io.File;
 import java.util.Date;
@@ -111,8 +112,8 @@ public class IpPerfectinPersenter implements PerfectinContract.Perfectinpresente
         builder.addFormDataPart("file", image_file.getName(), imageBody);
         List<MultipartBody.Part> parts = builder.build().parts();
         HashMap<String, String> headerMap = new HashMap<>();
-        headerMap.put("Authorization", token);
-        service.loadHeaderImg(parts, headerMap)
+//        headerMap.put("Authorization", token);
+        service.loadHeaderImg(ShareUtils.getToken(),parts, headerMap)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribe(new Consumer<UpLoadImgModel>() {

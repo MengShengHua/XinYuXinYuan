@@ -4,7 +4,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.xinyuxinyuan.contract.bean.OrderAllBean;
+import com.example.xinyuxinyuan.model.bean.OrderAllBean;
 
 import java.util.List;
 

@@ -11,8 +11,8 @@ import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
-import com.example.xinyuxinyuan.contract.bean.BaoDianBean;
-import com.example.xinyuxinyuan.contract.bean.BaoDian_LunBo_Bean;
+import com.example.xinyuxinyuan.model.bean.BaoDianBean;
+import com.example.xinyuxinyuan.model.bean.BaoDian_LunBo_Bean;
 import com.example.xinyuxinyuan.contract.home.BaoDian;
 import com.example.xinyuxinyuan.presenter.home.BaoDianPresenter;
 import com.example.xinyuxinyuan.view.fragment.baodian.adpater.FuYongAdpater;

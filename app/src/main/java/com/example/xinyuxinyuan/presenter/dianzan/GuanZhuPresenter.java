@@ -1,5 +1,5 @@
 package com.example.xinyuxinyuan.presenter.dianzan;
-import com.example.xinyuxinyuan.contract.bean.GuanZhuBean;
+import com.example.xinyuxinyuan.model.bean.GuanZhuBean;
 import com.example.xinyuxinyuan.contract.home.GuanZhu;
 import com.example.xinyuxinyuan.model.dianzan.GuanZhuModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

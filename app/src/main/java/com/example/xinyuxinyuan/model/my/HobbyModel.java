@@ -1,7 +1,7 @@
 package com.example.xinyuxinyuan.model.my;
 
-import com.example.xinyuxinyuan.contract.bean.APIBean;
-import com.example.xinyuxinyuan.contract.bean.HobbyBean;
+import com.example.xinyuxinyuan.model.bean.APIBean;
+import com.example.xinyuxinyuan.model.bean.HobbyBean;
 import com.example.xinyuxinyuan.utils.url.MyUrl;
 
 import java.util.Map;

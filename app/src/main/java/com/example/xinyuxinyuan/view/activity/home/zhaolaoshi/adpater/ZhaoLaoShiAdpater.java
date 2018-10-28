@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.xinyuxinyuan.R;
-import com.example.xinyuxinyuan.contract.bean.ZhaoLaoShiBean;
+import com.example.xinyuxinyuan.model.bean.ZhaoLaoShiBean;
 
 import java.util.List;
 

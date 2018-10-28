@@ -16,12 +16,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions{
+        exclude 'project.properties'
+        exclude 'proguard-project.txt'
+        exclude 'AndroidManifest.xml'
+        exclude 'bin/AndroidManifest.xml'
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //noinspection GradleCompatible
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:27.1.1'
+
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:support-v4:27.1.0'
     implementation 'com.android.support:design:27.1.0'
@@ -45,4 +57,5 @@ dependencies {
     implementation files('libs/libs/umeng_social_shareview.jar')
     implementation files('libs/libs/umeng_social_shareboard.jar')
     implementation files('libs/libs/umeng_social_tool.jar')
+    implementation files('libs/alipaySdk-20180403.jar')
 }

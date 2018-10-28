@@ -1,8 +1,6 @@
 package com.example.xinyuxinyuan.presenter.my.giftconter;
 
-import android.util.Log;
-
-import com.example.xinyuxinyuan.contract.bean.GiftConterBean;
+import com.example.xinyuxinyuan.model.bean.GiftConterBean;
 import com.example.xinyuxinyuan.contract.my.giftconter.GiftConterContract;
 import com.example.xinyuxinyuan.model.my.giftconter.GiftConterModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

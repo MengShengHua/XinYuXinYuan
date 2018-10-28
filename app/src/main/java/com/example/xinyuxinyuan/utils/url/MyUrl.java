@@ -23,6 +23,8 @@ public class MyUrl {
     public static final String MyFANS = "v1/m/user/my/fans";
     //    金豆充值列表
     public static final String RECHARGEJINDOU = "v1/m/record/bean/setting";
+    //    金豆充值列表
+    public static final String JINDOUCHONGZHI = "v1/m/order/save/recharge";
     //    全部订单
     public static final String ORDERALL = "v1/m/user/my/orders";
     //    订单详情
@@ -37,5 +39,8 @@ public class MyUrl {
     public static final String PRESERVATIONHOOBY = "v1/m/user/my/preference/save";
     //  我的认证
     public static final String AUTHENTICATION = "v1/m/user/my/authentication";
+    //    支付宝回调接口
+    public static final String huidiao = "/v1/m/alipay/params";
+
 
 }

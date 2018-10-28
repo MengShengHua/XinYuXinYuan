@@ -1,7 +1,6 @@
 package com.example.xinyuxinyuan.model.my;
 
-import com.example.xinyuxinyuan.contract.bean.JavaBean;
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
 import com.example.xinyuxinyuan.utils.url.MyUrl;
 
 import java.util.Map;

@@ -4,8 +4,8 @@ import android.graphics.Color;
 import android.widget.Button;
 
 import com.example.xinyuxinyuan.contract.PersonInforContract;
-import com.example.xinyuxinyuan.contract.bean.HomePagerBean;
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
+import com.example.xinyuxinyuan.model.bean.HomePagerBean;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
 import com.example.xinyuxinyuan.model.my.personpage.PersonPageModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
 

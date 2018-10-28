@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
-import com.example.xinyuxinyuan.contract.bean.OrderAllBean;
+import com.example.xinyuxinyuan.model.bean.OrderAllBean;
 
 import java.util.List;
 

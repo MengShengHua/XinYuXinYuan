@@ -1,10 +1,9 @@
 package com.example.xinyuxinyuan.presenter.home;
 
-import com.example.xinyuxinyuan.contract.bean.ZhaoLaoShiBean;
+import com.example.xinyuxinyuan.model.bean.ZhaoLaoShiBean;
 import com.example.xinyuxinyuan.contract.home.ZhaoLaoShi;
 import com.example.xinyuxinyuan.model.home.ZhaoLaoShiModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
-import com.example.xinyuxinyuan.utils.ShareUtils;
 
 import java.util.HashMap;
 import java.util.Map;

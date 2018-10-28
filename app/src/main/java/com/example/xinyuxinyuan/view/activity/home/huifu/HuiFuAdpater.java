@@ -12,10 +12,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.xinyuxinyuan.R;
-import com.example.xinyuxinyuan.contract.bean.HuiFuBean;
+import com.example.xinyuxinyuan.model.bean.HuiFuBean;
 import com.example.xinyuxinyuan.utils.DataUtils;
 import com.example.xinyuxinyuan.utils.zidingyi.GlideCircleTransform;
-import com.example.xinyuxinyuan.view.activity.home.zuoyexiangqing.PinLunAdpater;
 
 import java.util.List;
 

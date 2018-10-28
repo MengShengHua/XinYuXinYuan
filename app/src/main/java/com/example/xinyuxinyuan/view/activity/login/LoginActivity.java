@@ -13,8 +13,8 @@ import android.widget.TextView;
 import com.example.xinyuxinyuan.App;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
 import com.example.xinyuxinyuan.contract.LoginContract;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
 import com.example.xinyuxinyuan.presenter.IpLoginPersenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
 import com.example.xinyuxinyuan.utils.ShareUtils;
@@ -211,4 +211,5 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener,
 
         }
     }
+
 }

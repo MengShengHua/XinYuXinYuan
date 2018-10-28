@@ -1,11 +1,10 @@
 package com.example.xinyuxinyuan.model.my.personpage;
 
-import com.example.xinyuxinyuan.contract.bean.FansBean;
-import com.example.xinyuxinyuan.contract.bean.FollowBean;
-import com.example.xinyuxinyuan.contract.bean.HomePagerBean;
-import com.example.xinyuxinyuan.contract.bean.HomePagerTieZiBean;
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
-import com.example.xinyuxinyuan.contract.bean.UserInforBean;
+import com.example.xinyuxinyuan.model.bean.FansBean;
+import com.example.xinyuxinyuan.model.bean.FollowBean;
+import com.example.xinyuxinyuan.model.bean.HomePagerBean;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
+import com.example.xinyuxinyuan.model.bean.UserInforBean;
 import com.example.xinyuxinyuan.utils.url.MyUrl;
 import com.example.xinyuxinyuan.utils.url.PersonHomePageUrl;
 

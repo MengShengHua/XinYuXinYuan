@@ -77,7 +77,6 @@ public class SetActivity extends BaseActivity implements View.OnClickListener {
                 startActivity(intent1);
                 break;
             case R.id.setActivity_clearCache:
-                Log.e("-------", "清空缓存");
                 CacheUtils.deleteCache(App.context.getCacheDir());
                 setActivity_cacheSize.setText(CacheUtils.getCacheSize());
                 break;

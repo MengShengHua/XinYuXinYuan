@@ -10,9 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
-import com.example.xinyuxinyuan.contract.bean.JinDouPriceItemBean;
+import com.example.xinyuxinyuan.model.bean.JinDouPriceItemBean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

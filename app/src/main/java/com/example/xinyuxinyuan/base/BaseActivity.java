@@ -1,8 +1,13 @@
 package com.example.xinyuxinyuan.base;
 
 import android.Manifest;
+import android.app.Service;
+import android.content.Context;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +17,20 @@ import android.text.style.BulletSpan;
 import android.util.Log;
 
 import com.example.xinyuxinyuan.App;
+import com.example.xinyuxinyuan.model.bean.FansBean;
+import com.example.xinyuxinyuan.model.my.personpage.PersonPageModel;
+import com.example.xinyuxinyuan.utils.LoginShareUtils;
+import com.example.xinyuxinyuan.utils.RetrofitUtils;
+import com.example.xinyuxinyuan.utils.ToastUtils;
+import com.example.xinyuxinyuan.view.activity.wode.FollowAndFansActivity;
+import com.example.xinyuxinyuan.view.activity.wode.adapter.FansAdapter;
+
+import java.util.HashMap;
+import java.util.List;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.functions.Consumer;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * finish 走onStop()方法
@@ -19,6 +38,8 @@ import com.example.xinyuxinyuan.App;
 public abstract class BaseActivity extends AppCompatActivity {
 
     private BaseFragment lastFragment;
+    //    振动
+    private Vibrator mVibrator;
 
 
     @Override
@@ -29,6 +50,7 @@ public abstract class BaseActivity extends AppCompatActivity {
             String[] mPermissionList = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CALL_PHONE, Manifest.permission.READ_LOGS, Manifest.permission.READ_PHONE_STATE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.SET_DEBUG_APP, Manifest.permission.SYSTEM_ALERT_WINDOW, Manifest.permission.GET_ACCOUNTS, Manifest.permission.WRITE_APN_SETTINGS};
             ActivityCompat.requestPermissions(this, mPermissionList, 123);
         }
+
         App.context = this;
         init();
         loadData();
@@ -38,6 +60,29 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         App.context = this;
+        HashMap<String, Object> parmas = new HashMap<>();
+        parmas.put("loginUserId", LoginShareUtils.getUserMessage(this, "id"));
+        RetrofitUtils.getRetrofitUtils().getService(PersonPageModel.class).getMyFens(parmas)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Consumer<FansBean>() {
+                    @Override
+                    public void accept(FansBean fansBean) throws Exception {
+                        List<FansBean.DataBean.ListBean> list = fansBean.getData().getList();
+                        if (App.last == list.size()) {
+                            mVibrator = (Vibrator) getApplication().getSystemService(Service.VIBRATOR_SERVICE);
+                            AudioManager am = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+                            //ringerMode为手机的系统声音设置的状态值，0位静音，1为震动，2为响铃
+                            final int ringerMode = am.getRingerMode();
+                            mVibrator.vibrate(new long[]{100, 0, 100, 500}, -1);
+                            MediaPlayer mediaPlayer = new MediaPlayer();
+                            mediaPlayer.start();
+                            App.last = list.size();
+                        }
+                        ToastUtils.mainThread(list.size() + "", 0);
+                        ToastUtils.mainThread(App.last + "App", 0);
+                    }
+                });
     }
 
 //    @Override

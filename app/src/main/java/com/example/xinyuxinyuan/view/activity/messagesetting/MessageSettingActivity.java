@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.example.xinyuxinyuan.App;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.MessageRemindBean;
+import com.example.xinyuxinyuan.model.bean.MessageRemindBean;
 import com.example.xinyuxinyuan.contract.message.MessageRemindContract;
 import com.example.xinyuxinyuan.presenter.message.MessageRemindPresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
@@ -26,6 +26,7 @@ public class MessageSettingActivity extends BaseActivity implements View.OnClick
     private MessageRemindPresenter presenter;
     private MessageAdapter messageAdapter;
     private Intent intent;
+    private String countFans;
 
     @Override
     protected int getLayoutId() {
@@ -49,6 +50,8 @@ public class MessageSettingActivity extends BaseActivity implements View.OnClick
     protected void loadData() {
         multiplexingTitle_return.setOnClickListener(this);
         multiplexingTitle_title.setOnClickListener(this);
+        Intent intent = getIntent();
+        countFans = intent.getStringExtra("countFans");
 //        请求数据，接口问题放弃请求
         presenter.loadMessageHome(LoginShareUtils.getUserMessage(App.context, "token"), Integer.parseInt(LoginShareUtils.getUserMessage(App.context, "id")));
     }

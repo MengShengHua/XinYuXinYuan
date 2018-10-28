@@ -1,8 +1,6 @@
 package com.example.xinyuxinyuan.contract.my;
 
-import com.example.xinyuxinyuan.contract.bean.FansBean;
-import com.example.xinyuxinyuan.contract.bean.FollowBean;
-import com.example.xinyuxinyuan.contract.bean.UserInforBean;
+import com.example.xinyuxinyuan.model.bean.UserInforBean;
 
 /**
  * Created by asd on 2018/5/9.

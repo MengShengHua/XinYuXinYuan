@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.xinyuxinyuan.contract.bean.ResetBean;
+import com.example.xinyuxinyuan.model.bean.ResetBean;
 import com.example.xinyuxinyuan.contract.ResetPasswordContract;
 import com.example.xinyuxinyuan.model.regist.RegistModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

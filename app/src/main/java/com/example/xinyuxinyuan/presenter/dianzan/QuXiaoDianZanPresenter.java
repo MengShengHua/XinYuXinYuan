@@ -1,8 +1,7 @@
 package com.example.xinyuxinyuan.presenter.dianzan;
 import android.util.Log;
 
-import com.example.xinyuxinyuan.contract.bean.DianZanBean;
-import com.example.xinyuxinyuan.contract.bean.QuXiaoDianZanBean;
+import com.example.xinyuxinyuan.model.bean.QuXiaoDianZanBean;
 import com.example.xinyuxinyuan.contract.home.QuXiaoDianZan;
 import com.example.xinyuxinyuan.model.dianzan.QuXiaoDianZanModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
@@ -13,7 +12,6 @@ import java.util.Map;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
 /**

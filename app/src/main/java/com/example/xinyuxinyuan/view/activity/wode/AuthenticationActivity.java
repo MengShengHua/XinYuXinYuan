@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.APIBean;
-import com.example.xinyuxinyuan.contract.my.AuthenticationContract;
-import com.example.xinyuxinyuan.presenter.my.AuthenticationPresenter;
+import com.example.xinyuxinyuan.model.bean.APIBean;
+import com.example.xinyuxinyuan.contract.my.authentication.AuthenticationContract;
+import com.example.xinyuxinyuan.presenter.my.authentication.AuthenticationPresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
 import com.example.xinyuxinyuan.utils.ToastUtils;
 

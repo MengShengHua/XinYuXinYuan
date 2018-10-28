@@ -4,8 +4,8 @@ import android.graphics.Color;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.xinyuxinyuan.contract.bean.JavaBean;
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
+import com.example.xinyuxinyuan.model.bean.JavaBean;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
 import com.example.xinyuxinyuan.contract.my.ReplacePhoneContract;
 import com.example.xinyuxinyuan.model.my.ReplacePhoneModel;
 import com.example.xinyuxinyuan.model.regist.RegistModel;

@@ -2,9 +2,8 @@ package com.example.xinyuxinyuan.contract;
 
 import android.widget.Button;
 
-import com.example.xinyuxinyuan.contract.bean.APIBean;
-import com.example.xinyuxinyuan.contract.bean.HomePagerBean;
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
+import com.example.xinyuxinyuan.model.bean.HomePagerBean;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
 
 /**
  * Created by asd on 2018/5/9.

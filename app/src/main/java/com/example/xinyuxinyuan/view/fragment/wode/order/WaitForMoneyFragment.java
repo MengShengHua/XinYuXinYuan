@@ -1,18 +1,15 @@
 package com.example.xinyuxinyuan.view.fragment.wode.order;
 
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
-import com.example.xinyuxinyuan.contract.bean.OrderAllBean;
+import com.example.xinyuxinyuan.model.bean.OrderAllBean;
 import com.example.xinyuxinyuan.contract.my.order.OrderContract;
 import com.example.xinyuxinyuan.presenter.my.order.OrderAllPresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;

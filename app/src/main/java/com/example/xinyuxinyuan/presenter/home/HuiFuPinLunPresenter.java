@@ -1,6 +1,6 @@
 package com.example.xinyuxinyuan.presenter.home;
 
-import com.example.xinyuxinyuan.contract.bean.HuiFuBean;
+import com.example.xinyuxinyuan.model.bean.HuiFuBean;
 import com.example.xinyuxinyuan.contract.home.HuiFuPinLun;
 import com.example.xinyuxinyuan.model.home.HuiFuPinLunModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

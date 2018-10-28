@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
 import com.example.xinyuxinyuan.contract.my.ReplacePhoneContract;
 import com.example.xinyuxinyuan.presenter.my.ReplacePhonePresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;

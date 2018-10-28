@@ -9,12 +9,10 @@ import android.view.View;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
-import com.example.xinyuxinyuan.contract.bean.ZuoYeBean;
+import com.example.xinyuxinyuan.model.bean.ZuoYeBean;
 import com.example.xinyuxinyuan.contract.home.ZuoYe;
 import com.example.xinyuxinyuan.presenter.home.ZuoYePresenter;
 import com.example.xinyuxinyuan.utils.ShareUtils;
-import com.example.xinyuxinyuan.view.activity.home.xianshangke.activity.XiangQing_Mai_Activity;
-import com.example.xinyuxinyuan.view.activity.home.zhaolaoshi.activity.XiangQingActivity;
 import com.example.xinyuxinyuan.view.activity.home.zuoyexiangqing.ZuoYeXiangQingActivity;
 import com.example.xinyuxinyuan.view.fragment.mingshi.adpater.TuiJianZuoYe_Adpater;
 import com.example.xinyuxinyuan.view.fragment.zuoye.adpater.TouTingAdpater;
@@ -44,7 +42,6 @@ public class ZhiNengFragment extends BaseFragment implements ZuoYe.View{
         sortord = arguments.getInt("sortord");
         //实例化作业页面p层对象
         zuoYePresenter = new ZuoYePresenter(this);
-
         zhineng_recyclerView = view.findViewById(R.id.zhineng_recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         zhineng_recyclerView.setLayoutManager(linearLayoutManager);

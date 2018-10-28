@@ -1,6 +1,6 @@
 package com.example.xinyuxinyuan.model.dianzan;
 
-import com.example.xinyuxinyuan.contract.bean.GuanZhuBean;
+import com.example.xinyuxinyuan.model.bean.GuanZhuBean;
 import com.example.xinyuxinyuan.utils.UrlData;
 
 import java.util.Map;

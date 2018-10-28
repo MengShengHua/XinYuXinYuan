@@ -10,7 +10,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
-import com.example.xinyuxinyuan.contract.bean.HobbyBean;
+import com.example.xinyuxinyuan.model.bean.HobbyBean;
 
 import java.util.List;
 

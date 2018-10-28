@@ -1,8 +1,6 @@
 package com.example.xinyuxinyuan.model.my.giftconter;
 
-import com.example.xinyuxinyuan.contract.bean.GiftConterBean;
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
-import com.example.xinyuxinyuan.contract.bean.OrderAllBean;
+import com.example.xinyuxinyuan.model.bean.GiftConterBean;
 import com.example.xinyuxinyuan.utils.url.MyUrl;
 
 import java.util.Map;

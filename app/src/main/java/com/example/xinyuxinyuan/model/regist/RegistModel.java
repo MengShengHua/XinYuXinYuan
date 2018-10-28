@@ -1,10 +1,10 @@
 package com.example.xinyuxinyuan.model.regist;
 
-import com.example.xinyuxinyuan.contract.bean.CheckUserLoginModel;
-import com.example.xinyuxinyuan.contract.bean.JavaBean;
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
-import com.example.xinyuxinyuan.contract.bean.ResetBean;
-import com.example.xinyuxinyuan.contract.bean.UpLoadImgModel;
+import com.example.xinyuxinyuan.model.bean.CheckUserLoginModel;
+import com.example.xinyuxinyuan.model.bean.JavaBean;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
+import com.example.xinyuxinyuan.model.bean.ResetBean;
+import com.example.xinyuxinyuan.model.bean.UpLoadImgModel;
 import com.example.xinyuxinyuan.utils.url.LoginAndRegister;
 
 import java.util.List;
@@ -14,6 +14,7 @@ import io.reactivex.Observable;
 import okhttp3.MultipartBody;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Header;
 import retrofit2.http.HeaderMap;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
@@ -43,7 +44,7 @@ public interface RegistModel {
     //头像上传
     @FormUrlEncoded
     @POST(LoginAndRegister.HEADER)
-    Observable<UpLoadImgModel> loadHeaderImg(@Part List<MultipartBody.Part> file, @HeaderMap Map<String, String> header);
+    Observable<UpLoadImgModel> loadHeaderImg(@Header("Authorization") String apptoken, @Part List<MultipartBody.Part> file, @FieldMap Map<String, String> params);
 
     //用户完善信息完成
     @FormUrlEncoded

@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
-import com.example.xinyuxinyuan.contract.bean.MessageRemindBean;
+import com.example.xinyuxinyuan.model.bean.MessageRemindBean;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

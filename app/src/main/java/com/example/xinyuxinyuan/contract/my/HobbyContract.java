@@ -1,6 +1,6 @@
 package com.example.xinyuxinyuan.contract.my;
 
-import com.example.xinyuxinyuan.contract.bean.HobbyBean;
+import com.example.xinyuxinyuan.model.bean.HobbyBean;
 
 /**
  * Created by asd on 2018/5/12.

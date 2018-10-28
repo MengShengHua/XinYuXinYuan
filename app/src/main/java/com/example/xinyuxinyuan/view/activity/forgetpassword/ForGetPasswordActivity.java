@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.JavaBean;
+import com.example.xinyuxinyuan.model.bean.JavaBean;
 import com.example.xinyuxinyuan.contract.ForPasswordContract;
 import com.example.xinyuxinyuan.presenter.ForPasswordPersenter;
 import com.example.xinyuxinyuan.utils.ToastUtils;

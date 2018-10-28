@@ -5,11 +5,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.xinyuxinyuan.contract.bean.OrderAllBean;
+import com.example.xinyuxinyuan.model.bean.OrderAllBean;
 import com.example.xinyuxinyuan.contract.my.order.OrderContract;
 import com.example.xinyuxinyuan.model.my.order.OrderModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
-import com.example.xinyuxinyuan.view.fragment.wode.adapter.OrderAllAdapter;
 
 import java.util.HashMap;
 import java.util.List;

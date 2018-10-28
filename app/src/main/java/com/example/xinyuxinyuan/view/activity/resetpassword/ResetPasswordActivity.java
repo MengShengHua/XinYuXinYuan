@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.ResetBean;
+import com.example.xinyuxinyuan.model.bean.ResetBean;
 import com.example.xinyuxinyuan.contract.ResetPasswordContract;
 import com.example.xinyuxinyuan.presenter.ResetPasswordPresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;

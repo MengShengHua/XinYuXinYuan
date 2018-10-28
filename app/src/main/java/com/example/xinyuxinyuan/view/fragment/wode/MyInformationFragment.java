@@ -17,8 +17,8 @@ import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.xinyuxinyuan.App;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
-import com.example.xinyuxinyuan.contract.bean.UserInforBean;
 import com.example.xinyuxinyuan.contract.my.FollowContract;
+import com.example.xinyuxinyuan.model.bean.UserInforBean;
 import com.example.xinyuxinyuan.presenter.my.FollowPresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
 import com.example.xinyuxinyuan.view.activity.wode.AuthenticationActivity;
@@ -117,7 +117,7 @@ public class MyInformationFragment extends BaseFragment implements View.OnClickL
                 break;
             case R.id.myInformation_Header:
                 Intent intent1 = new Intent(getContext(), PersonalActivity.class);
-                intent1.putExtra("photo",userAllMessage.get(2));
+                intent1.putExtra("photo", userAllMessage.get(2));
                 startActivity(intent1);
                 break;
             case R.id.myInformation_UserName:
@@ -253,6 +253,7 @@ public class MyInformationFragment extends BaseFragment implements View.OnClickL
         //        是否认证的状态
         myInformation_RenZhengState = view.findViewById(R.id.myInformation_RenZhengState);
     }
+
 
     @Override
     public void showMyFollow(UserInforBean userInforBean) {

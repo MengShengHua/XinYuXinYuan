@@ -10,7 +10,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.xinyuxinyuan.R;
-import com.example.xinyuxinyuan.contract.bean.ZuoYeXiangQingBean;
+import com.example.xinyuxinyuan.model.bean.ZuoYeXiangQingBean;
 import com.example.xinyuxinyuan.utils.zidingyi.GlideCircleTransform;
 
 import java.util.List;

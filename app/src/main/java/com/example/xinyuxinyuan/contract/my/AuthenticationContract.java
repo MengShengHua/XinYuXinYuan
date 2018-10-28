@@ -1,7 +1,7 @@
 package com.example.xinyuxinyuan.contract.my;
 
 
-import com.example.xinyuxinyuan.contract.bean.APIBean;
+import com.example.xinyuxinyuan.model.bean.APIBean;
 
 /**
  * Created by asd on 2018/5/12.

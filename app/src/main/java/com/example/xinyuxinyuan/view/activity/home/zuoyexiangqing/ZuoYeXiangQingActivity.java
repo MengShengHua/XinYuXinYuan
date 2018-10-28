@@ -1,11 +1,9 @@
 package com.example.xinyuxinyuan.view.activity.home.zuoyexiangqing;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -19,10 +17,9 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.DianZanBean;
-import com.example.xinyuxinyuan.contract.bean.PinLunBean;
-import com.example.xinyuxinyuan.contract.bean.QuXiaoDianZanBean;
-import com.example.xinyuxinyuan.contract.bean.ZuoYeXiangQingBean;
+import com.example.xinyuxinyuan.model.bean.DianZanBean;
+import com.example.xinyuxinyuan.model.bean.QuXiaoDianZanBean;
+import com.example.xinyuxinyuan.model.bean.ZuoYeXiangQingBean;
 import com.example.xinyuxinyuan.contract.home.DianZan;
 import com.example.xinyuxinyuan.contract.home.PinLun;
 import com.example.xinyuxinyuan.contract.home.QuXiaoDianZan;

@@ -1,7 +1,6 @@
 package com.example.xinyuxinyuan.contract.message;
 
-import com.example.xinyuxinyuan.contract.bean.FansBean;
-import com.example.xinyuxinyuan.contract.bean.OrderMessageBean;
+import com.example.xinyuxinyuan.model.bean.OrderMessageBean;
 
 /**
  * Created by asd on 2018/5/13.

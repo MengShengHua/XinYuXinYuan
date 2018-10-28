@@ -7,6 +7,6 @@ package com.example.xinyuxinyuan.utils.url;
 public class PersonHomePageUrl {
     //    用户个人页的信息
     public static final String HOMEPAGER = "v1/m/user/personal/homepage";
-    //    用户个人页的帖子
+    //    用户个人页的帖子                          v1/m/user/personal/homepage/artcircle
     public static final String HOMEPAGERTIEZI = "v1/m/user/personal/homepage/artcircle";
 }

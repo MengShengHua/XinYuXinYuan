@@ -1,7 +1,6 @@
 package com.example.xinyuxinyuan.contract.my.giftconter;
 
-import com.example.xinyuxinyuan.contract.bean.GiftConterBean;
-import com.example.xinyuxinyuan.contract.bean.OrderAllBean;
+import com.example.xinyuxinyuan.model.bean.GiftConterBean;
 
 /**
  * Created by asd on 2018/5/12.

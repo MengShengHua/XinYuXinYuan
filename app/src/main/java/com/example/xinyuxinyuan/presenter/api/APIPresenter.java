@@ -1,6 +1,6 @@
 package com.example.xinyuxinyuan.presenter.api;
 
-import com.example.xinyuxinyuan.contract.bean.APIBean;
+import com.example.xinyuxinyuan.model.bean.APIBean;
 import com.example.xinyuxinyuan.model.home.APIModel;
 import com.example.xinyuxinyuan.utils.EncryptUtil;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

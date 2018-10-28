@@ -1,7 +1,6 @@
 package com.example.xinyuxinyuan.presenter.message;
 
-import com.example.xinyuxinyuan.contract.bean.FansBean;
-import com.example.xinyuxinyuan.contract.bean.OrderMessageBean;
+import com.example.xinyuxinyuan.model.bean.OrderMessageBean;
 import com.example.xinyuxinyuan.contract.message.OrderRemindContract;
 import com.example.xinyuxinyuan.model.message.MessageRemindModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

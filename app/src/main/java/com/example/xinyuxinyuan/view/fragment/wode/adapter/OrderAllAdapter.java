@@ -3,10 +3,6 @@ package com.example.xinyuxinyuan.view.fragment.wode.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
-import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,16 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.xinyuxinyuan.R;
-import com.example.xinyuxinyuan.contract.bean.OrderAllBean;
-import com.example.xinyuxinyuan.utils.LoginShareUtils;
-import com.example.xinyuxinyuan.view.activity.wode.MyMessageActivity;
+import com.example.xinyuxinyuan.model.bean.OrderAllBean;
 import com.example.xinyuxinyuan.view.activity.wode.order.DetailsActivity;
 
 import java.util.List;
-
-import retrofit2.http.GET;
 
 /**
  * Created by asd on 2018/4/11.

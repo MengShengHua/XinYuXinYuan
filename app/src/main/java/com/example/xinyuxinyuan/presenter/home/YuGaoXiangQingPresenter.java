@@ -1,6 +1,6 @@
 package com.example.xinyuxinyuan.presenter.home;
 
-import com.example.xinyuxinyuan.contract.bean.YuGaoXiangQingBean;
+import com.example.xinyuxinyuan.model.bean.YuGaoXiangQingBean;
 import com.example.xinyuxinyuan.contract.home.YuGaoXiangQing;
 import com.example.xinyuxinyuan.model.home.YuGaoXiangQingModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

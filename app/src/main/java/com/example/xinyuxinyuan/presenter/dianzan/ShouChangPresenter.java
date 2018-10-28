@@ -1,8 +1,6 @@
 package com.example.xinyuxinyuan.presenter.dianzan;
 
-import android.util.Log;
-
-import com.example.xinyuxinyuan.contract.bean.ShouChangBean;
+import com.example.xinyuxinyuan.model.bean.ShouChangBean;
 import com.example.xinyuxinyuan.contract.home.ShouChang;
 import com.example.xinyuxinyuan.model.home.ShouChangModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

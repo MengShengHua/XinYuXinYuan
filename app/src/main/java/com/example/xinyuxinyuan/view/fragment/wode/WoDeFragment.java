@@ -14,9 +14,11 @@ import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseFragment;
+import com.example.xinyuxinyuan.utils.LoginShareUtils;
 import com.example.xinyuxinyuan.view.activity.login.LoginActivity;
 import com.example.xinyuxinyuan.view.activity.messagesetting.MessageSettingActivity;
 import com.example.xinyuxinyuan.view.activity.register.RegisterActivity;
+import com.example.xinyuxinyuan.view.fragment.mingshi.MingShiFragment;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -31,6 +33,13 @@ public class WoDeFragment extends BaseFragment implements View.OnClickListener {
     private ImageView myFragment_Set;
     private Button myFragment_Register;
     private Button myFragment_Login;
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (LoginShareUtils.getUserMessage(getContext(), "id") != null) {
+        }
+    }
 
     @Override
     protected int getLayoutId() {
@@ -67,7 +76,7 @@ public class WoDeFragment extends BaseFragment implements View.OnClickListener {
                 if ("用户未登录".equals(phone)) {
                     startActivity(new Intent(getContext(), LoginActivity.class));
                 } else {
-                    ////                用户登录了跳转消息提醒Activity
+                    ////         用户登录了跳转消息提醒Activity
                     startActivity(new Intent(getContext(), MessageSettingActivity.class));
                 }
 

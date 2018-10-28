@@ -1,7 +1,5 @@
 package com.example.xinyuxinyuan.view.activity.messagesetting;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -9,8 +7,7 @@ import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.FansBean;
-import com.example.xinyuxinyuan.contract.bean.OrderMessageBean;
+import com.example.xinyuxinyuan.model.bean.OrderMessageBean;
 import com.example.xinyuxinyuan.contract.message.OrderRemindContract;
 import com.example.xinyuxinyuan.presenter.message.OrderRemindPresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;

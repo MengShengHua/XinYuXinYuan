@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
 import com.example.xinyuxinyuan.contract.LoginContract;
 import com.example.xinyuxinyuan.model.regist.RegistModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;

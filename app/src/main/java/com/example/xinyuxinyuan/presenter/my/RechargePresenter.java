@@ -1,18 +1,16 @@
 package com.example.xinyuxinyuan.presenter.my;
 
-import android.util.Log;
-
-import com.example.xinyuxinyuan.contract.bean.JinDouPriceItemBean;
+import com.example.xinyuxinyuan.contract.bean.ALiPayModel;
+import com.example.xinyuxinyuan.model.bean.JinDouPriceItemBean;
 import com.example.xinyuxinyuan.contract.my.RechargeContract;
+import com.example.xinyuxinyuan.model.bean.NoticeDetailOrderBean;
 import com.example.xinyuxinyuan.model.my.RechargeModel;
 import com.example.xinyuxinyuan.utils.RetrofitUtils;
 import com.example.xinyuxinyuan.utils.ShareUtils;
 
 import java.util.HashMap;
 
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
@@ -44,4 +42,42 @@ public class RechargePresenter implements RechargeContract.RechargeContractPrese
                     }
                 });
     }
+
+    /**
+     * 金豆充值
+     *
+     * @param userId
+     * @param price
+     * @param count
+     */
+    @Override
+    public void loadRechargeJinDou(String userId, double price, String count) {
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("buyerId", userId);
+        params.put("price", price);
+        params.put("amount", count);
+        service.getChongZhi(ShareUtils.getToken(), params)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Consumer<NoticeDetailOrderBean>() {
+                    @Override
+                    public void accept(NoticeDetailOrderBean noticeDetailOrderBean) throws Exception {
+                        view.showRechargeJinDou(noticeDetailOrderBean);
+                    }
+                });
+    }
+
+    @Override
+    public void loadRechargeZhiFuBaoHuiDiao(String orderNo) {
+        service.getZhiFuBao(orderNo)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe(new Consumer<ALiPayModel>() {
+                    @Override
+                    public void accept(ALiPayModel aLiPayModel) throws Exception {
+                        view.showRechargeHuiDiao(aLiPayModel);
+                    }
+                });
+    }
+
 }

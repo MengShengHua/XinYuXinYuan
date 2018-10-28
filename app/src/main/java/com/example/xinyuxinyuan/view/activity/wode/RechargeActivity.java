@@ -1,17 +1,17 @@
 package com.example.xinyuxinyuan.view.activity.wode;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.net.wifi.aware.PublishDiscoverySession;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -19,17 +19,18 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
-import com.example.xinyuxinyuan.App;
+import com.alipay.sdk.app.PayTask;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.JinDouPriceItemBean;
+import com.example.xinyuxinyuan.contract.bean.ALiPayModel;
+import com.example.xinyuxinyuan.model.bean.JinDouPriceItemBean;
 import com.example.xinyuxinyuan.contract.my.RechargeContract;
+import com.example.xinyuxinyuan.model.bean.NoticeDetailOrderBean;
 import com.example.xinyuxinyuan.presenter.my.RechargePresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
 import com.example.xinyuxinyuan.utils.ToastUtils;
 import com.example.xinyuxinyuan.view.activity.wode.adapter.RechargeAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class RechargeActivity extends BaseActivity implements View.OnClickListener, RechargeContract.RechargeContractView {
@@ -45,8 +46,21 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
     private PopupWindow popupWindow;
     private RechargePresenter presenter;
     private RechargeAdapter rechargeAdapter;
-    private TextView asd;
-
+    private int postion;
+    private List<JinDouPriceItemBean.DataBean> data;
+    private String orderInfo;
+    @SuppressLint("HandlerLeak")
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 0:
+                    String obj = (String) msg.obj;
+                    ToastUtils.mainThread(obj, 0);
+                    break;
+            }
+        }
+    };
 
     @Override
     protected int getLayoutId() {
@@ -63,7 +77,6 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
         jindou_weixin.setOnClickListener(this);
         Button jindou_dismiss = view.findViewById(R.id.jindou_dismiss);
         jindou_dismiss.setOnClickListener(this);
-
         popupWindow = new PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.MATCH_PARENT, true);
         popupWindow.setTouchable(true);
         popupWindow.setFocusable(true);
@@ -76,7 +89,6 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
             }
         });
 
-
     }
 
     @Override
@@ -88,7 +100,7 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 
 
     private void initView() {
-        asd = findViewById(R.id.asd);
+
 //        返回上页面
         multiplexingTitle_return = (ImageView) findViewById(R.id.multiplexingTitle_return);
         multiplexingTitle_title = (TextView) findViewById(R.id.multiplexingTitle_title);
@@ -118,7 +130,9 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
 //                跳转账单页面
                 break;
             case R.id.jindou_zhifubao:
-                ToastUtils.mainThread("支付宝功能开发中", 0);
+//                ToastUtils.mainThread("支付宝功能开发中", 0);
+
+                presenter.loadRechargeJinDou(LoginShareUtils.getUserMessage(this, "id"), 0.1, data.get(postion).getAmountAndroid() + "");
                 break;
             case R.id.jindou_weixin:
                 ToastUtils.mainThread("微信功能开发中", 0);
@@ -132,31 +146,64 @@ public class RechargeActivity extends BaseActivity implements View.OnClickListen
                         setBackgroundAlpha(1.0f);
                     }
                 });
-
                 break;
         }
     }
 
     @Override
     public void showJinDouPriceItem(JinDouPriceItemBean jinDouPriceItemBean) {
-        List<JinDouPriceItemBean.DataBean> data = jinDouPriceItemBean.getData();
+        data = jinDouPriceItemBean.getData();
         rechargeAdapter = new RechargeAdapter(data, this);
         rechareActivity_listview.setAdapter(rechargeAdapter);
         rechargeAdapter.setOnClickListener(new RechargeAdapter.OnClickListener() {
             @Override
             public void onClick(View v, int location) {
+                postion = location;
                 popupWindow.showAtLocation(rechareActivity_balanceCount, Gravity.BOTTOM, 0, 0);
-                setBackgroundAlpha(0.5f);//设置屏幕透明度
+                    setBackgroundAlpha(0.5f);//设置屏幕透明度
                 popupWindow.setAnimationStyle(R.style.PopupAnimation);
                 popupWindow.setClippingEnabled(true);
             }
         });
     }
+
+    @Override
+    public void showRechargeJinDou(NoticeDetailOrderBean noticeDetailOrderBean) {
+        String orderNo = noticeDetailOrderBean.getData().getOrderNo();
+        Log.e("订单信息", orderNo);
+        presenter.loadRechargeZhiFuBaoHuiDiao(orderNo);
+    }
+
+    @Override
+    public void showRechargeHuiDiao(ALiPayModel aLiPayModel) {
+        orderInfo = aLiPayModel.getData();
+//        进行订单的支付
+        Runnable payRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                // 构造PayTask 对象
+                PayTask alipay = new PayTask(RechargeActivity.this);
+                // 调用支付接口，获取支付结果
+                String result = String.valueOf(alipay.payV2(orderInfo, true));
+
+                Message msg = new Message();
+                msg.what = 0;
+                msg.obj = result;
+                handler.sendMessage(msg);
+            }
+        };
+        // 必须异步调用
+        Thread payThread = new Thread(payRunnable);
+        payThread.start();
+
+    }
+
+    //设置屏幕亮度
     public void setBackgroundAlpha(float bgAlpha) {
         WindowManager.LayoutParams lp = (RechargeActivity.this).getWindow()
                 .getAttributes();
         lp.alpha = bgAlpha;
         (RechargeActivity.this).getWindow().setAttributes(lp);
     }
-
 }

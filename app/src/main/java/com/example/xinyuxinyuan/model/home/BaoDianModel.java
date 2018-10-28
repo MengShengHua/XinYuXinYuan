@@ -1,7 +1,7 @@
 package com.example.xinyuxinyuan.model.home;
 
-import com.example.xinyuxinyuan.contract.bean.BaoDianBean;
-import com.example.xinyuxinyuan.contract.bean.BaoDian_LunBo_Bean;
+import com.example.xinyuxinyuan.model.bean.BaoDianBean;
+import com.example.xinyuxinyuan.model.bean.BaoDian_LunBo_Bean;
 import com.example.xinyuxinyuan.utils.UrlData;
 
 import java.util.Map;

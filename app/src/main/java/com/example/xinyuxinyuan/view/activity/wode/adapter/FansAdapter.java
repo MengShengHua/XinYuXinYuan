@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +20,13 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.contract.PersonInforContract;
-import com.example.xinyuxinyuan.contract.bean.FansBean;
-import com.example.xinyuxinyuan.contract.bean.HomePagerBean;
-import com.example.xinyuxinyuan.contract.bean.LoginBean;
+import com.example.xinyuxinyuan.model.bean.FansBean;
+import com.example.xinyuxinyuan.model.bean.HomePagerBean;
+import com.example.xinyuxinyuan.model.bean.LoginBean;
 import com.example.xinyuxinyuan.presenter.PersonHomePagerPresenter;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
 import com.example.xinyuxinyuan.utils.ToastUtils;
+import com.example.xinyuxinyuan.view.activity.wode.FollowAndFansActivity;
 import com.example.xinyuxinyuan.view.activity.wode.PersonalActivity;
 
 import java.util.List;
@@ -40,12 +42,15 @@ public class FansAdapter extends BaseAdapter implements PersonInforContract.Pers
     PersonHomePagerPresenter presenter = new PersonHomePagerPresenter(this);
     //    用来标记是否关注
     private int count;
+    private Intent personIntent;
 
     public FansAdapter(List<FansBean.DataBean.ListBean> list, Context context, Resources resources) {
         this.list = list;
         this.context = context;
         this.resources = resources;
+        this.personIntent = personIntent;
     }
+
 
     @Override
     public int getCount() {
@@ -64,25 +69,25 @@ public class FansAdapter extends BaseAdapter implements PersonInforContract.Pers
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        convertView = LayoutInflater.from(context).inflate(R.layout.follow_adapter, null);
-        final ImageView followadapter_FollowHeader = convertView.findViewById(R.id.followadapter_FollowHeader);
-        TextView followadapter_FollowName = convertView.findViewById(R.id.followadapter_FollowName);
-        final Button followadapter_bt_Follow = convertView.findViewById(R.id.followadapter_bt_Follow);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.follow_adapter, null);
+        final ImageView followadapter_FollowHeader = inflate.findViewById(R.id.followadapter_FollowHeader);
+        TextView followadapter_FollowName = inflate.findViewById(R.id.followadapter_FollowName);
+        final Button followadapter_bt_Follow = inflate.findViewById(R.id.followadapter_bt_Follow);
         String photo = list.get(position).getPhoto();
-        if(photo == null){
+        if (photo == null) {
             followadapter_FollowHeader.setBackgroundResource(R.mipmap.user_head_portrait);
         }
 
 //        if (photo.endsWith(".jpg") || photo.endsWith(".png")) {
-            Glide.with(context).load(list.get(position).getPhoto()).asBitmap()
-                    .override(200, 200).into(new BitmapImageViewTarget(followadapter_FollowHeader) {
-                @Override
-                protected void setResource(Bitmap resource) {
-                    RoundedBitmapDrawable drawable = RoundedBitmapDrawableFactory.create(resources, resource);
-                    drawable.setCircular(true);
-                    followadapter_FollowHeader.setImageDrawable(drawable);
-                }
-            });
+        Glide.with(context).load(list.get(position).getPhoto()).asBitmap()
+                .override(200, 200).into(new BitmapImageViewTarget(followadapter_FollowHeader) {
+            @Override
+            protected void setResource(Bitmap resource) {
+                RoundedBitmapDrawable drawable = RoundedBitmapDrawableFactory.create(resources, resource);
+                drawable.setCircular(true);
+                followadapter_FollowHeader.setImageDrawable(drawable);
+            }
+        });
 
 
         followadapter_FollowHeader.setOnClickListener(new View.OnClickListener() {
@@ -120,7 +125,7 @@ public class FansAdapter extends BaseAdapter implements PersonInforContract.Pers
                 }
             }
         });
-        return convertView;
+        return inflate;
     }
 
     @Override
@@ -130,6 +135,7 @@ public class FansAdapter extends BaseAdapter implements PersonInforContract.Pers
 
     /**
      * 忽略大法开启
+     *
      * @param homePagerBean
      */
     @Override

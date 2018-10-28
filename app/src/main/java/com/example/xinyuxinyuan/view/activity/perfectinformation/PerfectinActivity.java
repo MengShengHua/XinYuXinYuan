@@ -19,8 +19,8 @@ import android.widget.RelativeLayout;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.CheckUserLoginModel;
-import com.example.xinyuxinyuan.contract.bean.UpLoadImgModel;
+import com.example.xinyuxinyuan.model.bean.CheckUserLoginModel;
+import com.example.xinyuxinyuan.model.bean.UpLoadImgModel;
 import com.example.xinyuxinyuan.presenter.IpPerfectinPersenter;
 import com.example.xinyuxinyuan.contract.PerfectinContract;
 import com.example.xinyuxinyuan.utils.LoginShareUtils;
@@ -30,7 +30,6 @@ import com.example.xinyuxinyuan.utils.ToastUtils;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 
 public class PerfectinActivity extends BaseActivity implements View.OnClickListener, PerfectinContract.PerfectinView, RadioGroup.OnCheckedChangeListener {
 
@@ -175,7 +174,6 @@ public class PerfectinActivity extends BaseActivity implements View.OnClickListe
                 }
 //                P层头像上传的方法
                 contract.loadHeader(ShareUtils.getToken(), image_file);
-
                 break;
         }
     }
@@ -186,7 +184,7 @@ public class PerfectinActivity extends BaseActivity implements View.OnClickListe
         date = new Date(System.currentTimeMillis());
 //        头像路径
         dateFormat = new SimpleDateFormat("'IMG'_yyyyMMdd_HHmmss");
-        image_file = new File(Environment.getExternalStorageDirectory() + File.separator + dateFormat.format(date) + ".jpg");
+        image_file = new File(PerfectinActivity.this.getPackageName() + ".authority.fileprovider", Environment.getExternalStorageDirectory() + File.separator + dateFormat.format(date) + ".jpg");
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 100 && resultCode == RESULT_OK) {
             // /////////////////获取照片后进行裁剪//////////

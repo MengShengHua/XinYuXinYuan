@@ -9,10 +9,6 @@ import android.widget.TextView;
 
 import com.example.xinyuxinyuan.R;
 import com.example.xinyuxinyuan.base.BaseActivity;
-import com.example.xinyuxinyuan.contract.bean.ZhaoLaoShiBean;
-import com.example.xinyuxinyuan.contract.home.ZhaoLaoShi;
-import com.example.xinyuxinyuan.presenter.home.ZhaoLaoShiPresenter;
-import com.example.xinyuxinyuan.utils.ShareUtils;
 import com.example.xinyuxinyuan.utils.zidingyi.MyViewPager;
 import com.example.xinyuxinyuan.view.activity.home.zhaolaoshi.adpater.ZhaoViewPagerAdpater;
 import com.example.xinyuxinyuan.view.activity.home.zhaolaoshi.fragment.ZhaoLaoShiFragment;

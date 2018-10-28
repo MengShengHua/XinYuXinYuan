@@ -23,6 +23,6 @@ public interface ForPasswordContract {
     interface ForPasswordView {
         void showYanZhengMaMessage(String message);
 
-        void showNextStep(com.example.xinyuxinyuan.contract.bean.JavaBean javaBean);
+        void showNextStep(com.example.xinyuxinyuan.model.bean.JavaBean javaBean);
     }
 }
