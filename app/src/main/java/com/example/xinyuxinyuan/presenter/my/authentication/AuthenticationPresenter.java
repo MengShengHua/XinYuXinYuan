@@ -32,6 +32,14 @@ public class AuthenticationPresenter implements AuthenticationContract.Authentic
         params.put("realm", realm);
         params.put("intro", intro);
         params.put("pic", pic);
+//        aksdnaslhdashdasd
+//        aksdnaslhdashdasd
+//        aksdnaslhdashdasd
+//        aksdnaslhdashdasd
+//        aksdnaslhdashdasd
+//        aksdnaslhdashdasd
+//        aksdnaslhdashdasd
+//        aksdnaslhdashdasd
         params.put("authentication", authentication);
         service.getAuthentication(params)
                 .observeOn(AndroidSchedulers.mainThread())
