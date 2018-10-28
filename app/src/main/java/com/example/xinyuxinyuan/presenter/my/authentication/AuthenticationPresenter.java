@@ -21,6 +21,20 @@ public class AuthenticationPresenter implements AuthenticationContract.Authentic
 
     public AuthenticationPresenter(AuthenticationContract.AuthenticationContractView view) {
         this.view = view;
+//
+
+
+
+
+
+
+
+
+
+
+
+//        dasdasdas
+//        dasdasdas
         service = RetrofitUtils.getRetrofitUtils().getService(AuthenticationModel.class);
     }
 
